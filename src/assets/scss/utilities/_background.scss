@@ -1,0 +1,19 @@
+// Background lighten
+@each $color, $value in $grays {
+  // bg-color
+  .bg-gray#{$color} {
+    background-color: $value !important;
+  }
+  .bg-gray#{$color}-lighten {
+    background-color: rgba($value, 0.25) !important;
+  }
+}
+@each $color, $value in $colors {
+  // bg-color
+  .bg-#{$color} {
+    background-color: $value !important;
+  }
+  .bg-#{$color}-lighten {
+    background-color: rgba($value, 0.25) !important;
+  }
+}

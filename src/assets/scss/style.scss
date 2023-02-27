@@ -1,0 +1,33 @@
+// @import "@scss/abstracts/function";
+@import "@scss/abstracts/mixin";
+@import "@scss/abstracts/variable";
+
+@import "@scss/utilities";
+
+@import "@scss/base/reboot";
+@import "@scss/base/root";
+@import "@scss/base/font";
+@import "@scss/base/common";
+@import "@scss/base/custom";
+
+@import "@scss/vendor/aos.scss";
+
+@import "@scss/structure/header";
+@import "@scss/structure/footer";
+@import "@scss/structure/aside";
+
+@import "@scss/layout/view";
+@import "@scss/layout/popup";
+
+@import "@scss/pages/main";
+@import "@scss/pages/sub";
+@import "@scss/pages/search";
+@import "@scss/pages/acamedy";
+@import "@scss/pages/recruiment";
+
+@import "@scss/components/ttl";
+@import "@scss/components/buttons";
+@import "@scss/components/list";
+@import "@scss/components/slide";
+@import "@scss/components/tabs";
+@import "@scss/components/pager";

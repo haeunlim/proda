@@ -1,0 +1,30 @@
+/* pager */
+
+.pager {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    li {
+        & + li {
+            margin-left: 3px;
+        }
+        a {
+            display: block;
+            text-align: center;
+            line-height: 32px;
+            width: 34px;
+            height: 34px;
+            font-size: 14px;
+            color: #999;
+            border: solid 1px #dbdbdb;
+        }
+
+        &.on {
+            a {
+                border-color: #252525;
+                color: #252525;
+            }
+        }
+    }
+}

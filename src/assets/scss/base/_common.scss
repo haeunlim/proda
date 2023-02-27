@@ -1,0 +1,402 @@
+
+.only_ {
+    &_web {
+        display: block !important;
+
+    }
+
+    &_mo {
+        display: none !important;
+
+    }
+}
+
+.inner {
+    max-width: 1200px;
+    position: relative;
+    margin: 0 auto;
+      width: -webkit-calc(100% - 26px);
+    width: -moz-calc(100% - 26px);
+    width: calc(100% - 26px);
+}
+
+.more_btn {
+    display: inline-block;
+    padding-right: 28px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #252525;
+    background-position: right 0 center;
+    background-repeat: no-repeat;
+    background-image: url('../img/ico/ico_more_black.png');
+}
+
+
+
+small {
+    &.web {
+        display: inline-block !important;
+    }
+
+    &.mo {
+        display: none !important;
+    }
+
+}
+
+.sub{
+    margin-top: 100px;
+    padding: 40px 0 120px;
+}
+
+
+
+
+
+
+
+
+
+
+.more_btn.white {
+    color: #fff;
+    background-image: url('../img/ico/ico_more_white.png');
+}
+
+.paging {
+    margin-top: 60px;
+}
+
+.paging .page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paging .page li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    color: #666;
+    border: 2px solid transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.paging .page li.active a {
+    border-color: $point;
+    color: $point;
+}
+
+.paging .page li.active a>* {
+    font: inherit;
+}
+
+.paging .page li.first_page a {
+    font-size: 0;
+    background-image: url('../img/btn/pager_all_pr.png');
+}
+
+.paging .page li.preview a {
+    font-size: 0;
+    background-image: url('../img/btn/pager_pr.png');
+}
+
+.paging .page li.next a {
+    font-size: 0;
+    background-image: url('../img/btn/pager_ne.png');
+}
+
+.paging .page li.last_page a {
+    font-size: 0;
+    background-image: url('../img/btn/pager_all_ne.png');
+}
+
+// common 
+
+
+
+// //footer 
+
+// top_btn 
+.top_btn {
+    position: fixed;
+    bottom: 7.8%;
+    right: 5.2%;
+    z-index: 100;
+
+    button {
+        border-radius: 50%;
+        width: 70px;
+        height: 70px;
+        background:url(../img/common/top.png) no-repeat center;
+    }
+
+}
+
+// live_commerce 
+
+
+small {
+    &.web {
+        display: inline-block !important;
+    }
+
+    &.mo {
+        display: none !important;
+    }
+
+}
+
+
+// tablet 
+@media screen and (max-width: 1200px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+
+// mobile 
+@media screen and (max-width: 850px) {
+
+    // common 
+    html {
+        font-size: 13px;
+    }
+
+    .only_ {
+        &_web {
+            display: none !important;
+
+        }
+
+        &_mo {
+            display: block !important;
+
+        }
+    }
+
+    small {
+        &.web {
+            display: none !important;
+        }
+
+        &.mo {
+            display: inline-block !important;
+        }
+
+    }
+
+    // pager 
+    .paging {
+        margin-top: 40px;
+
+        .page li+li {
+            margin-left: 7px;
+
+            li a {
+                width: 30px;
+                height: 30px;
+                border-width: 1.5px;
+                font-size: 14px;
+                border-radius: 4px;
+                background-size: auto 9px;
+            }
+
+        }
+
+    }
+
+    // header 
+    #header {
+
+        .inner {
+            justify-content: space-between;
+            // height: 60px; 
+            position: relative;
+            z-index: 9999999;
+
+            .gnb {
+                display: none;
+            }
+
+            .ham_btn {
+                display: block;
+                width: 40px;
+                height: 40px;
+                z-index: 1;
+                background: url("../img/ico/ham_ico.png") no-repeat;
+                background-size: contain;
+                -webkit-transition: all 0.3s ease-out;
+                -o-transition: all 0.3s ease-out;
+                transition: all 0.3s ease-out;
+
+                &.b {
+                    background-image: url("../img/ico/ham_ico_b.png");
+                }
+
+                &.on {
+                    background-image: url("../img/ico/ham_close_ico.png");
+                }
+            }
+
+        }
+
+        &.on {
+            .top_btn {
+                height: 0;
+                visibility: hidden;
+            }
+
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    .top_btn {
+        position: static;
+        margin-right: 10px;
+
+        button {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-size: 18px;
+        }
+    }
+
+
+    // all_menu_wrap 
+
+    .all_menu_wrap {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        padding-top: 60px;
+        left: 0;
+        transform: translateX(100%);
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        z-index: 111;
+        transition: transform .3s ease;
+
+        &.open {
+            transform: translateX(0);
+        }
+
+        &::before {
+            content: '';
+            background-color: $point;
+            width: 100%;
+            height: 60px;
+            z-index: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .all_menu {
+            flex: 1;
+            max-height: calc(100% - 50px);
+            overflow-y: auto;
+
+            a {
+                display: block;
+                width: 100%;
+                height: 45px;
+                line-height: 44px;
+                border-bottom: 1px solid #eee;
+                padding: 0 20px 0 20px;
+                font-size: 14px;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+        }
+
+    }
+
+    // //all_menu_wrap 
+
+    // footer 
+    #footer {
+        padding: 30px 0 40px;
+
+        .inner {
+            display: block;
+        }
+    }
+
+
+
+    .top_btn button {
+        border-radius: 5px;
+        box-shadow: 0px 5px 17.25px 1.75px rgba(69, 69, 69, 0.49);
+        width: 48px;
+        height: 48px;
+        color: #ffffff;
+        line-height: 1;
+        font-size: 10px;
+
+        i {
+            margin-bottom: 5px;
+            width: 6.5px;
+            height: 7px;
+            background-size: 6.5px;
+            background-image: url(../img/main/m_top_btn.png);
+        }
+    }
+
+
+    .top_btn.on {
+        position: absolute;
+        bottom: 218px;
+    }
+
+}
+
+// IE10+ 
+@media screen and (-ms-high-contrast: active),
+(-ms-high-contrast: none) {
+    html {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        height: 100%;
+        overflow: auto;
+
+    }
+
+    .contact_tab a::before,
+    .contact_tab a::after {
+        display: none !important;
+        height: 0;
+        visibility: hidden;
+    }
+
+    .contact_tab a {
+        border: 1px solid #dbdbdb;
+    }
+
+    .contact_tab a+a {
+        margin-left: -1px;
+
+    }
+
+}

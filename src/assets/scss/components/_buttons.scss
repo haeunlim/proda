@@ -1,0 +1,176 @@
+.btn {
+    display: block;
+    text-align: center;
+    height: 48px;
+    width: 100%;
+    border: 1px solid $border-color;
+    font-weight: $fw-medium;
+}
+
+a.btn {
+    line-height: 46px;
+}
+
+.btn.middle {
+    height: 50px;
+    line-height: 48px;
+    font-size: 18px;
+}
+
+.btn.bg-point {
+    color: #fff;
+    border-color: $point;
+}
+
+.line_black {
+    border-color: $black;
+    color: $black;
+    background-color: $white;
+}
+
+.rounded-s {
+    border-radius: 5px;
+}
+
+.rounded-1 {
+    border-radius: 20px;
+}
+
+.rounded-2 {
+    border-radius: 30px;
+}
+
+.smallBtn {
+    height: 42px;
+}
+
+a.smallBtn {
+    line-height: 40px;
+}
+
+a.bigBtn {
+    line-height: 60px;
+}
+
+.bigBtn {
+    height: 62px;
+    font-size: 20px;
+}
+
+.btn {
+    max-width: var(--mxWd);
+}
+
+.btn_wrap {
+    margin: 40px auto 0;
+
+    * + * {
+        margin-left: 10px;
+    }
+}
+
+// view
+.etc_btn {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url("../img/btn/etc_btn15x3.png") no-repeat center center;
+}
+.guideBtn {
+    height: 32px;
+    padding: 0 14px;
+    color: #454545;
+    border-radius: 3px;
+    background-color: #fff;
+    border: 1px solid #dbdbdb;
+}
+
+// daily btn
+.link_write_wrap {
+    position: fixed;
+    width: 100%;
+    max-width: 1200px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 111;
+    bottom: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s;
+}
+.link_write_wrap.active {
+    opacity: 1;
+    visibility: visible;
+}
+.link_write {
+    display: block;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    right: 30px;
+    bottom: 40px;
+    border-radius: 50%;
+    background: url(@img/btn/write_btn70x70.png) no-repeat center;
+    font-size: 0;
+    box-shadow: 8px 6px 10px rgba(0, 0, 0, 0.13);
+}
+
+.bgBtn {
+    padding: 0 28px;
+    height: 58px;
+    font-size: 18px;
+    font-weight: $fw-bold;
+    color: #fff;
+    background-color: $point;
+    box-shadow: 0 0.6875rem 1.2rem rgba($color: $point, $alpha: 0.25);
+    border-radius: 29px;
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    background: url(@img/ico/star.jpg) no-repeat center;
+
+    &.on {
+        background-image: url(@img/ico/star_on.png);
+    }
+}
+
+.sorting-searchBtn {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0;
+    z-index: 1;
+    background: url(@img/ico/search_ico.png) no-repeat center center;
+}
+.ico_btn {
+    width: 26px;
+    height: 26px;
+    background: no-repeat center;
+}
+.bookmark_btn {
+    background-image: url(@img/ico/ico_bookmark.png);
+}
+
+.on > .bookmark_btn,
+.bookmark_btn.on {
+    background-image: url(@img/ico/ico_bookmark_on.png);
+}
+.share_btn {
+    background-image: url(@img/ico/ico_share.png);
+}
+
+.heart_btn {
+    background-image: url(@img/ico/ico_heart.png);
+}
+.on > .share_btn,
+.share_btn.on {
+    background-image: url(@img/ico/ico_share_on.png);
+}
+.on > .heart_btn,
+.heart_btn.on {
+    background-image: url(@img/ico/ico_heart_on.png);
+}

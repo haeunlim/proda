@@ -1,0 +1,54 @@
+.input_row {
+    width: 100%;
+}
+
+.input_row input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    border-color: #dbdbdb;
+}
+
+.input_row input::placeholder {
+    color: #aaa;
+}
+
+.input_row + .input_row {
+    margin-top: 14px;
+}
+
+.input_row.ph {
+    display: flex;
+    align-items: center;
+}
+
+.input_row.ph select,
+.input_row.ph input {
+    width: calc(33.33% - 8px);
+    height: 48px;
+}
+
+.input_row.ph span {
+    color: #454545;
+    margin: 0 8px;
+}
+
+.mail_row {
+    display: flex;
+    align-items: center;
+}
+
+.mail_row select,
+.mail_row input {
+    width: calc(33.3% - 8px);
+    height: 48px;
+}
+
+.mail_row span {
+    color: #454545;
+    margin: 0 4px;
+}
+
+.mail_row select + input {
+    margin-left: 10px;
+}

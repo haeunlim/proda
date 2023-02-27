@@ -1,0 +1,38 @@
+
+.sect_ttl_box {
+    @include flexVal(flex, space-between, center, wrap);
+    margin: 0 auto 30px;
+
+   
+}
+
+.sect_ttl {
+    @extend %sect-ttl;
+    text-transform: uppercase;
+
+    &.big{
+        @extend %sect-ttl-big;
+        font-weight: 500;
+        margin-bottom: 40px;
+    }
+}
+
+.sect_ttl2 {
+    @extend %sect-ttl2;
+    text-transform: uppercase;
+
+    &.big{
+        @extend %sect-ttl2-big;
+        margin-bottom: 40px;
+    }
+}
+.heading1{
+    @extend %heading1
+}
+
+.top_row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
