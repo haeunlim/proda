@@ -1,12 +1,9 @@
-import MemberPage from "@pages/member/Main"
+import MemberMainPage from "@pages/member/MemberMainPage";
 
-const MemberPageRoutes = () => {
-    const routes = [
-        { path: "/member/member", element: <MemberPage /> },
+const MemberPageRoute = () => {
+  const routes = [{ path: "/member/member", element: <MemberMainPage /> }];
 
-    ]
+  return routes;
+};
 
-    return routes;
-}
-
-export default MemberPageRoutes;
+export default MemberPageRoute;

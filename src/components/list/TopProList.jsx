@@ -2,12 +2,22 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 import silhouetteImg from "@img/main/silhouette_img.png";
-import StarBtn from "@components/buttons/StarBtn";
+import StarBtn, { StarStyled } from "@components/buttons/StarBtn";
+
+import styled from "styled-components";
+
+const CardList = styled.ul`
+  ${StarStyled} {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+`;
 
 const TopProList = () => {
   return (
     <>
-      <ul className="cardList">
+      <CardList className="cardList">
         <li>
           <Link to="#!">
             <figure>
@@ -106,7 +116,7 @@ const TopProList = () => {
           </Link>
           <StarBtn />
         </li>
-      </ul>
+      </CardList>
     </>
   );
 };

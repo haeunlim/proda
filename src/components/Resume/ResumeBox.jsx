@@ -1,10 +1,13 @@
 import React from "react";
 
-export default function ResumeBox({ label, contetns }) {
+export default function ResumeBox({ label, addLabel, children }) {
   return (
-    <article class="sv_row">
-      <p class="label">{label}</p>
-      {contetns}
+    <article className="sv_row">
+      <p className="label">
+        {label}
+        {addLabel ? <span>{addLabel}</span> : ""}
+      </p>
+      {children}
     </article>
   );
 }

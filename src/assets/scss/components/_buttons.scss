@@ -16,6 +16,11 @@ a.btn {
     line-height: 48px;
     font-size: 18px;
 }
+.btn.middle2 {
+    height: 52px;
+    line-height: 50px;
+    font-size: 18px;
+}
 
 .btn.bg-point {
     color: #fff;
@@ -53,8 +58,8 @@ a.bigBtn {
 }
 
 .bigBtn {
-    height: 62px;
-    font-size: 20px;
+    height: 62px !important;
+    font-size: 20px !important;
 }
 
 .btn {
@@ -114,16 +119,20 @@ a.bigBtn {
     font-size: 0;
     box-shadow: 8px 6px 10px rgba(0, 0, 0, 0.13);
 }
+.btn-shadow {
+    box-shadow: 0 0.6875rem 1.2rem rgba($color: $point, $alpha: 0.25);
+}
 
 .bgBtn {
     padding: 0 28px;
+    box-shadow: 0 0.6875rem 1.2rem rgba($color: $point, $alpha: 0.25);
     height: 58px;
     font-size: 18px;
     font-weight: $fw-bold;
     color: #fff;
     background-color: $point;
-    box-shadow: 0 0.6875rem 1.2rem rgba($color: $point, $alpha: 0.25);
     border-radius: 29px;
+    border-color: $point;
 }
 
 .star {

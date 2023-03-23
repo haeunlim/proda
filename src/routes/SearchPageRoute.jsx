@@ -1,5 +1,5 @@
-import SearchListPage from "@pages/search/Main";
-import SearchViewPage from "@pages/search/View";
+import SearchListPage from "@pages/search/SearchListPage";
+import SearchViewPage from "@pages/search/SearchViewPage";
 
 const SearchPageRoute = () => {
   const routes = [

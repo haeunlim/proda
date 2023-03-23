@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function TotalNum() {
+export default function TotalNum({ num }) {
   return (
     <p className="list-count">
-      전체 <span>1,066,206</span>건
+      전체 <span>{num}</span>건
     </p>
   );
 }

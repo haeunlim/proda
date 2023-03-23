@@ -1,55 +1,58 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 export default function Btn({
   BigBtn,
+  BgPoint,
   SmallBtn,
   widthAuto,
   typeVal = "button",
   text,
   btnName,
-  onEvent,
   hrefVal,
+  bold,
+  bgImg,
+  bgPosition,
+  value,
+  onClick,
 }) {
   return (
     <button
       type={typeVal}
       className={`btn ${btnName} ${BigBtn ? "bigBtn" : ""} ${
-        SmallBtn ? "smallBtn" : ""
-      }`}
-      onClick={onEvent}
+        BgPoint ? "bg-point" : ""
+      } ${SmallBtn ? "smallBtn" : ""}`}
+      onClick={onClick}
       data-href={hrefVal}
       style={{
         width: widthAuto ? "auto" : "",
+        fontWeight: bold ? "600" : "500",
+        backgroudnImage: { bgImg },
+        backgroundPosition: { bgPosition },
       }}
+      value={value}
     >
       {text}
     </button>
   );
 }
 
-function BgBtn({
+export function BgBtn({
   widthAuto,
   typeVal = "button",
   text,
-  btnName,
-  bgSize,
-  bgImg,
   onEvent,
+  bold,
   hrefVal,
 }) {
   return (
     <button
       type={typeVal}
-      className={`btn ${btnName}`}
+      className={`btn bg-point`}
       onClick={onEvent}
       data-href={hrefVal}
       style={{
-        backgroundPosition: "center",
-        backgroundSize: { bgSize },
-        backgroundRepeat: "no-repeat",
-        backgroundImage: `url(${bgImg})`,
         width: widthAuto ? "auto" : "",
+        fontWeight: bold ? "600" : "500",
       }}
     >
       {text}
@@ -61,7 +64,7 @@ Btn.prototypes = {
   btnName: PropTypes.string,
 };
 
-function SmallBtn({
+export function SmallBtn({
   widthAuto,
   typeVal = "button",
   text,
@@ -84,7 +87,7 @@ function SmallBtn({
   );
 }
 
-function BigBtn({
+export function BigBtn({
   widthAuto,
   typeVal = "button",
   text,

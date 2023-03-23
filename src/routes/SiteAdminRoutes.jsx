@@ -4,11 +4,11 @@ import React from "react";
 
 import AboutPage from "@pages/about/Main";
 import RecruitmentPage from "@pages/recruitment/Main";
-import SearchListPage from "@pages/search/Main";
+import SearchListPage from "@pages/search/SearchListPage";
 import AcademyListPage from "@pages/academy/AcademyListPage";
 
-import LoginPage from "@pages/login/Main";
-import MemberPage from "@pages/member/Main";
+import LoginPage from "@pages/login/LoginPage";
+import MemberPage from "@pages/member/MemberMainPage";
 
 const ProdaRoutes = () => {
   const routes = [

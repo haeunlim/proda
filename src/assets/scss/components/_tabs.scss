@@ -1,4 +1,3 @@
-
 .category_top {
     display: flex;
     width: 100%;
@@ -17,7 +16,7 @@
         text-align: center;
         flex: 0 0 auto;
         border: solid 1px var(--bs-gray-200);
-        &+* {
+        & + * {
             margin-left: 10px;
         }
         &.active {
@@ -25,7 +24,37 @@
             background: var(--bs-point);
             border-color: var(--bs-point);
         }
-        
     }
-    
+}
+
+.lo_tab {
+    display: flex;
+    margin-bottom: 20px;
+    li {
+        width: 50%;
+
+        & + li {
+            margin-left: -1px;
+        }
+
+        * {
+            display: block;
+            width: 100%;
+            height: 50px;
+            line-height: 48px;
+            font-size: 18px;
+            font-weight: 500;
+            text-align: center;
+            color: #999;
+            border: solid 1px #eee;
+            border-bottom: solid 1px #252525;
+            position: relative;
+        }
+        &.on * {
+            color: #252525;
+            border-color: #252525;
+            border-bottom: solid 1px #fff;
+            z-index: 1;
+        }
+    }
 }

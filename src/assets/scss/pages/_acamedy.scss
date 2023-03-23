@@ -1,14 +1,8 @@
 .academy {
-
     .choice_sect {
         margin: 60px 0 90px;
 
-
-
         .choice_wrap {
-
-          
-
             .slick-list {
                 height: 200px;
 
@@ -18,7 +12,6 @@
                     .item {
                         padding: 30px 25px 34px 20px;
                         border-radius: 5px;
-
 
                         &.sem {
                             background: #eff5ff;
@@ -67,25 +60,17 @@
                                 margin-right: 13px;
                             }
                         }
-
                     }
                 }
-
             }
         }
-
-
-
     }
 
     .list_sect {
         --mxWd: 300px;
 
-
         .list-top-row {
             margin-bottom: 20px;
-
-
         }
     }
 
@@ -93,13 +78,6 @@
     .view_sect {
         padding-top: 80px;
     }
-
-
-
-
-
-
-
 }
 
 .daily_write_top {
@@ -114,7 +92,6 @@
         overflow: hidden;
         flex: 0 0 auto;
         border: solid 1px #eee;
-
 
         .profile {
             display: block;
@@ -145,20 +122,15 @@
             position: absolute;
             top: 0;
             right: 0;
-            background: url('@img/btn/write_btn_ico.png') no-repeat center center;
+            background: url("@img/btn/write_btn_ico.png") no-repeat center center;
         }
     }
-
-
-
 }
 
 /* 일상 */
 .daily {
-
     .list_sect {
         position: relative;
-
 
         .boxList li {
             margin-top: 20px;
@@ -166,9 +138,6 @@
             padding: 40px;
             border: solid 1px #dbdbdb;
             box-shadow: 8px 6px 10px rgba(17, 16, 16, 0.05);
-
-
-
 
             .content {
                 margin-top: 35px;
@@ -204,7 +173,6 @@
                         -webkit-box-orient: vertical;
                         margin-bottom: 20px;
                     }
-
                 }
 
                 .img_box {
@@ -232,27 +200,21 @@
                     background-position: left center;
                     background-repeat: no-repeat;
 
-                    &+span {
+                    & + span {
                         margin-left: 30px;
                     }
 
-
                     &.good {
-                        background-image: url('@img/ico/ico_review_19x19.png');
+                        background-image: url("@img/ico/ico_review_19x19.png");
                     }
 
                     &.review {
-                        background-image: url('@img/ico/ico_review_18x15.png');
+                        background-image: url("@img/ico/ico_review_18x15.png");
                     }
-
                 }
             }
-
-
         }
-
     }
-
 }
 
 /* 일상 곧통*/
@@ -270,7 +232,6 @@
         background-repeat: no-repeat;
         background-size: cover;
         margin-right: 11px;
-
     }
 
     .user_id {
@@ -285,7 +246,6 @@
 /* 일상 글쓰기 */
 
 .write_sect {
-
     --mxWd: 247px;
 
     input,
@@ -307,18 +267,15 @@
             padding: 20px 0;
             border-bottom: solid 1px #eee;
 
-
             input {
                 height: 50px;
                 border: none;
-
 
                 &::placeholder {
                     font-size: 26px;
                     color: #999;
                 }
             }
-
         }
 
         .cont {
@@ -354,7 +311,7 @@
             width: 27px;
             height: 21px;
             margin-bottom: 6px;
-            background: url('@img/ico/pic_ico27x21.png') no-repeat center center;
+            background: url("@img/ico/pic_ico27x21.png") no-repeat center center;
         }
 
         .count_number {
@@ -366,7 +323,6 @@
     .btn_wrap {
         margin: 45px auto 0;
     }
-
 }
 
 /* 일상 글쓰기 */
@@ -398,7 +354,6 @@
 .writer_info .date {
     color: #999;
 }
-
 
 /* 일상 뷰 */
 
@@ -441,30 +396,28 @@
             background-repeat: no-repeat;
 
             &.good {
-                background-image: url('@img/ico/ico_review_19x19.png');
+                background-image: url("@img/ico/ico_review_19x19.png");
             }
 
             &.review {
-                background-image: url('@img/ico/ico_review_18x15.png');
+                background-image: url("@img/ico/ico_review_18x15.png");
             }
 
-            &+span {
+            & + span {
                 margin-left: 30px;
             }
         }
     }
 
-    .btn_wrap{
+    .btn_wrap {
         --mxWd: 300px;
     }
 }
 
-
 .comment_area {
-    padding: 30px 0 40px;
+    padding-top: 30px;
 
     .write_comment {
-
         .info_top {
             display: flex;
             align-items: center;
@@ -486,8 +439,6 @@
                     font-size: 18px;
                     color: #ddd;
                 }
-
-
             }
 
             button {
@@ -498,25 +449,22 @@
                 right: 21px;
                 bottom: 21px;
             }
-
         }
     }
-
 }
 
 .em_view {
     padding-top: 140px;
 }
-.comment_list{
+.comment_list {
     li {
         padding: 40px 0;
-        border-bottom: solid 1px #eee;  
-    .info_top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 13px;
-        
+        border-bottom: solid 1px #eee;
+        .info_top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 13px;
         }
     }
     .info_bot {

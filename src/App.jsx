@@ -1,20 +1,15 @@
-import React from 'react';
+import React from "react";
 
 import { useRoutes, Navigate, useNavigate } from "react-router-dom";
 
-
-import MainPageRoute from '@routes/MainPageRoute';
-import AboutPageRoute from '@routes/AboutPageRoute';
-import AcademyPageRoute from '@routes/AcademyPageRoute';
-import LoginPageRoute from '@routes/LoginPageRoute';
-import MemberPageRoute from '@routes/MemberPageRoute';
-import RecruitmentPageRoute from '@routes/RecruitmentPageRoute';
-import SearchPageRoute from '@routes/SearchPageRoute';
-import TermsPageRoute from '@routes/TermsPageRoute';
-
-
-// css
-import "@assets/scss/style.scss";
+import MainPageRoute from "@routes/MainPageRoute";
+import AboutPageRoute from "@routes/AboutPageRoute";
+import AcademyPageRoute from "@routes/AcademyPageRoute";
+import LoginPageRoute from "@routes/LoginPageRoute";
+import MemberPageRoute from "@routes/MemberPageRoute";
+import RecruitmentPageRoute from "@routes/RecruitmentPageRoute";
+import SearchPageRoute from "@routes/SearchPageRoute";
+import TermsPageRoute from "@routes/TermsPageRoute";
 
 function App() {
   const navigate = useNavigate();
@@ -29,8 +24,9 @@ function App() {
   const searchPageRoute = SearchPageRoute();
   const termsPageRoute = TermsPageRoute();
 
-  const defaultRoutes = [{ path: "/*", element: <Navigate to="/main" replace="/main" /> }];
-
+  const defaultRoutes = [
+    { path: "/*", element: <Navigate to="/main" replace="/main" /> },
+  ];
 
   const routes = useRoutes([
     ...mainPageRoute,
@@ -41,9 +37,9 @@ function App() {
     ...recruitmentPageRoute,
     ...searchPageRoute,
     ...termsPageRoute,
-   ...defaultRoutes
-  ])
+    ...defaultRoutes,
+  ]);
   return routes;
 }
 
-export default App
+export default App;

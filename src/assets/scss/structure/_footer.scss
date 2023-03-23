@@ -1,15 +1,14 @@
-// footer 
+// footer
 #footer {
     @include footStyle(0, 68px, 15px);
 
-    border-top: 1px solid #fafafa;
+    border-top: 1px solid #dbdbdb;
 
     .foot_top {
         display: flex;
         align-items: center;
         padding: 30px 0;
         border-bottom: 1px solid #eeeeee;
-
 
         .foot_logo {
             display: block;
@@ -30,7 +29,7 @@
             display: inline-block;
             color: #757575;
 
-            &+a {
+            & + a {
                 margin-left: 40px;
             }
         }
@@ -44,7 +43,6 @@
     .foot_info {
         @include flexVal(flex, space-between, start, wrap);
         padding: 40px 0;
-
 
         span {
             white-space: nowrap;
@@ -62,7 +60,7 @@
         .sns_list {
             @include flexVal(flex, start, center, wrap);
 
-            a+a {
+            a + a {
                 margin-left: 10px;
             }
         }
@@ -73,12 +71,7 @@
     }
 }
 
-
-
-
-
 @media screen and (max-width: 1200px) {
-
     #footer .foot_info {
         display: block;
     }
@@ -87,7 +80,6 @@
         margin-top: 30px;
     }
 }
-
 
 @include mobile {
     .quick_menu {
@@ -99,7 +91,6 @@
         display: flex;
         align-items: center;
         height: 3.5714rem;
-
 
         a {
             width: 50%;
@@ -117,7 +108,7 @@
                 background-color: $point;
             }
 
-            &+a {
+            & + a {
                 margin-top: 0;
             }
 
@@ -134,7 +125,7 @@
         font-size: $f-fs-mo;
 
         .foot_top {
-            padding: .7rem 0;
+            padding: 0.7rem 0;
             width: calc(100% + 2rem);
             margin-left: -1rem;
 
@@ -143,7 +134,7 @@
                 font-size: 0.86666rem;
                 margin: 0 1rem;
 
-                &+a {
+                & + a {
                     margin-left: 1rem;
                 }
             }
@@ -154,8 +145,6 @@
 
             .inner {
                 display: block;
-
-
 
                 .foot_info {
                     .detail_info {
@@ -171,7 +160,6 @@
 
                         p:last-of-type {
                             margin-top: 1.4rem;
-
                         }
                     }
                 }
@@ -186,7 +174,7 @@
                             font-size: 1rem;
                         }
 
-                        &:nth-of-type(n+ 3) {
+                        &:nth-of-type(n + 3) {
                             font-size: 0.8666rem;
                             line-height: 1.75;
                         }
@@ -206,10 +194,9 @@
                         background-position: right 1.666rem center;
                         background-size: 0.4666rem auto;
 
-                        &+a {
+                        & + a {
                             margin-left: 1.266rem;
                         }
-
                     }
                 }
             }

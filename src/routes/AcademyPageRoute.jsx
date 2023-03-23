@@ -1,20 +1,19 @@
-import SeminaList from "@pages/academy/Main";
+import SeminaListPage from "@pages/academy/SeminaListPage";
 import SeminaView from "@pages/academy/SeminaView";
-import DailyList from "@pages/academy/DailyList";
-import DailyWrite from "@pages/academy/DailyWrite";
-import DailyView from "@pages/academy/DailyView";
+import DailyListPage from "@pages/academy/DailyListPage";
+import DailyWritePage from "@pages/academy/DailyWritePage";
+import DailyViewPage from "@pages/academy/DailyViewPage";
 
 const AcademyPageRoutes = () => {
-    const routes = [
-        { path: "/academy/semina", element: <SeminaList /> },
-        { path: "/academy/semina_view", element: <SeminaView /> },
-        { path: "/academy/daily", element: <DailyList /> },
-        { path: "/academy/daily_write", element: <DailyWrite /> },
-        { path: "/academy/daily_view", element: <DailyView /> },
+  const routes = [
+    { path: "/academy/semina", element: <SeminaListPage /> },
+    { path: "/academy/semina_view", element: <SeminaView /> },
+    { path: "/academy/daily", element: <DailyListPage /> },
+    { path: "/academy/daily_write", element: <DailyWritePage /> },
+    { path: "/academy/daily_view", element: <DailyViewPage /> },
+  ];
 
-    ]
-
-    return routes;
-}
+  return routes;
+};
 
 export default AcademyPageRoutes;

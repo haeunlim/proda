@@ -1,12 +1,17 @@
-import LoginPage from "@pages/login/Main"
+import LoginPage from "@pages/login/LoginPage";
+import FindAccount from "@pages/login/FindAccount";
+import JoinPage from "@pages/login/JoinPage";
 
 const LoginPageRoutes = () => {
-    const routes = [
-        { path: "/login/login", element: <LoginPage /> },
+  const routes = [
+    { path: "/login/login", element: <LoginPage /> },
+    { path: "/member/find_account", element: <FindAccount /> },
+    { path: "/member/join", element: <JoinPage /> },
+    { path: "/member/join_form", element: <JoinPage /> },
+    { path: "/member/join_corporation", element: <JoinPage /> },
+  ];
 
-    ]
-
-    return routes;
-}
+  return routes;
+};
 
 export default LoginPageRoutes;

@@ -10,6 +10,8 @@ import profileImg from "@img/sub/profile_bg.jpg";
 import Btn from "@components/buttons/Btn";
 import StarBtn from "@components/buttons/StarBtn";
 import { Pager } from "@components/Pager";
+import BtnWrap from "@components/buttons/BtnWrap";
+import { MoreBtn } from "@components/buttons/ReturnBtn";
 
 function List(props) {
   const lis = [];
@@ -350,10 +352,10 @@ const RowList = ({ category }) => {
     <>
       {category == "semina" ? (
         <>
-          <List topics={seminaList} />{" "}
-          <div className="btn_wrap flex_c_c">
-            <Btn text="더보기" BigBtn />
-          </div>
+          <List topics={seminaList} />
+          <BtnWrap className="flex_c_c">
+            <MoreBtn>더보기</MoreBtn>
+          </BtnWrap>
         </>
       ) : (
         ""

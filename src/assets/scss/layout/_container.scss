@@ -1,0 +1,23 @@
+.inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: calc(100% - 30px);
+}
+
+#container {
+    margin-top: 100px;
+    padding: 40px 0 120px;
+}
+#container.main_container {
+    padding: 0;
+    margin-top: 0;
+}
+#container.member {
+    padding: 90px 0 100px;
+}
+#container.recruitment.sub_main {
+    padding: 80px 0 150px;
+}
+#container.company_container {
+    padding-top: 0;
+}

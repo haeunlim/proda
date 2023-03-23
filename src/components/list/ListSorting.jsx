@@ -1,13 +1,13 @@
 import React from "react";
+import TotalNum from "./TotalNum";
 
 const ListSorting = ({ category }) => {
+  const num = "1,545,000";
   return (
     <>
       <div className="list-top-row flex_b_c">
         {category == "semina" || category == "search" ? (
-          <p className="list-count">
-            전체 <span>1,066,206</span>건
-          </p>
+          <TotalNum num={num} />
         ) : (
           <div className="flex">
             <select name="" id="" className="sorting-select">

@@ -1,11 +1,13 @@
 import React from "react";
 import Btn from "@components/buttons/Btn";
+import { InputRow } from "@components/form/InputGroup";
+import BtnWrap from "@components/buttons/BtnWrap";
 
 const searchForm = () => {
   return (
     <>
       <div className="search_wrap">
-        <div className="input_row flex__c">
+        <InputRow>
           <label for="">거주지역</label>
           <div className="select_box flex__c">
             <select name="" id="">
@@ -32,8 +34,8 @@ const searchForm = () => {
               <option value="">시/군/구</option>
             </select>
           </div>
-        </div>
-        <div className="input_row flex__c">
+        </InputRow>
+        <InputRow>
           <label for="">직종 및 경력</label>
 
           <div className="select_box flex__c">
@@ -49,11 +51,11 @@ const searchForm = () => {
               <option value="">경력선택</option>
             </select>
           </div>
-        </div>
-        <div className="btn_wrap flex_c_c">
+        </InputRow>
+        <BtnWrap className="flex_c_c">
           <Btn text="검색" btnName="bg-point mx-w260" />
           <Btn text="초기화" btnName="mx-w100" />
-        </div>
+        </BtnWrap>
       </div>
     </>
   );
