@@ -60,6 +60,10 @@ $green: #2ace92 !default;
 $purple: #8f65fc !default;
 $orange: #ff8626;
 $error: #ee0505;
+$kakao-bg: #fee500;
+$kakao-text: #381e1f;
+$naver-bg: #1ec800;
+$naver-text: #fff;
 // scss-docs-end color-variables
 
 // scss-docs-start colors-map
@@ -80,6 +84,10 @@ $colors: (
     "white": $white,
     "gray": $gray-4545,
     "gray-dark": $gray-2525,
+    "naver-bg": $naver-bg,
+    "kakao-bg": $kakao-bg,
+    "naver-text": $naver-text,
+    "kakao-text": $kakao-text,
 ) !default;
 // scss-docs-end colors-map
 
@@ -141,6 +149,7 @@ $prefix: $variable-prefix !default;
 $input-padding: 0 12px;
 
 $form-control-height-pc: 48px;
+$form-control-height-mo: 40px;
 
 %form-control {
     height: $form-control-height-pc;
@@ -176,7 +185,7 @@ $body-text-align: null !default;
 $border-color: $gray-dbdb !default;
 
 $tablet: 1024px;
-$mobile: 851px;
+$mobile: 768px;
 $basic-font: "Noto Sans KR", sans-serif;
 $point-font: "yg-jalnan", sans-serif;
 
@@ -208,13 +217,11 @@ $text-color: #a8a8a8;
 $list-mg-20: 20px;
 $list-mg: 10px;
 $mg-10: 10px;
-$kakao-bg: #fee500;
-$kakao-text: #381e1f;
-$naver-bg: #1ec800;
-$naver-text: #fff;
+
 $border-radius1-pc: 1rem !default;
 $border-radius1-mo: 0.666rem !default;
 
+$small-color: #aaa;
 %radius {
     border-radius: $border-radius1-pc;
 }
@@ -228,124 +235,25 @@ $gutters: $spacers !default;
 // font-size
 $html-font-size-pc: 16px;
 $html-font-size-tablet: 15px;
-$html-font-size-mo: 4.1666vw;
-
-// main visual text
-$ttl-big-pc: 3.125rem;
-$ttl-big-bot-pc: 1.5rem;
-$bg-text-pc: 1.1rem;
-
-$ttl-pc: 3.125rem;
-$ttl-top-pc: 1.1rem;
-$ttl-bot-pc: 0.95rem;
-$ttl-small-pc: 1.3rem;
-$text-btn-pc: 1rem;
-$gnb-txt-pc: 1.25rem;
-$cont-ttl-pc: 1.2rem;
-
-$sect-ttl-pc: 1.5rem;
-$sect-ttl2-pc: 1.625rem;
-$sect-ttl2-big-pc: 1.875rem;
-$sect-ttl-big-pc: 2.375rem;
-
-$f-fs-pc: 0.7rem;
-
-$small-color: #aaa;
-// mobile
-// ttl 큰
-$ttl-big-mo: 3.666rem;
-$ttl-big-bot-mo: 1rem;
-$bg-text-mo: 1.066rem;
-// ttl
-$ttl-mo: 2.3333rem;
-$ttl-top-mo: 1.0666rem;
-$ttl-bot-mo: 0.9333rem;
-// ttl 작은
-$ttl-small-mo: 0.9333rem;
-$text-btn-mo: 14px;
-$gnb-txt-mo: 1.466rem;
-$cont-ttl-mo: 1.1333rem;
-
-$sect-ttl-mo: 1.1333rem;
-$f-fs-mo: 0.666rem;
-
-$heading1-pc: 28px;
-$heading2-pc: 26px;
-
-$count-txt-pc: 18px;
-
-%heading1 {
-    font-size: $heading1-pc;
-}
-
-%heading2 {
-    font-size: $heading2-pc;
-}
-%sect-ttl-big {
-    font-size: $sect-ttl-big-pc;
-}
-%sect-ttl2-big {
-    font-size: $sect-ttl2-big-pc;
-}
-%sect-ttl2 {
-    font-size: $sect-ttl2-pc;
-}
-
-%count-txt {
-    font-size: $count-txt-pc;
-}
-
+$html-font-size-mo: 13px;
 %basic-txt {
     font-size: $html-font-size-pc;
 }
 
-%ttl-big {
-    font-size: $ttl-big-pc;
+$gnb-txt-pc: 1.25rem;
+$gnb-txt-mo: 1.466rem;
+%gnb-txt {
+    font-size: $gnb-txt-pc;
 }
+$count-txt-pc: 18px;
+$count-txt-mo: 1.077rem;
 
-%ttl-small {
-    font-size: $ttl-small-pc;
-}
-
-%ttl-big-bot {
-    font-size: $ttl-big-bot-pc;
-}
-
-%ttl {
-    font-size: $ttl-pc;
-}
-
-%bg-text {
-    font-size: $bg-text-pc;
-}
-
-%ttl-top {
-    font-size: $ttl-top-pc;
-}
-
-%ttl-bot,
-%ttl-box-num {
-    font-size: $ttl-bot-pc;
+%count-txt {
+    font-size: $count-txt-pc;
 }
 %bodyPropertyDefault {
     word-break: keep-all;
     letter-spacing: -0.04em;
-}
-
-%gnb-txt {
-    font-size: $gnb-txt-pc;
-}
-
-%sect-ttl {
-    font-size: $sect-ttl-pc;
-}
-
-%cont-ttl {
-    font-size: $cont-ttl-pc;
-}
-
-%footer-txt {
-    font-size: $f-fs-pc;
 }
 
 %flex {
@@ -439,6 +347,106 @@ $count-txt-pc: 18px;
     }
 }
 
+// fontsize
+
+$tablet: 1024px;
+$mobile: 768px;
+
+// main visual text
+$main-ttl-pc: 3.125rem;
+$main-ttl-mo: 3.125rem;
+
+%main-ttl {
+    font-size: $main-ttl-pc;
+}
+
+$main-ttl-bot-pc: 1.5rem;
+$main-ttl-bot-mo: 1.5rem;
+
+%main-ttl-bot {
+    font-size: $main-ttl-bot-pc;
+}
+
+$container-ttl-pc: 1.875rem;
+$container-ttl-mo: 1.7692rem;
+$container-lh-pc: 1;
+$container-lh-mo: 1.478;
+%container-ttl {
+    font-size: $container-ttl-pc;
+    line-height: $container-lh-pc;
+}
+$container-ttl-big-pc: 2.375rem;
+$container-ttl-big-mo: 1.7692rem;
+$container-lh-big-pc: 1;
+$container-lh-big-mo: 1;
+%container-ttl-big {
+    font-size: $container-ttl-big-pc;
+    line-height: $container-lh-big-pc;
+}
+
+$sect-ttl-pc: 1.5rem;
+$sect-ttl-mo: 1.3076rem;
+%sect-ttl {
+    font-size: $sect-ttl-pc;
+}
+
+$sect-ttl-big-pc: 1.625rem;
+$sect-ttl-big-mo: 2.375rem;
+%sect-ttl-big {
+    font-size: $sect-ttl-big-pc;
+}
+
+$view-ttl-pc: 1.625rem;
+$view-ttl-mo: 1.625rem;
+%view-ttl {
+    font-size: $view-ttl-pc;
+}
+$view-ttl-big-pc: 1.625rem;
+$view-ttl-big-mo: 1.625rem;
+%view-ttl-big {
+    font-size: $view-ttl-big-pc;
+}
+
+$write-ttl-pc: 1.625rem;
+$write-ttl-mo: 1.625rem;
+%write-ttl {
+    font-size: $write-ttl-pc;
+}
+
+$member-ttl-pc: 2rem;
+$member-ttl-mo: 2rem;
+%member-ttl {
+    font-size: $member-ttl-pc;
+}
+$member-ttl-bot-pc: 1.125rem;
+$member-ttl-bot-mo: 2rem;
+%member-ttl-bot {
+    font-size: $member-ttl-bot-pc;
+}
+$member-ttl-pc: 2rem;
+$member-ttl-mo: 2rem;
+%member-ttl {
+    font-size: $member-ttl-pc;
+}
+
+$member-ttl-big-pc: 2rem;
+$member-ttl-big-mo: 2rem;
+%member-ttl-big {
+    font-size: $member-ttl-big-pc;
+}
+$form-ttl-pc: 1.375rem;
+$form-ttl-mo: 1.375rem;
+%form-ttl {
+    font-size: $form-ttl-pc;
+}
+
+$f-fs-pc: 0.7rem;
+$f-fs-mo: 0.666rem;
+
+%footer-txt {
+    font-size: $f-fs-pc;
+}
+
 @include tablet {
     %basic-txt {
         font-size: $html-font-size-tablet;
@@ -446,53 +454,66 @@ $count-txt-pc: 18px;
 }
 
 @include mobile {
-    %basic-txt {
-        font-size: $html-font-size-mo;
+    %container-ttl {
+        font-size: $container-ttl-mo;
+        line-height: $container-lh-mo;
+    }
+    %container-ttl-big {
+        font-size: $container-ttl-big-mo;
+        line-height: $container-lh-big-mo;
     }
 
-    %ttl-big {
-        font-size: $ttl-big-mo;
+    %main-ttl {
+        font-size: $main-ttl-mo;
     }
 
-    %ttl-big-bot {
-        font-size: $ttl-big-bot-mo;
-    }
-
-    %ttl-small {
-        font-size: $ttl-small-mo;
-    }
-
-    %ttl {
-        font-size: $ttl-mo;
-    }
-
-    %bg-text {
-        font-size: $bg-text-mo;
-    }
-
-    %ttl-top {
-        font-size: $ttl-top-mo;
-    }
-
-    %ttl-bot,
-    %ttl-box-num {
-        font-size: $ttl-bot-mo;
-    }
-
-    %gnb-txt {
-        font-size: $gnb-txt-mo;
-    }
-
-    %cont-ttl {
-        font-size: $cont-ttl-mo;
+    %main-ttl-bot {
+        font-size: $main-ttl-bot-mo;
     }
     %sect-ttl {
         font-size: $sect-ttl-mo;
+    }
+    %sect-ttl-big {
+        font-size: $sect-ttl-big-mo;
+    }
+    %member-ttl {
+        font-size: $member-ttl-mo;
+    }
+    %member-ttl-bot {
+        font-size: $member-ttl-bot-mo;
+    }
+    %member-ttl-big {
+        font-size: $member-ttl-big-mo;
+    }
+    %view-ttl {
+        font-size: $view-ttl-mo;
+    }
+    %view-ttl-big {
+        font-size: $view-ttl-big-mo;
+    }
+    %write-ttl {
+        font-size: $write-ttl-mo;
+    }
+    %form-ttl {
+        font-size: $form-ttl-mo;
     }
 
     %footer-txt {
         font-size: $f-fs-mo;
     }
+    %basic-txt {
+        font-size: $html-font-size-mo;
+    }
+    %gnb-txt {
+        font-size: $gnb-txt-mo;
+    }
+    %form-control {
+        height: $form-control-height-mo;
+    }
+    %count-txt {
+        font-size: $count-txt-mo;
+    }
+
     %radius {
         border-radius: $border-radius1-mo;
     }

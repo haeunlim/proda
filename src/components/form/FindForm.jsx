@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Btn from "@components/buttons/Btn";
 import InputEmailGroup, { InputPhone } from "./Inputs";
 import InputGroup, { InputWrap, InputRow } from "./InputGroup";
+import { Button } from "@components/buttons/Buttons";
 
 export default function FindForm(props) {
   return (
@@ -18,8 +18,8 @@ export default function FindForm(props) {
           <InputWrap>
             <input type="text" placeholder="이름을 입력해주세요" />
             <InputPhone />
-            <Btn text="인증번호 전송" btnName="line_black middle2" />
-            <Btn text="이메일 확인" btnName="bg-point middle2" />
+            <Button lineBlack>인증번호 전송</Button>
+            <Button bgPoint>이메일 확인</Button>
           </InputWrap>
         </InputGroup>
         <InputGroup>
@@ -75,8 +75,8 @@ export default function FindForm(props) {
             ) : (
               <InputEmailGroup num="_find2" holder="이메일" />
             )}
-            <Btn text="인증번호 전송" btnName="line_black middle2" />
-            <Btn text="비밀번호 찾기" btnName="bg-point middle2" />
+            <Button lineBlack>인증번호 전송</Button>
+            <Button bgPoint>이메일 확인</Button>
           </InputWrap>
         </InputGroup>
       </>

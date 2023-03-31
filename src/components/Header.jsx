@@ -1,33 +1,50 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Meta from "@components/Meta";
 import { Mobile, Pc } from "./Responsive";
 import { Link, useLocation } from "react-router-dom";
 import HeaderStyled, {
-  NotifiBtn,
-  SearchPop,
-  SearchPopBody,
-  SearchPopInner,
-  SearchPop_searchBox,
-  SearchBtn,
+  HeaderWhite,
   HeaderInner,
-  MypageBox,
-  MypageTab,
   RightMenu,
   Logo,
-  HamBtn,
 } from "./HeaderStyled";
-import Gnb from "./header/Gnb";
+import SearchPop from "./header/SearchPop";
 import AllMenu from "./header/AllMenu";
+import Gnb from "./header/Gnb";
+import UtillMenu, { HamBtn } from "./header/UtillMenu";
+import SearchBtn from "./header/SearchBtn";
+
+const HeaderElement = ({ children, bgChange, allMenuOn, searchOn }) => {
+  return (
+    <>
+      {bgChange || searchOn || location.pathname !== "/main" ? (
+        <HeaderWhite id="header" allMenuOn={allMenuOn} searchOn={searchOn}>
+          {children}
+        </HeaderWhite>
+      ) : (
+        <HeaderStyled id="header" allMenuOn={allMenuOn}>
+          {children}
+        </HeaderStyled>
+      )}
+    </>
+  );
+};
 
 const Header = () => {
   const location = useLocation();
-  // 마이페이지 hide메뉴
-  const [allMenuOn, setAllMenuOn] = useState();
-  const [mypageTabShow, setMypageTabShow] = useState();
-  const [bgChange, setBgChange] = useState();
-  const [searchOn, setSearchOn] = useState();
+  const [resetNum, setResetNum] = useState();
+
   // 로그인됐을때
   const [login, setLogin] = useState(true);
+  const [allMenuOn, setAllMenuOn] = useState();
+  const [bgChange, setBgChange] = useState();
+  const [searchOn, setSearchOn] = useState();
+
+  if (allMenuOn) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "visible";
+  }
 
   window.onscroll = function () {
     if (location.pathname == "/main") {
@@ -41,14 +58,17 @@ const Header = () => {
       setBgChange(false);
     }
   }
+  const parentClose = (state) => {
+    setAllMenuOn(state);
+  };
+
   return (
     <>
       <Meta />
-      <HeaderStyled
-        id="header"
-        className={`${location.pathname.includes("/main") ? "" : "bgWhite"} ${
-          bgChange ? "bgWhite" : ""
-        }`}
+      <HeaderElement
+        bgChange={bgChange}
+        searchOn={searchOn}
+        allMenuOn={allMenuOn}
       >
         <HeaderInner className="inner flex_b_c">
           <Logo>
@@ -56,81 +76,40 @@ const Header = () => {
               <span>p</span> 프로다
             </Link>
           </Logo>
-          <Mobile>
-            <RightMenu className="flex__c">
-              <SearchBtn onClick={() => setSearchOn(!searchOn)}></SearchBtn>
-              <HamBtn onClick={() => setAllMenuOn(1)}></HamBtn>
-            </RightMenu>
-          </Mobile>
           <Pc>
             <nav className="gnb">
               <Gnb />
             </nav>
-            <RightMenu className="flex__c">
-              {login ? (
-                <>
-                  <button type="button" onClick={() => setLogin(false)}>
-                    로그아웃
-                  </button>
-                  <MypageBox>
-                    <button
-                      type="button"
-                      className="mypage"
-                      onClick={() => setMypageTabShow(!mypageTabShow)}
-                    >
-                      마이페이지
-                    </button>
-                    {mypageTabShow && (
-                      <MypageTab>
-                        <ul>
-                          <li>
-                            <Link to="" onClick={() => setMypageTabShow()}>
-                              마이프로 정보
-                            </Link>
-                          </li>
-                          <li>
-                            <Link to="" onClick={() => setMypageTabShow()}>
-                              스크랩
-                            </Link>
-                          </li>
-                        </ul>
-                      </MypageTab>
-                    )}
-                  </MypageBox>
-                  <NotifiBtn className="on"></NotifiBtn>
-                </>
-              ) : (
-                <>
-                  <Link to="/login/login">로그인</Link>
-                  <Link to="/member/join">회원가입</Link>
-                </>
-              )}
-              <SearchBtn onClick={() => setSearchOn(!searchOn)}></SearchBtn>
-            </RightMenu>
           </Pc>
+          <RightMenu className="flex__c">
+            <Pc>
+              <UtillMenu login={login} logoutOnClick={() => setLogin(false)} />
+            </Pc>
+
+            {!allMenuOn && <SearchBtn onClick={() => setSearchOn(!searchOn)} />}
+            <Mobile>
+              <HamBtn
+                onClick={() => {
+                  setAllMenuOn(!allMenuOn);
+                  setResetNum(null);
+                }}
+              />
+            </Mobile>
+          </RightMenu>
         </HeaderInner>
-      </HeaderStyled>
-      {searchOn && (
-        <SearchPop>
-          <SearchPopBody
-            className={`${
-              location.pathname.includes("/main") ? "" : "bgWhite"
-            } ${bgChange ? "bgWhite" : ""}`}
-          >
-            <SearchPopInner>
-              <h3>회사 및 포지션을 검색해보세요</h3>
-              <SearchPop_searchBox>
-                <input type="text" placeholder="검색해주세요." />
-                <button type="button" className="h_search_btn">
-                  검색
-                </button>
-              </SearchPop_searchBox>
-            </SearchPopInner>
-          </SearchPopBody>
-        </SearchPop>
-      )}
-      {allMenuOn && <AllMenu />}
-      {/* {allMenuOn && <SideNav />} */}
+        <Mobile>
+          {allMenuOn && (
+            <AllMenu
+              allMenuOn={allMenuOn}
+              login={login}
+              resetNum={resetNum}
+              parentClose={parentClose}
+              logoutOnClick={() => setLogin(false)}
+            />
+          )}
+        </Mobile>
+      </HeaderElement>
+      {searchOn && <SearchPop bgChange={bgChange} />}
     </>
   );
 };

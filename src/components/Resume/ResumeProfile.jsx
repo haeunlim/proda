@@ -44,7 +44,7 @@ export default function ResumeProfile({ login }) {
                 </tr>
                 <tr>
                   <th>전화번호</th>
-                  <td colspan="3">
+                  <td colSpan="3">
                     <button type="button" className="check">
                       확인하기
                     </button>
@@ -53,7 +53,7 @@ export default function ResumeProfile({ login }) {
                 {login ? (
                   <tr>
                     <th>주소</th>
-                    <td colspan="3">
+                    <td colSpan="3">
                       서울 송파구
                       <button type="button" class="check">
                         확인하기

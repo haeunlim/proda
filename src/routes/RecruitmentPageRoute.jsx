@@ -1,12 +1,12 @@
-import RecruitmentPage from "@pages/recruitment/Main";
-import RecruitmentView from "@pages/recruitment/View";
-import RecruitmentCompany from "@pages/recruitment/Company";
+import RecruitmentMainPage from "@pages/recruitment/RecruitmentMainPage";
+import RecruitmentViewPage from "@pages/recruitment/RecruitmentViewPage";
+import RecruitmentCompanyPage from "@pages/recruitment/RecruitmentCompanyPage";
 
 const RecruitmentRoutes = () => {
   const routes = [
-    { path: "/recruitment/recruitment", element: <RecruitmentPage /> },
-    { path: "/recruitment/view", element: <RecruitmentView /> },
-    { path: "/recruitment/company", element: <RecruitmentCompany /> },
+    { path: "/recruitment/recruitment", element: <RecruitmentMainPage /> },
+    { path: "/recruitment/view", element: <RecruitmentViewPage /> },
+    { path: "/recruitment/company", element: <RecruitmentCompanyPage /> },
   ];
 
   return routes;

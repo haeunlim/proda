@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
-import Form from "./Form";
-import Done from "./Done";
-import Share from "./Share";
-import Btn from "@components/buttons/Btn";
-
+import React from "react";
+import { Button } from "@components/buttons/Buttons";
+import styled from "styled-components";
+const SupportBtn = styled(Button)`
+  box-shadow: 0 0.6875rem 1.2rem rgba(1, 216, 223, 0.25);
+  border-radius: 5px;
+`;
 const Popup = ({ setPreview, ttl, subTtl, popName }) => {
   const handleHidden = () => {
     setPreview(false);
@@ -22,10 +23,7 @@ const Popup = ({ setPreview, ttl, subTtl, popName }) => {
 
         {popName == "pop_resume" ? (
           <div className="btn_wrap flex_c_c">
-            <Btn
-              text="지원하기"
-              btnName="middle bg-point btn-shadow rounded-s"
-            />
+            <SupportBtn>지원하기</SupportBtn>
           </div>
         ) : (
           ""

@@ -1,9 +1,23 @@
 import React from "react";
 
-export default function TotalNum({ num }) {
+import styled from "styled-components";
+
+const ListCountText = styled.p`
+  font-weight: 500;
+  font-size: 1.125rem;
+  span {
+    color: ${(props) => props.theme.point};
+  }
+
+  @media ${(props) => props.theme.mobile} {
+    font-size: 1.0769rem;
+  }
+`;
+
+export default function TotalNum({ totalCount }) {
   return (
-    <p className="list-count">
-      전체 <span>{num}</span>건
-    </p>
+    <ListCountText>
+      전체 <span>{totalCount}</span>건
+    </ListCountText>
   );
 }

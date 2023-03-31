@@ -1,7 +1,12 @@
-import Btn from "@components/buttons/Btn";
 import React from "react";
+import { BtnWrap } from "@components/buttons/BtnWrap";
+import { ResumeBtn } from "@components/buttons/ResumeBtns";
+import styled from "styled-components";
+export const ResumeBtnWrap = styled(BtnWrap)`
+  margin: 0;
+`;
 
-export default function ResumeRecommend({ onEvent }) {
+export default function ResumeRecommend({ onClick }) {
   return (
     <div className="sv_info_top">
       <div className="sv_txt">
@@ -11,10 +16,14 @@ export default function ResumeRecommend({ onEvent }) {
           <span>포지션 제안</span>을 하실 수 있습니다.
         </p>
       </div>
-      <div className="btn_wrap flex_c_c">
-        <Btn text="연락처 확인" btnName="bg-point" />
-        <Btn text="포지션 제안하기" btnName="bg-blue3" onEvent={onEvent} />
-      </div>
+      <ResumeBtnWrap flexCenter>
+        <ResumeBtn lack bgPoint>
+          연락처 확인
+        </ResumeBtn>
+        <ResumeBtn lack onClick={onClick} bgBlue>
+          포지션 제안하기
+        </ResumeBtn>
+      </ResumeBtnWrap>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import Header from "@components/Header";
 import Footer from "@components/Footer";
 import Tab from "@components/tab/Tab";
 import ChoiceCarousel from "@components/carousel/ChoiceCarousel";
-import RowList from "@components/list/RowList";
+import SeminaList from "@components/list/SeminaList";
 import ListSorting from "@components/list/ListSorting";
 
 const SeminaListPage = () => {
@@ -26,7 +26,7 @@ const SeminaListPage = () => {
           <div className="inner">
             <h3 className="sect_ttl big">세미나</h3>
             <ListSorting category={category} />
-            <RowList category={category} />
+            <SeminaList />
           </div>
         </section>
       </div>

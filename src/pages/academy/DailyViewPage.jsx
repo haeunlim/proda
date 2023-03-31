@@ -3,15 +3,13 @@ import React from "react";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import Tab from "@components/tab/Tab";
-import Btn from "@components/buttons/Btn";
 import profile from "@img/ico/com_ico32x32.jpg";
 import ReturnBtn from "@components/buttons/ReturnBtn";
+import { DailyWriteBtn } from "@components/buttons/WriteBtn";
 
 const DailyViewPage = () => {
   const code = "academy";
   const category = "daily";
-  const btnName1 = "btn bigSmall bg-point rounded-2";
-  const btnName2 = "btn bigBtn goListBtn";
 
   return (
     <>
@@ -78,7 +76,7 @@ const DailyViewPage = () => {
                     id=""
                     placeholder="내용을 입력해주세요."
                   ></textarea>
-                  <Btn typeVal="submit" btnName={btnName1} text="등록" />
+                  <DailyWriteBtn onClick={onClick} />
                 </div>
               </div>
               <ul className="comment_list">

@@ -62,6 +62,9 @@ input[type="tel"]:focus {
 #footer {
     position: relative;
 }
+.w-100 {
+    width: 100% !important;
+}
 .mx-w260 {
     max-width: 260px !important;
 }
@@ -520,7 +523,31 @@ small.mo {
     display: none !important;
 }
 
-@media screen and (max-width: 850px) {
+@include tablet {
+    [class*="flex"].tablet_col_2 {
+        flex-wrap: wrap;
+        width: -webkit-calc(100% + (var(--ta-mg-x) * 2));
+        /* for Chrome, Safari */
+        width: -moz-calc(100% + (var(--ta-mg-x) * 2));
+        /* for Firefox */
+        width: calc(100% + (var(--ta-mg-x) * 2));
+        /* for IE */
+        margin-left: -webkit-calc(-1 * var(--ta-mg-x));
+        margin-left: -moz-calc(-1 * var(--ta-mg-x));
+        margin-left: calc(-1 * var(--ta-mg-x));
+        margin-top: -webkit-calc(-1 * var(--ta-mg-t));
+        margin-top: -moz-calc(-1 * var(--ta-mg-t));
+        margin-top: calc(-1 * var(--ta-mg-t));
+
+        > * {
+            width: -webkit-calc(50% - (var(--ta-mg-x) * 2));
+            width: -moz-calc(50% - (var(--ta-mg-x) * 2));
+            width: calc(50% - (var(--ta-mg-x) * 2));
+            margin: var(--ta-mg-t) var(--ta-mg-x) 0;
+        }
+    }
+}
+@include mobile {
     small.web {
         display: none !important;
     }
@@ -550,18 +577,60 @@ small.mo {
     }
 
     [class*="flex"].mo_col_1 {
+        flex-wrap: wrap;
         width: 100%;
         margin-left: 0;
-        margin-top: -webkit-calc(-1 * var(--mo-mg-top));
-        margin-top: -moz-calc(-1 * var(--mo-mg-top));
-        margin-top: calc(-1 * var(--mo-mg-top));
+        margin-top: -webkit-calc(-1 * var(--mo-mg-t));
+        margin-top: -moz-calc(-1 * var(--mo-mg-t));
+        margin-top: calc(-1 * var(--mo-mg-t));
 
         > * {
             width: 100% !important;
-            margin: var(--mo-mg-top) 0 0;
+            margin: var(--mo-mg-t) 0 0;
         }
     }
 
+    [class*="flex"].mo_col_2 {
+        flex-wrap: wrap;
+        width: -webkit-calc(100% + (var(--mo-mg-x) * 2));
+        /* for Chrome, Safari */
+        width: -moz-calc(100% + (var(--mo-mg-x) * 2));
+        /* for Firefox */
+        width: calc(100% + (var(--mo-mg-x) * 2));
+        /* for IE */
+        margin-left: -webkit-calc(-1 * var(--mo-mg-x));
+        margin-left: -moz-calc(-1 * var(--mo-mg-x));
+        margin-left: calc(-1 * var(--mo-mg-x));
+        margin-top: -webkit-calc(-1 * var(--mo-mg-t));
+        margin-top: -moz-calc(-1 * var(--mo-mg-t));
+        margin-top: calc(-1 * var(--mo-mg-t));
+
+        > * {
+            width: -webkit-calc(50% - (var(--mo-mg-x) * 2));
+            width: -moz-calc(50% - (var(--mo-mg-x) * 2));
+            width: calc(50% - (var(--mo-mg-x) * 2));
+            margin: var(--mo-mg-t) var(--mo-mg-x) 0;
+        }
+    }
+    [class*="flex"].col_3 {
+        flex-wrap: wrap;
+        width: -webkit-calc(100% + (var(--mo-mg-x) * 2));
+        width: -moz-calc(100% + (var(--mo-mg-x) * 2));
+        width: calc(100% + (var(--mo-mg-x) * 2));
+        margin-left: -webkit-calc(-1 * var(--mo-mg-x));
+        margin-left: -moz-calc(-1 * var(--mo-mg-x));
+        margin-left: calc(-1 * var(--mo-mg-x));
+        margin-top: -webkit-calc(-1 * var(--mo-mg-x));
+        margin-top: -moz-calc(-1 * var(--mo-mg-x));
+        margin-top: calc(-1 * var(--mo-mg-x));
+
+        > * {
+            width: -webkit-calc(33.333% - (var(--mo-mg-x) * 2));
+            width: -moz-calc(33.333% - (var(--mo-mg-x) * 2));
+            width: calc(33.333% - (var(--mo-mg-x) * 2));
+            margin: var(--mo-mg-x) var(--mo-mg-x) 0;
+        }
+    }
     .mo_block_100 {
         display: block;
 
@@ -572,7 +641,7 @@ small.mo {
 
         > *:nth-of-type(n + 2) {
             margin-left: 0 !important;
-            margin-top: var(--mo-mg-top);
+            margin-top: var(--mo-mg-t);
         }
     }
 }
@@ -580,17 +649,17 @@ small.mo {
 // 익스플로러
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .sect02 .inner > div {
-        --mo-mg-top: 5.55vw;
+        --mo-mg-t: 5.55vw;
     }
     .sect06 .inner > div {
-        --mo-mg-top: 2.2rem;
+        --mo-mg-t: 2.2rem;
     }
     .provide_money ul li {
-        --mo-mg-top: 2rem;
+        --mo-mg-t: 2rem;
     }
     .sect07 ul li {
         --mg-x: 20px;
-        --mg-top: 50px;
-        --mo-mg-top: 2rem;
+        --mg-t: 50px;
+        --mo-mg-t: 2rem;
     }
 }

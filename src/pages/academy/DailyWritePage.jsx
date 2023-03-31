@@ -1,19 +1,12 @@
 import React from "react";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
-import Btn from "@components/buttons/Btn";
-import styled from "styled-components";
 import ReturnBtn from "@components/buttons/ReturnBtn";
+import { DailyWriteBtn } from "@components/buttons/WriteBtn";
 
 const DailyWritePage = () => {
   const code = "academy";
   // const pageType = "write";
-
-  const btnNames = {
-    write: "btn bigBtn bg-point rounded-2 submitBtn",
-    goList: "btn bigBtn rounded-2 goListBtn",
-    more: "btn bigBtn moreBtn",
-  };
 
   return (
     <>
@@ -50,7 +43,7 @@ const DailyWritePage = () => {
               <ReturnBtn rounded maxWidth="247px">
                 뒤로가기
               </ReturnBtn>
-              <Btn typeVal="submit" btnName={btnNames.write} text="등록" />
+              <DailyWriteBtn onClick={onClick} />
             </div>
           </div>
         </section>

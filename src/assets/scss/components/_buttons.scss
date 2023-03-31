@@ -1,25 +1,72 @@
+$HPc: 50px;
+$HSPc: 31px;
+$HS2Pc: 42px;
+$HBPc: 60px;
+$HB2Pc: 62px;
+
+$btnFS: 1.125rem;
+$btnFSS: 0.9375rem;
+$btnFSB: 1.25rem;
+
+$MoHPc: 50px;
+$MoHSPc: 31px;
+$MoHS2Pc: 40px;
+$MoHBPc: 60px;
+$MoHB2Pc: 62px;
+
+$MobtnFS: 1.125rem;
+$MobtnFSS: 0.923rem;
+$MobtnFSB: 1.25rem;
+
+%btnFontSize {
+    font-size: $btnFS;
+}
+%btnFontSizeS {
+    font-size: $btnFSS;
+}
+%btnFontSizeB {
+    font-size: $btnFSB;
+}
+%btnHeightS {
+    height: $HSPc;
+    line-height: calc($HSPc - 2px);
+}
+
+%btnHeightS2 {
+    height: $HS2Pc;
+    line-height: calc($HS2Pc - 2px);
+}
+%btnHeight {
+    height: $HPc;
+    line-height: calc($HPc - 2px);
+}
+%btnHeightB {
+    height: $HBPc;
+    line-height: calc($HBPc - 2px);
+}
+
+%btnHeightB2 {
+    height: $HB2Pc;
+    line-height: calc($HB2Pc - 2px);
+}
+
 .btn {
     display: block;
     text-align: center;
-    height: 48px;
     width: 100%;
+    @extend %btnHeight;
+    @extend %btnFontSize;
     border: 1px solid $border-color;
     font-weight: $fw-medium;
+    max-width: var(--mxWd);
 }
-
-a.btn {
-    line-height: 46px;
+.btn.small {
+    @extend %btnHeightS2;
+    @extend %btnFontSizeS;
 }
-
-.btn.middle {
-    height: 50px;
-    line-height: 48px;
-    font-size: 18px;
-}
-.btn.middle2 {
-    height: 52px;
-    line-height: 50px;
-    font-size: 18px;
+.btn.small2 {
+    @extend %btnHeightS;
+    @extend %btnFontSizeS;
 }
 
 .btn.bg-point {
@@ -32,34 +79,28 @@ a.btn {
     color: $black;
     background-color: $white;
 }
+.line_light {
+    border-color: #eee;
+}
 
 .rounded-s {
     border-radius: 5px;
 }
-
 .rounded-1 {
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .rounded-2 {
+    border-radius: 21px;
+}
+
+.rounded-3 {
     border-radius: 30px;
 }
 
-.smallBtn {
-    height: 42px;
-}
-
-a.smallBtn {
-    line-height: 40px;
-}
-
-a.bigBtn {
-    line-height: 60px;
-}
-
 .bigBtn {
-    height: 62px !important;
-    font-size: 20px !important;
+    @extend %btnHeightB;
+    @extend %btnFontSizeB;
 }
 
 .btn {
@@ -182,4 +223,42 @@ a.bigBtn {
 .on > .heart_btn,
 .heart_btn.on {
     background-image: url(@img/ico/ico_heart_on.png);
+}
+
+@include mobile {
+    %btnFontSize {
+        font-size: $MobtnFS;
+    }
+    %btnFontSizeS {
+        font-size: $MobtnFSS;
+    }
+    %btnFontSizeB {
+        font-size: $MobtnFSB;
+    }
+    %btnHeightS {
+        height: $MoHSPc;
+        line-height: calc($MoHSPc - 2px);
+    }
+
+    %btnHeightS2 {
+        height: $MoHS2Pc;
+        line-height: calc($MoHS2Pc - 2px);
+    }
+    %btnHeight {
+        height: $MoHPc;
+        line-height: calc($MoHPc - 2px);
+    }
+    %btnHeightB {
+        height: $MoHBPc;
+        line-height: calc($MoHBPc - 2px);
+    }
+
+    %btnHeightB2 {
+        height: $MoHB2Pc;
+        line-height: calc($MoHB2Pc - 2px);
+    }
+
+    .btn {
+        max-width: var(--mxWd-mo);
+    }
 }

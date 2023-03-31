@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { BtnSmall } from "./Buttons";
 
-const GuideBtnStyled = styled.button`
-  height: 32px;
-  padding: 0 14px;
+const GuideBtnStyled = styled(BtnSmall)`
+  padding: 0 12px;
+  width: auto;
   color: #454545;
   border-radius: 3px;
-  background-color: #fff;
-  border: 1px solid #dbdbdb;
 `;
-export default function GuidBtn() {
+export default function GuideBtn() {
   return <GuideBtnStyled>상품안내</GuideBtnStyled>;
 }

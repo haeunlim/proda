@@ -1,107 +1,163 @@
 @import "@scss/components/list";
 @import "@scss/components/buttons";
 
-
 // main
-.main_container{
+.main_container {
     section:nth-of-type(odd) {
         background-color: #fafafa;
-    
-    }
-.main_ttl_box {
-    h2 {
-        @extend %ttl-big;
-        line-height: 1.28;
-        font-weight: 900;
-        
-    }
-    
-    p {
-        @extend %ttl-big-bot ;
-        color: #757575;
-        line-height: 1.5;
-        margin: 30px 0 80px;
     }
 
-    
-}
-
-
-
-.main {
-    position: relative;
-    height: 51.0416vw;
-    overflow: hidden;
-    min-height: 1080px;
-
-    .video {
-        width: 100%;
-        height: 100%;
-
-        video {
-
-            width: 113%;
-            height: 100%;
-            margin: auto;
-            -o-object-fit: cover;
-            object-fit: cover;
-            z-index: 0;
-        }
-    }
-
-
-}
-
-.sect1 {
-
-    @include flexVal(flex, center, center);
-    height: 620px;
-
-    .inner {
-        max-width: 920px;
-
-    }
-
-}
-
-    
-    .recruitment {
-    padding: 85px 0 80px;
-    overflow: hidden;
-    
-    .inner {
+    .main {
         position: relative;
+        height: 51.0416vw;
+        overflow: hidden;
+        min-height: 1080px;
 
-        aside {
-            position: absolute;
-            top: 53px;
-            
-            a {
-                display: block;
-            }
-            
-            &.left {
-                transform: translateX(-100%);
-                left: -30px;
-            }
-            
-            &.right {
-                transform: translateX(100%);
-                right: -30px;
-                
+        .video {
+            width: 100%;
+            height: 100%;
+
+            video {
+                width: 113%;
+                height: 100%;
+                margin: auto;
+                -o-object-fit: cover;
+                object-fit: cover;
+                z-index: 0;
             }
         }
-        
-        .bot_banner {
-            overflow: hidden;
-            margin-top: 90px;
+    }
+
+    .sect1 {
+        padding: 150px 0;
+
+        .inner {
+            max-width: 920px;
         }
+    }
+
+    .recruitment {
+        padding: 85px 0 80px;
+        overflow: hidden;
+
+        .inner {
+            position: relative;
+
+            aside {
+                position: absolute;
+                top: 53px;
+
+                a {
+                    display: block;
+                }
+
+                &.left {
+                    transform: translateX(-100%);
+                    left: -30px;
+                }
+
+                &.right {
+                    transform: translateX(100%);
+                    right: -30px;
+                }
+            }
+
+            .bot_banner {
+                overflow: hidden;
+                margin-top: 90px;
+                .slick-dots {
+                    display: flex !important;
+                    text-align: left;
+                    position: absolute;
+                    width: 100%;
+                    left: 7.5%;
+                    bottom: 15%;
+                    li {
+                        width: 8px;
+                        height: 8px;
+                        margin: 0;
+
+                        button {
+                            width: 8px;
+                            height: 8px;
+                            background-color: var(--bs-white);
+                            border-radius: 50%;
+                            padding: 0;
+
+                            &::before {
+                                display: none;
+                            }
+                        }
+
+                        & + li {
+                            margin-left: 10px;
+                        }
+
+                        &.slick-active {
+                            button {
+                                background-color: var(--bs-point);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .top_pro {
+        margin-top: 0;
+        padding: 84px 0 110px;
     }
 }
 
+@include mobile {
+    .main_container {
+        .main {
+            min-height: 640px;
+        }
+        .sect1 {
+            padding: 3.4615rem 0 17.0769rem;
+        }
+        .recruitment {
+            padding: 4.6153rem 0;
+            .inner {
+                .bot_banner {
+                    margin-top: 4.6153rem;
 
-.top_pro {
-    padding: 84px 0 110px;
-}
+                    .slick-dots {
+                        display: flex !important;
+                        text-align: left;
+                        position: absolute;
+                        width: 100%;
+                        left: 7.5%;
 
+                        bottom: 44.74%;
+                        li {
+                            width: 0.5384rem;
+                            height: 0.5384rem;
+
+                            button {
+                                width: 0.5384rem;
+                                height: 0.5384rem;
+                            }
+
+                            & + li {
+                                margin-left: 10px;
+                            }
+
+                            &.slick-active {
+                                button {
+                                    background-color: var(--bs-point);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .top_pro {
+            padding: 4.6153rem 0;
+        }
+    }
 }

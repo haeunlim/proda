@@ -1,5 +1,16 @@
-import React from "react";
+import styled, { css } from "styled-components";
+export const BtnWrap = styled.div`
+  margin: 40px auto 0;
 
-export default function BtnWrap({ children, className }) {
-  return <div className={`btn_wrap ${className}`}>{children}</div>;
-}
+  ${(props) =>
+    props.flexCenter &&
+    css`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      * + * {
+        margin-left: 10px;
+      }
+    `}
+`;

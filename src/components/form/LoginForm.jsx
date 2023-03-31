@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BtnWrap from "@components/buttons/BtnWrap";
+import { BtnWrap } from "@components/buttons/BtnWrap";
 import InputGroup, { InputWrap } from "./InputGroup";
+import { LoginBtnStyled } from "@components/buttons/MemberButton";
 
 const LoginForm = (props) => {
   return (
@@ -44,13 +45,9 @@ const LoginForm = (props) => {
         </InputWrap>
       </InputGroup>
       <BtnWrap>
-        <Link
-          to={"/main/main"}
-          className="btn btn-shadow bg-point rounded-2"
-          id="login"
-        >
+        <LoginBtnStyled bgPoint id="login">
           로그인
-        </Link>
+        </LoginBtnStyled>
       </BtnWrap>
       {props.tabOn == 0 ? <SnsLogin /> : ""}
     </div>

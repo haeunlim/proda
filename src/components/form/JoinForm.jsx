@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import BtnWrap from "@components/buttons/BtnWrap";
+import { BtnWrap } from "@components/buttons/BtnWrap";
 import InputEmailGroup, { InputAddressGroup, InputPhone } from "./Inputs";
 import InputGroup, { InputRow, InputWrap } from "./InputGroup";
-import Btn from "@components/buttons/Btn";
-import ContTtl from "@components/ttl/ContTtl";
 import styled from "styled-components";
 import AgreeList from "./AgreeList";
+import { FormTtl } from "@components/ttl/titleStyled";
+import { Button } from "@components/buttons/Buttons";
 
 const Error = styled.p`
   color: #ee0505;
@@ -38,11 +38,11 @@ const JoinForm = ({ tabOn }) => {
     <>
       <form onSubmit={handleSubmit}></form>
       <InputGroup>
-        <ContTtl>기본 정보 입력</ContTtl>
+        <FormTtl>기본 정보 입력</FormTtl>
         <InputWrap>
           <label htmlFor="">이메일*</label>
           <InputEmailGroup num={tabOn} holder="이메일을 입력해주세요." />
-          <Btn text="중복체크" btnName="middle line_black" />
+          <Button lineBlack>중복체크</Button>
         </InputWrap>
         <InputWrap>
           <label htmlFor="">이름*</label>
@@ -88,19 +88,17 @@ const JoinForm = ({ tabOn }) => {
         <InputWrap>
           <label htmlFor="">휴대폰 번호*</label>
           <InputPhone />
-          <Btn text="인증번호 전송" btnName="middle line_black" />
+          <Button lineBlack>인증번호 전송</Button>
         </InputWrap>
       </InputGroup>
       {tabOn == 1 ? <Corporation /> : ""}
       <InputGroup>
-        <ContTtl>약관동의</ContTtl>
+        <FormTtl>약관동의</FormTtl>
         <AgreeList />
       </InputGroup>
 
       <BtnWrap>
-        <Link to={"/main/main"} className="btn middle bg-point" id="login">
-          회원가입 완료
-        </Link>
+        <Button bgPoint>회원가입 완료</Button>
       </BtnWrap>
     </>
   );
@@ -141,11 +139,9 @@ function Corporation() {
           <label htmlFor="">사업자등록증 첨부*</label>
           <InputRow asideBtn>
             <input type="file" ref={fileRef} onChange={handleChange} />
-            <Btn
-              text="첨부하기"
-              onClick={handleButtonClick}
-              btnName="line_black"
-            />
+            <Button lineBlack onClick={handleButtonClick}>
+              첨부하기
+            </Button>
           </InputRow>
           <ul className="upload_wrap">
             <li>

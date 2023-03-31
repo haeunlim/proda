@@ -3,7 +3,9 @@ import React from "react";
 const ViewInfoTop = () => {
   return (
     <div className="view_info_top">
-      <h3>어나더베이비에서 애견미용사를 모시려 합니다</h3>
+      <h3 className="sect_ttl big">
+        어나더베이비에서 애견미용사를 모시려 합니다
+      </h3>
       <div className="item_info">
         <span className="com_name">어나더베이비</span>
         <span className="region">서울</span>

@@ -7,7 +7,7 @@ export const StarStyled = styled.button`
   width: 20px;
   height: 20px;
   background: url(${(props) => (props.on ? starImgOn : starImg)}) no-repeat
-    center;
+    center / cover;
 `;
 
 export default function StarBtn() {

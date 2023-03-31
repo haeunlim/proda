@@ -3,7 +3,7 @@ import React from "react";
 // import MainPage from "@pages/MainPage"
 
 import AboutPage from "@pages/about/Main";
-import RecruitmentPage from "@pages/recruitment/Main";
+import RecruitmentPage from "@pages/recruitment/RecruitmentMainPage";
 import SearchListPage from "@pages/search/SearchListPage";
 import AcademyListPage from "@pages/academy/AcademyListPage";
 

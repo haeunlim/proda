@@ -128,21 +128,7 @@
         }
         a,
         button {
-            font-weight: 600;
             background: #fff url(@img/ico/join_email.png) no-repeat left 20px center;
-        }
-
-        .join_naver_btn {
-            color: $white;
-            background-color: $naver-bg;
-            border-color: $naver-bg;
-            background-image: url(@img/ico/join_naver.png);
-        }
-        .join_kakao_btn {
-            background-color: $kakao-bg;
-            column-rule: $kakao-text;
-            border-color: $kakao-bg;
-            background-image: url(@img/ico/join_kakao.png);
         }
     }
 }

@@ -1,7 +1,7 @@
-import Btn from "@components/buttons/Btn";
 import React, { useState } from "react";
 import { InputRow } from "./InputGroup";
 import { useDaumPostcodePopup } from "react-daum-postcode";
+import { Button } from "@components/buttons/Buttons";
 
 export default function InputEmailGroup({ id, id2, id3, name, holder }) {
   const [state, setState] = useState(0);
@@ -104,7 +104,9 @@ export function InputAddressGroup({ id, name, id2, name2 }) {
     <>
       <InputRow asideBtn>
         <input type="text" id={id} name={name} />
-        <Btn text="주소찾기" btnName="line_black" onClick={handleClick} />
+        <Button lineBlack onClick={handleClick}>
+          주소찾기
+        </Button>
       </InputRow>
       <input type="text" id={id2} name={name2} />
     </>

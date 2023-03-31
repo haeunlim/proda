@@ -1,16 +1,54 @@
 import React from "react";
-import Btn from "@components/buttons/Btn";
-import { InputRow } from "@components/form/InputGroup";
-import BtnWrap from "@components/buttons/BtnWrap";
+import { BtnWrap } from "@components/buttons/BtnWrap";
+import { BtnBig } from "@components/buttons/Buttons";
+import SelectBox, { SelectBoxStyled } from "@components/form/SelectBox";
+import styled from "styled-components";
+const SearchWrap = styled.div`
+  border-top: solid 2px #252525;
+
+  ${SelectBoxStyled} {
+    width: 100%;
+    padding: 16px 20px;
+  }
+`;
+
+const Select = styled.select`
+  width: 100%;
+  max-width: 190px;
+  height: 48px;
+
+  & + select {
+    margin-left: 10px;
+  }
+`;
+
+const InputRow = styled.div`
+  display: flex;
+  align-items: center;
+  border-bottom: solid 1px #eee;
+  label {
+    width: 160px;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 0 20px;
+    flex: 0 0 auto;
+  }
+`;
+const SearchBtn = styled(BtnBig)`
+  width: 260px;
+`;
+const ResetBtn = styled(BtnBig)`
+  width: 100px;
+`;
 
 const searchForm = () => {
   return (
     <>
-      <div className="search_wrap">
+      <SearchWrap className="search_wrap">
         <InputRow>
           <label for="">거주지역</label>
-          <div className="select_box flex__c">
-            <select name="" id="">
+          <SelectBox>
+            <Select name="" id="">
               <option value="">시/도</option>
               <option value="">서울특별시</option>
               <option value="">부산광역시</option>
@@ -29,34 +67,34 @@ const searchForm = () => {
               <option value="">경상북도</option>
               <option value="">경상남도</option>
               <option value="">제주특별자치도</option>
-            </select>
-            <select name="" id="">
+            </Select>
+            <Select name="" id="">
               <option value="">시/군/구</option>
-            </select>
-          </div>
+            </Select>
+          </SelectBox>
         </InputRow>
         <InputRow>
           <label for="">직종 및 경력</label>
 
-          <div className="select_box flex__c">
-            <select name="" id="">
+          <SelectBox>
+            <Select name="" id="">
               <option value="">대분류</option>
-            </select>
+            </Select>
 
-            <select name="" id="">
+            <Select name="" id="">
               <option value="">중분류</option>
-            </select>
+            </Select>
 
-            <select name="" id="">
+            <Select name="" id="">
               <option value="">경력선택</option>
-            </select>
-          </div>
+            </Select>
+          </SelectBox>
         </InputRow>
-        <BtnWrap className="flex_c_c">
-          <Btn text="검색" btnName="bg-point mx-w260" />
-          <Btn text="초기화" btnName="mx-w100" />
+        <BtnWrap flexCenter>
+          <SearchBtn bgPoint>검색</SearchBtn>
+          <ResetBtn>초기화</ResetBtn>
         </BtnWrap>
-      </div>
+      </SearchWrap>
     </>
   );
 };

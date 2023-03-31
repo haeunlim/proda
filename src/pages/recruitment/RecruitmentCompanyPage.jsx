@@ -7,7 +7,7 @@ import CompanyPosition from "@components/recruitment/CompanyPosition";
 import CompanyIntroduce from "@components/recruitment/CompanyIntroduce";
 import ApplyPop from "@components/popup/ApplyPop";
 
-const RecruitmentCompany = () => {
+const RecruitmentCompanyPage = () => {
   const code = "recruitment";
   const category = "recruitment";
   const pageType = "company_container";
@@ -28,4 +28,4 @@ const RecruitmentCompany = () => {
   );
 };
 
-export default RecruitmentCompany;
+export default RecruitmentCompanyPage;

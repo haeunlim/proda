@@ -8,8 +8,9 @@ import ViewRight from "@components/recruitment/ViewRight";
 import ViewCarousel from "@components/carousel/RecruitmentViewCarousel";
 import RecruitmentList from "@components/list/RecruitmentList";
 import ApplyPop from "@components/popup/ApplyPop";
+import { SectTtl, SectTtlBox } from "@components/ttl/titleStyled";
 
-const View = () => {
+const RecruitmentViewPage = () => {
   const [preview, setPreview] = useState(false);
   const [sharePop, setSharePop] = useState(false);
   const code = "recruitment";
@@ -31,9 +32,9 @@ const View = () => {
         </section>
         <section className="more_sect">
           <div className="inner">
-            <div className="sect_ttl_box">
-              <h3 className="sect_ttl">박두병님, 이 포지션을 찾고 계셨나요?</h3>
-            </div>
+            <SectTtlBox>
+              <SectTtl>박두병님, 이 포지션을 찾고 계셨나요?</SectTtl>
+            </SectTtlBox>
             <RecruitmentList category={category} />
           </div>
         </section>
@@ -46,4 +47,4 @@ const View = () => {
   );
 };
 
-export default View;
+export default RecruitmentViewPage;

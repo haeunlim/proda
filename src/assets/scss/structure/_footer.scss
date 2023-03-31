@@ -25,59 +25,79 @@
             }
         }
 
-        .footer_link a {
-            display: inline-block;
-            color: #757575;
+        .footer_link {
+            a {
+                display: inline-block;
+                color: #757575;
 
-            & + a {
-                margin-left: 40px;
+                & + a {
+                    margin-left: 40px;
+                }
             }
-        }
-
-        .footer_link small {
-            opacity: 0.4;
-            margin-left: 1em;
+            small {
+                opacity: 0.4;
+                margin-left: 1em;
+            }
         }
     }
 
     .foot_info {
-        @include flexVal(flex, space-between, start, wrap);
+        @include flexVal(flex, space-between, start, nowrap);
         padding: 40px 0;
+        .left {
+            span {
+                white-space: nowrap;
+            }
 
-        span {
-            white-space: nowrap;
-        }
+            .address {
+                white-space: unset;
+            }
 
-        .address {
-            white-space: unset;
-        }
-
-        address {
-            color: #999999;
-            line-height: 1.75;
+            address {
+                color: #999999;
+                line-height: 1.75;
+            }
         }
 
         .sns_list {
             @include flexVal(flex, start, center, wrap);
+            a {
+                display: block;
+                width: 36px;
+                height: 36px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+                & + a {
+                    margin-left: 10px;
+                }
 
-            a + a {
-                margin-left: 10px;
+                &.insta {
+                    background-image: url("@img/common/foot_ico_01.png");
+                }
+
+                &.youtube {
+                    background-image: url("@img/common/foot_ico_02.png");
+                }
+
+                &.facebook {
+                    background-image: url("@img/common/foot_ico_03.png");
+                }
+
+                &.blog {
+                    background-image: url("@img/common/foot_ico_04.png");
+                }
+
+                &.apple {
+                    background-image: url("@img/common/foot_ico_05.png");
+                }
             }
         }
     }
 
     .copy {
         color: #666666;
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    #footer .foot_info {
-        display: block;
-    }
-
-    #footer .foot_info .sns_list {
-        margin-top: 30px;
+        margin-top: 40px;
     }
 }
 
@@ -120,86 +140,60 @@
         }
     }
 
+    // footer
     #footer {
-        padding-bottom: 3rem;
-        font-size: $f-fs-mo;
+        @include footStyle(0, 40px, 0.923rem);
+
+        border-top: 1px solid #dbdbdb;
 
         .foot_top {
-            padding: 0.7rem 0;
-            width: calc(100% + 2rem);
-            margin-left: -1rem;
+            display: block;
+            padding: 20px 0;
 
-            a {
-                line-height: 2;
-                font-size: 0.86666rem;
-                margin: 0 1rem;
+            .foot_logo {
+                display: block;
+                margin-right: 0;
+                margin-bottom: 1.333rem;
+                font-size: 1.1538rem;
+            }
+            .footer_link {
+                white-space: nowrap;
+                overflow-x: auto;
+                overflow-y: hidden;
+                a {
+                    font-size: 0.846rem;
 
-                & + a {
-                    margin-left: 1rem;
+                    & + a {
+                        margin-left: 1.538rem;
+                    }
+                }
+                small {
+                    opacity: 0.4;
+                    margin-left: 1em;
                 }
             }
         }
 
-        .foot_bottom {
-            padding: 2.6666rem 0 0;
-
-            .inner {
-                display: block;
-
-                .foot_info {
-                    .detail_info {
-                        margin-top: 1.4rem;
-
-                        p:first-of-type {
-                            display: flex;
-
-                            span:first-of-type {
-                                flex-shrink: 0;
-                            }
-                        }
-
-                        p:last-of-type {
-                            margin-top: 1.4rem;
-                        }
-                    }
-                }
-
-                .contact_info {
-                    margin-top: 2rem;
-
-                    p {
-                        font-size: 0.8rem;
-
-                        strong {
-                            font-size: 1rem;
-                        }
-
-                        &:nth-of-type(n + 3) {
-                            font-size: 0.8666rem;
-                            line-height: 1.75;
-                        }
-
-                        &:nth-of-type(3) {
-                            margin-top: 2rem;
-                        }
-                    }
-
-                    .contact_btn {
-                        margin-top: 1.333rem;
-                        font-size: 0.8rem;
-                        padding: 0 2.666rem 0 1.666rem;
-                        height: 2.666rem;
-                        line-height: 2.533rem;
-                        border-width: 0.0666rem;
-                        background-position: right 1.666rem center;
-                        background-size: 0.4666rem auto;
-
-                        & + a {
-                            margin-left: 1.266rem;
-                        }
-                    }
+        .foot_info {
+            flex-wrap: wrap;
+            padding: 20px 0 0;
+            .left {
+                address {
+                    line-height: 1.5;
                 }
             }
+
+            .sns_list {
+                margin-top: 2.307rem;
+                a {
+                    width: 2.77rem;
+                    height: 2.77rem;
+                }
+            }
+        }
+
+        .copy {
+            margin-top: 1.5384rem;
         }
     }
 }

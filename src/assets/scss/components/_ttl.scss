@@ -1,6 +1,28 @@
-.sect_ttl_box {
-    @include flexVal(flex, space-between, center, wrap);
-    margin: 0 auto 30px;
+.common_ttl_box {
+    margin-bottom: var(--mg-b);
+    &.mg-auto {
+        margin: 0 auto;
+    }
+}
+.main_ttl {
+    @extend %main-ttl;
+    line-height: 1.28;
+    font-weight: 900;
+}
+
+.main_ttl_bot {
+    @extend %main-ttl-bot;
+    color: #757575;
+    line-height: 1.5;
+    margin: 30px 0 80px;
+}
+.container_ttl {
+    @extend %container-ttl;
+    font-weight: 500;
+
+    &.big {
+        @extend %container-ttl-big;
+    }
 }
 
 .sect_ttl {
@@ -11,21 +33,36 @@
 
     &.big {
         @extend %sect-ttl-big;
+        font-weight: 500;
         margin-bottom: 40px;
     }
 }
 
-.sect_ttl2 {
-    @extend %sect-ttl2;
+.view_ttl {
+    @extend %view-ttl;
+    font-weight: 500;
     text-transform: uppercase;
 
     &.big {
-        @extend %sect-ttl2-big;
+        @extend %view-ttl-big;
         margin-bottom: 40px;
     }
 }
-.heading1 {
-    @extend %heading1;
+.write_ttl {
+    @extend %write-ttl;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.view_ttl {
+    @extend %view-ttl;
+    &.big {
+        @extend %view-ttl-big;
+    }
+}
+
+.form_ttl {
+    @extend %form-ttl;
 }
 
 .top_row {
@@ -35,18 +72,60 @@
     margin-bottom: 32px;
 }
 
-.mem_ttl_row {
-    text-align: center;
-    margin-bottom: 60px;
-    h2 {
-        font-size: 36px;
-        font-weight: 700;
-        font-family: "NanumSquare";
+.member_ttl {
+    @extend %member-ttl;
+    font-weight: 700;
+    font-family: "NanumSquare";
+}
+.member_ttl_bot {
+    @extend %member-ttl-bot;
+    line-height: 1.2;
+    color: #454545;
+    margin-top: 30px;
+}
+
+@include mobile {
+    .common_ttl_box {
+        margin-bottom: var(--mo-mg-b);
     }
-    p {
-        font-size: 18px;
-        line-height: 1.2;
-        color: #454545;
-        margin-top: 30px;
+
+    .main_ttl_box {
+        p {
+            margin: 1.923rem 0 2.6923rem;
+        }
+        button {
+            font-size: 1.0769rem;
+            height: 3.0769rem;
+            border-radius: 1.5384rem;
+            padding: 0 1.2142em;
+        }
+    }
+    .sect_ttl_box {
+        margin: 0 auto 1rem;
+    }
+    .container_ttl_row {
+        margin-bottom: 1.923rem;
+    }
+    .sect_ttl {
+        &.big {
+            margin-bottom: 20px;
+        }
+    }
+
+    .sect_ttl2 {
+        &.big {
+            margin-bottom: 20px;
+        }
+    }
+
+    .top_row {
+        margin-bottom: 32px;
+    }
+
+    .mem_ttl_row {
+        margin-bottom: 60px;
+        p {
+            margin-top: 30px;
+        }
     }
 }

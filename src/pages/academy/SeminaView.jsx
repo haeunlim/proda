@@ -3,9 +3,9 @@ import React from "react";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import Tab from "@components/tab/Tab";
-import Btn from "@components/buttons/Btn";
 import ViewImg from "@img/ex/view_ex.jpg";
 import ReturnBtn from "@components/buttons/ReturnBtn";
+import { BtnBig } from "@components/buttons/Buttons";
 
 const AcademyView = () => {
   const code = "academy";
@@ -51,7 +51,9 @@ const AcademyView = () => {
                   <a href="#" className="kakao"></a>
                   <a href="#" className="link"></a>
                 </div>
-                <Btn btnName="bigBtn bg-point rounded-2" text="등록신청" />
+                <BtnBig bgPoint className="rounded-2">
+                  등록신청
+                </BtnBig>
               </div>
             </div>
             <div className="view_content">

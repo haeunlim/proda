@@ -1,13 +1,5 @@
-.item_list {
-    @include flexVal(flex, start, start, wrap);
-    width: calc(100% + 20px);
-    margin-left: -10px;
-    margin-top: -40px;
-
+.recruitment_list {
     li {
-        width: calc(25% - 20px);
-        margin: 40px 10px 0 10px;
-
         figure {
             overflow: hidden;
             border-radius: 5px;
@@ -25,77 +17,35 @@
             object-fit: cover;
         }
     }
-}
 
-.item_info {
-    margin-top: 20px;
-    font-size: 15px;
+    .item_info {
+        margin-top: 20px;
+        font-size: 15px;
 
-    .com_name {
-        color: #999999;
-        margin-bottom: 10px;
-    }
-
-    .subject {
-        font-size: 18px;
-        line-height: 1.333;
-        font-weight: $fw-medium;
-        height: 2.666em;
-        width: 100%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        margin-bottom: 20px;
-    }
-
-    .category {
-        display: inline-block;
-        text-align: center;
-        border-radius: 3px;
-        padding: 0 8px;
-        line-height: 26px;
-        border: 1px solid #707e8e;
-        color: #707e8e;
-
-        &.red {
-            border-color: $red;
-            color: $red;
+        .com_name {
+            color: #999999;
+            margin-bottom: 10px;
         }
 
-        &.org {
-            border-color: $orange;
-            color: $orange;
-        }
-
-        &.blue {
-            border-color: $blue;
-            color: $blue;
-        }
-
-        &.purple {
-            border-color: $purple;
-            color: $purple;
-        }
-
-        &.green {
-            border-color: $green;
-            color: $green;
+        .subject {
+            font-size: 18px;
+            line-height: 1.333;
+            font-weight: $fw-medium;
+            height: 2.666em;
+            width: 100%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            margin-bottom: 20px;
         }
     }
 }
 
 .cardList {
-    @include flexVal(flex, start, center, wrap);
-    width: calc(100% + 20px);
-    margin-top: -10px;
-    margin-left: -10px;
-
     li {
         min-height: 150px;
-        width: calc(25% - 20px);
-        margin: 10px;
         border: 1px solid #dbdbdb;
         background-color: #fff;
         border-radius: 5px;
@@ -116,6 +66,7 @@
                 border-radius: 50%;
                 overflow: hidden;
                 margin-right: 20px;
+                flex-shrink: 0;
 
                 img {
                     width: 100%;
@@ -126,23 +77,22 @@
 
             .info_box {
                 h3 {
-                    font-size: 18px;
+                    font-size: 1.125rem;
+                    font-weight: 500;
                 }
+                p {
+                    margin-top: 8px;
+                    line-height: 1.2;
+                    &.name {
+                        color: #757575;
+                        font-size: 0.9375rem;
+                        margin-bottom: 15px;
+                    }
 
-                .name {
-                    font-size: 15px;
-                    color: #757575;
-                    margin-top: 10px;
-                }
-
-                .info {
-                    font-size: 16px;
-                    margin: 16px 0 10px;
-                }
-
-                .area {
-                    font-size: 14px;
-                    color: #999;
+                    &.area {
+                        color: #999;
+                        font-size: 0.875rem;
+                    }
                 }
             }
         }
@@ -291,33 +241,6 @@
     }
 }
 
-.sorting-searchBox {
-    position: relative;
-    flex-shrink: 0;
-    width: 100%;
-    max-width: 280px;
-    input {
-        width: 100%;
-    }
-}
-
-.list-top-row {
-    margin-bottom: 40px;
-    .list-count {
-        @extend %count-txt;
-        font-weight: 500;
-        span {
-            color: $point;
-        }
-    }
-
-    > div {
-        * + * {
-            margin-left: 10px;
-        }
-    }
-}
-
 // company photo list
 .company_intro_photo {
     --mg-x: 10px;
@@ -350,5 +273,96 @@
                 color: #fff;
             }
         }
+    }
+}
+
+@include mobile {
+    .recruitment_list {
+        li {
+            figure {
+                overflow: hidden;
+                border-radius: 5px;
+                position: relative;
+
+                width: 100%;
+                padding-top: 63.16%;
+            }
+
+            img {
+                @include positionCenter();
+
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .item_info {
+            font-size: 0.923rem;
+
+            .subject {
+                font-size: 1.0769rem;
+                margin-bottom: 1.0714em;
+            }
+        }
+    }
+
+    .cardList {
+        li {
+            min-height: auto;
+            border-radius: 2.5px;
+
+            a {
+                figure {
+                    width: 50px;
+                    height: 50px;
+                }
+
+                .info_box {
+                    h3 {
+                        font-size: 1.0769rem;
+                        font-weight: 500;
+                    }
+                    p {
+                        margin-top: 0.6153rem;
+                        &.name {
+                            font-size: 1rem;
+                            margin-bottom: 12px;
+                        }
+
+                        &.area {
+                            font-size: 0.923rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .list-top-row {
+        margin-bottom: 1.5384rem;
+        flex-wrap: wrap;
+
+        > div {
+            flex-wrap: wrap;
+            width: 100%;
+            * + * {
+                margin-left: 10px;
+            }
+
+            & + input,
+            & + select {
+                margin-top: 10px;
+            }
+        }
+        select {
+            max-width: none;
+            width: calc(50% - 5px);
+            flex-shrink: 0;
+        }
+    }
+
+    .mo_w_100 {
+        width: 100% !important;
     }
 }

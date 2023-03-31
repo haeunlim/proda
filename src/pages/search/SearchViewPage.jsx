@@ -6,10 +6,16 @@ import ResumeSubject from "@components/Resume/ResumeSubject";
 import ResumeRecommend from "@components/Resume/ResumeRecommend";
 import ResumeProfile from "@components/Resume/ResumeProfile";
 import ResumeBox from "@components/Resume/ResumeBox";
-import Btn from "@components/buttons/Btn";
-import RowList from "@components/list/RowList";
+import RowList from "@components/list/SeminaList";
 import Popup from "@components/popup/Popup";
 import Table from "@components/Resume/Table";
+import { BtnWrap } from "@components/buttons/BtnWrap";
+import { ResumeBtn } from "@components/buttons/ResumeBtns";
+import styled from "styled-components";
+
+export const ResumeAloneBtnWrap = styled(BtnWrap)`
+  margin-top: 20px;
+`;
 
 const SearchViewPage = () => {
   const code = "search_container";
@@ -35,7 +41,7 @@ const SearchViewPage = () => {
         <section className="view_resume_sect">
           <div className="inner">
             <ResumeSubject />
-            <ResumeRecommend onEvent={hadlePopOpen} />
+            <ResumeRecommend onClick={hadlePopOpen} />
             <div className="sv_view_wrap">
               <ResumeProfile login={login} />
               <ResumeBox label="회사소개">
@@ -86,9 +92,11 @@ const SearchViewPage = () => {
                             확인 할 수 있습니다.
                           </p>
                         </div>
-                        <div className="btn_wrap flex_c_c">
-                          <Btn text="경력사항 확인하기" btnName="bg-blue3" />
-                        </div>
+                        <ResumeAloneBtnWrap>
+                          <ResumeBtn lack alone bgBlue>
+                            경력사항 확인하기
+                          </ResumeBtn>
+                        </ResumeAloneBtnWrap>
                       </>
                     )}
                   </div>
@@ -128,27 +136,25 @@ const SearchViewPage = () => {
                           작성한 총 <span>500</span> 내용 중 일부만 발췌한
                           것입니다.
                         </p>
-                        <div className="btn_wrap flex_c_c">
-                          <Btn btnName="bg-blue3" text="전체내용 확인하기" />
-                        </div>
                       </div>
                     </>
                   ) : (
-                    <>
-                      <div className="log_top">
-                        <p className="sv_guide">
-                          김 ○○님은 <b> 501자의 자기소개서</b>를 작성하였습니다.
-                        </p>
-                        <p className="disc">
-                          이력서 열람 상품을 이용하시면, 경력 사항 전체 내용을
-                          확인 할 수 있습니다.
-                        </p>
-                      </div>
-                      <div className="btn_wrap flex_c_c">
-                        <Btn text="전체내용 확인하기" btnName="bg-blue3" />
-                      </div>
-                    </>
+                    <div className="log_top">
+                      <p className="sv_guide">
+                        김 ○○님은 <b> 501자의 자기소개서</b>를 작성하였습니다.
+                      </p>
+                      <p className="disc">
+                        이력서 열람 상품을 이용하시면, 경력 사항 전체 내용을
+                        확인 할 수 있습니다.
+                      </p>
+                    </div>
                   )}
+
+                  <ResumeAloneBtnWrap>
+                    <ResumeBtn lack alone bgBlue>
+                      전체내용 확인하기
+                    </ResumeBtn>
+                  </ResumeAloneBtnWrap>
                 </div>
               </ResumeBox>
               <ResumeBox label="희망근무조건">
@@ -174,7 +180,6 @@ const SearchViewPage = () => {
                 <p>작성자 : 김 ○○</p>
                 <div className="check_guide">
                   <p>
-                    {" "}
                     이 이력서는 2022년 03월 25일 (금)에 최종 업데이트된 이력서
                     입니다. 위조된 문서를 등록하여 취업활동에 이용 시 법적
                     책임을 지게 될 수 있습니다.
@@ -191,7 +196,7 @@ const SearchViewPage = () => {
                 </div>
               </div>
             </div>
-            <ResumeRecommend onEvent={hadlePopOpen} />
+            <ResumeRecommend onClick={hadlePopOpen} />
           </div>
         </section>
         <section className="search_list_sect">
