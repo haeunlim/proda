@@ -146,8 +146,10 @@
             border-radius: 5px;
             overflow: hidden;
             margin-right: 20px;
+            flex-shrink: 0;
 
             .item_thumb {
+                background: no-repeat center / cover;
                 display: block;
                 width: 100%;
                 padding-top: 66.67%;
@@ -157,12 +159,6 @@
         .item_info_wrap {
             width: calc(100% - 200px);
 
-            .subject {
-                display: block;
-                font-size: 20px;
-                font-weight: 500;
-                line-height: 1.2;
-            }
             .date_info {
                 color: #999;
                 margin-top: 10px;
@@ -173,29 +169,29 @@
         }
     }
 }
+
 .profile_list {
     li {
         padding: 30px 0;
-        figure {
-            display: flex;
-            align-items: center;
-            width: 51.6656%;
 
-            .profile {
-                width: 60px;
-                height: 60px;
-                background-image: url(@img/sub/profile_bg.jpg);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
-                border-radius: 50%;
-                overflow: hidden;
-                flex: 0 0 auto;
-                border: solid 1px #eee;
-                margin-right: 20px;
-            }
-            figcaption {
-                width: calc(100% - 80px);
+        .profile {
+            width: 60px;
+            height: 60px;
+            background-image: url(@img/sub/profile_bg.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            border-radius: 50%;
+            overflow: hidden;
+            flex: 0 0 auto;
+            border: solid 1px #eee;
+            margin-right: 20px;
+        }
+        .text_box {
+            width: calc(100% - 80px);
+
+            .subject_info {
+                width: 51.6656%;
                 text-align: left;
 
                 .subject {
@@ -211,31 +207,31 @@
                         color: #757575;
                         & + span::before {
                             content: "/";
-                            font-size: 15px;
+                            font-size: inherit;
                             color: #757575;
                             line-height: 1.2;
                         }
                     }
                 }
             }
-        }
-        > div {
-            text-align: center;
-            &.job {
-                width: 16.667%;
-            }
-            &.reg {
-                font-size: 14px;
-                width: 15.334%;
-                color: #999;
-            }
-            &.time {
-                font-size: 14px;
-                width: 9.1667%;
-                color: #999;
-            }
-            &.star_wrap {
-                width: 7.1667%;
+            > div {
+                text-align: center;
+                &.job {
+                    width: 16.667%;
+                }
+                &.reg {
+                    font-size: 14px;
+                    width: 15.334%;
+                    color: #999;
+                }
+                &.time {
+                    font-size: 14px;
+                    width: 9.1667%;
+                    color: #999;
+                }
+                &.star_wrap {
+                    width: 7.1667%;
+                }
             }
         }
     }
@@ -277,6 +273,10 @@
 }
 
 @include mobile {
+    .mo_w_100 {
+        width: 100% !important;
+    }
+
     .recruitment_list {
         li {
             figure {
@@ -339,30 +339,105 @@
         }
     }
 
-    .list-top-row {
-        margin-bottom: 1.5384rem;
-        flex-wrap: wrap;
+    .rowList {
+        border-top: solid 2px #252525;
 
-        > div {
-            flex-wrap: wrap;
-            width: 100%;
-            * + * {
-                margin-left: 10px;
-            }
-
-            & + input,
-            & + select {
-                margin-top: 10px;
+        li {
+            align-items: start;
+            .subject {
+                font-size: 1.1538rem;
             }
         }
-        select {
-            max-width: none;
-            width: calc(50% - 5px);
-            flex-shrink: 0;
+    }
+    .academy_list {
+        li {
+            padding: 1.5384rem 0;
+
+            &.done {
+                .item_thumb_box {
+                    .item_thumb {
+                        filter: grayscale(100%);
+                    }
+                }
+            }
+
+            .item_thumb_box {
+                width: 9.2307rem;
+                border-radius: 0.1923rem;
+                margin-right: 1.1538rem;
+
+                .item_thumb {
+                    display: block;
+                    width: 100%;
+                    padding-top: 66.67%;
+                }
+            }
+
+            .item_info_wrap {
+                width: calc(100% - 10.3846rem);
+
+                .date_info {
+                    color: #999;
+                    margin-top: 10px;
+                }
+                .tag_box {
+                    margin-top: 0.7692rem;
+                }
+            }
         }
     }
 
-    .mo_w_100 {
-        width: 100% !important;
+    .profile_list {
+        li {
+            padding: 1.3846rem 0;
+
+            .profile {
+                width: 3.846rem;
+                height: 3.846rem;
+                margin-right: 1.15384rem;
+            }
+            .text_box {
+                width: calc(100% - 5rem);
+                display: block;
+
+                .subject_info {
+                    margin-bottom: 0.846rem;
+                    .subject {
+                        font-size: 1.0769rem;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        white-space: normal;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                        max-height: 3em;
+                        line-height: 1.5;
+                    }
+                    .info_txt {
+                        margin-top: 0.5384rem;
+                        display: flex;
+                        span {
+                            font-size: 0.923rem;
+                            color: #757575;
+                        }
+                    }
+                }
+                > div {
+                    width: 100% !important;
+                    text-align: left;
+                    & + * {
+                        margin-top: 0.5384rem;
+                    }
+                    &.reg {
+                        font-size: 0.923rem;
+                    }
+                    &.time {
+                        font-size: 0.923rem;
+                    }
+                    &.star_wrap {
+                        margin-top: 0.846rem;
+                    }
+                }
+            }
+        }
     }
 }

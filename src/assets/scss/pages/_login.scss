@@ -122,19 +122,99 @@
         margin-top: 40px;
         justify-content: center;
     }
-    .how_join_wrap {
-        > * + * {
-            margin-top: 20px;
-        }
-        a,
-        button {
-            background: #fff url(@img/ico/join_email.png) no-repeat left 20px center;
-        }
-    }
 }
 .msg_box {
     p {
         font-size: 13px;
         line-height: 1.69;
+    }
+}
+
+@include mobile {
+    /* 로그인/멤버 공통 */
+    #container.login {
+        .login_wrap {
+            margin-top: 1.1538rem;
+            .check_point {
+                margin-top: 1.1538rem;
+            }
+        }
+    }
+
+    .sns_login {
+        margin-top: 2.3076rem;
+        .login_ttl {
+            font-size: 1.0769rem;
+        }
+    }
+    .sns_btn_wrap {
+        margin-top: 2.3076rem;
+
+        button {
+            width: 3.4615rem;
+            height: 3.4615rem;
+
+            & + button {
+                margin-left: 1.1538rem;
+            }
+        }
+    }
+    .login_help_row {
+        display: flex;
+        li {
+            & + li {
+                position: relative;
+                margin-left: 0.3846rem;
+                padding-left: 0.5rem;
+                &::before {
+                    content: "|";
+                    font-size: 10px;
+                    color: #ddd;
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-60%);
+                    left: 0;
+                }
+            }
+            span {
+                color: #ddd;
+                margin: 0 0.3846rem;
+            }
+            a {
+                display: block;
+                color: #454545;
+
+                b {
+                    color: #252525;
+                }
+            }
+        }
+    }
+    .find_account {
+        .input_group {
+            & + .input_group {
+                margin-top: 2.30769rem;
+            }
+        }
+    }
+    // find
+    .find_txt {
+        margin: 1.923rem 0;
+        p {
+            line-height: 1.538;
+        }
+    }
+    // join
+
+    .join {
+        .login_help_row {
+            margin-top: 2.6923rem;
+        }
+    }
+    .msg_box {
+        p {
+            font-size: 0.8461rem;
+            line-height: 1.636;
+        }
     }
 }

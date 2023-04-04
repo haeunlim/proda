@@ -149,7 +149,7 @@ $prefix: $variable-prefix !default;
 $input-padding: 0 12px;
 
 $form-control-height-pc: 48px;
-$form-control-height-mo: 40px;
+$form-control-height-mo: 3.0769rem;
 
 %form-control {
     height: $form-control-height-pc;

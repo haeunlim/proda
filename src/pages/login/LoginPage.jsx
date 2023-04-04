@@ -19,11 +19,10 @@ const LoginPage = () => {
   return (
     <>
       <Header />
-
       <div id="container" className={`sub ${code} ${category}`}>
         <div className="inner">
           <MemberTtlBox>
-            <MemberTtl>{title}</MemberTtl>
+            <MemberTtl big>{title}</MemberTtl>
             <MemberTtlBot>{text}</MemberTtlBot>
           </MemberTtlBox>
           <MemberTab

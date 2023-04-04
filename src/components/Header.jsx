@@ -12,7 +12,7 @@ import SearchPop from "./header/SearchPop";
 import AllMenu from "./header/AllMenu";
 import Gnb from "./header/Gnb";
 import UtillMenu, { HamBtn } from "./header/UtillMenu";
-import SearchBtn from "./header/SearchBtn";
+import { SearchBtn } from "./header/SearchBtn";
 
 const HeaderElement = ({ children, bgChange, allMenuOn, searchOn }) => {
   return (
@@ -82,11 +82,19 @@ const Header = () => {
             </nav>
           </Pc>
           <RightMenu className="flex__c">
-            <Pc>
-              <UtillMenu login={login} logoutOnClick={() => setLogin(false)} />
-            </Pc>
+            {!allMenuOn && (
+              <>
+                <UtillMenu
+                  login={login}
+                  logoutOnClick={() => setLogin(false)}
+                />
 
-            {!allMenuOn && <SearchBtn onClick={() => setSearchOn(!searchOn)} />}
+                <SearchBtn
+                  onClick={() => setSearchOn(!searchOn)}
+                  active={searchOn}
+                />
+              </>
+            )}
             <Mobile>
               <HamBtn
                 onClick={() => {

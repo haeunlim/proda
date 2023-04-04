@@ -6,6 +6,7 @@ import Tab from "@components/tab/Tab";
 import ChoiceCarousel from "@components/carousel/ChoiceCarousel";
 import SeminaList from "@components/list/SeminaList";
 import ListSorting from "@components/list/ListSorting";
+import { ContainerTtl, ContainerTtlBox } from "@components/ttl/titleStyled";
 
 const SeminaListPage = () => {
   const code = "academy";
@@ -24,7 +25,11 @@ const SeminaListPage = () => {
         </section>
         <section className="list_sect">
           <div className="inner">
-            <h3 className="sect_ttl big">세미나</h3>
+            <ContainerTtlBox big>
+              <ContainerTtl big notoSans>
+                세미나
+              </ContainerTtl>
+            </ContainerTtlBox>
             <ListSorting category={category} />
             <SeminaList />
           </div>

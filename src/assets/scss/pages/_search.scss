@@ -1,28 +1,19 @@
-.sub {
-    &.search_container {
-        padding-bottom: 0;
-    }
-}
-
-.top_pro {
-    margin-top: 80px;
-    padding: 84px 0 110px;
-    background: $bg-fafa;
-}
-
-.search_list_sect {
-    padding-top: 65px;
-    .list-top-row {
-        margin-bottom: 10px;
-        > div {
-            width: calc(100% - 300px);
-            justify-content: flex-end;
-        }
-    }
-}
-
 /* 서치뷰 */
 .search_container {
+    section {
+        padding: 80px 0;
+        &.semina_select_sect {
+            padding-top: 0;
+        }
+        &.top_pro {
+            padding-bottom: 110px;
+            background: $bg-fafa;
+        }
+        &:last-of-type {
+            padding-bottom: 0;
+        }
+    }
+
     .pop_wrap {
         max-width: 480px;
 
@@ -293,67 +284,14 @@
 /* 서치뷰 */
 
 @include mobile {
-    .sub {
-        &.search_container {
-            .search_wrap {
-                border-width: 1.5px;
-
-                .input_row {
-                    display: block;
-                    padding: 0.384rem 0;
-                    label {
-                        width: 100%;
-                        font-size: 1.1538rem;
-                        padding: 1.1538rem 0;
-                    }
-                }
-                .search {
-                    width: calc(100% - 115px);
-                }
-                .reset {
-                    width: 105px;
-                }
-            }
-        }
-    }
-    .select_box {
-        width: 100%;
-        padding: 0 0 1.1538rem 0;
-        flex-wrap: wrap;
-
-        select {
-            max-width: none;
-            width: calc(50% - 5px);
-            height: 40px;
-
-            & + select {
-                margin-left: 10px;
-            }
-            &:nth-of-type(n + 3) {
-                margin-left: 0;
-                width: 100%;
-                margin-top: 10px;
-            }
-        }
-    }
-    .top_pro {
-        margin-top: 3.0769rem;
-        padding: 3.0769rem 0;
-    }
-
-    .search_list_sect {
-        padding-top: 3.0769rem;
-        .list-top-row {
-            margin-bottom: 1.1538rem;
-            > div {
-                width: calc(100% - 300px);
-                justify-content: flex-end;
-            }
-        }
-    }
-
     /* 서치뷰 */
     .search_container {
+        section {
+            padding: 3.0769rem 0;
+            &.top_pro {
+                padding-bottom: 3.0769rem;
+            }
+        }
         .pop_wrap {
             max-width: 480px;
 

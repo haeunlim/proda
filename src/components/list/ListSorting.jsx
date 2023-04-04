@@ -1,24 +1,22 @@
-import SelectBox, { SelectBoxStyled } from "@components/form/SelectBox";
+import { SelectBox, Select } from "@components/form/SelectBox";
 import React from "react";
 import TotalNum from "./TotalNum";
 import styled from "styled-components";
 
 const ListTopRow = styled.div`
   margin-bottom: 10px;
-  ${SelectBoxStyled} {
+  ${SelectBox} {
     width: calc(100% - 300px);
     justify-content: flex-end;
+    margin-top: 15px;
+    ${Select} {
+      max-width: 140px;
+    }
   }
 
-  @media ${props}=>;
-`;
-const Select = styled.select`
-  max-width: 140px;
-  width: 100%;
-  flex-shrink: 0;
-  & + * {
-    margin-left: 10px;
-  }
+  @media ${(props) => props.theme.mobile} {
+    margin-bottom: 1.1538rem;
+  } ;
 `;
 const SortingSearchBox = styled.div`
   position: relative;
@@ -60,9 +58,11 @@ const ListSorting = ({ category }) => {
           </SelectBox>
         )}
         {category == "semina" || category == "recruitment" ? (
-          <Select name="" id="" className="mo_w_100">
-            <option value="">최신순</option>
-          </Select>
+          <SelectBox>
+            <Select name="" id="" className="mo_w_100">
+              <option value="">최신순</option>
+            </Select>
+          </SelectBox>
         ) : (
           <SelectBox>
             <Select name="" id="">

@@ -6,6 +6,10 @@ const MoreBtn = styled.button`
   display: inline-block;
   font-size: 13px;
   color: ${(props) => (props.gray ? `#999` : `#0a62c2`)};
+
+  @media ${(props) => props.theme.mobile} {
+    font-size: 0.846rem;
+  }
 `;
 
 export default function AgreeList() {

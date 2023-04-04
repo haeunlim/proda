@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import mypageBoxBg from "@img/sub/msg_box188x148.png";
+import mypageBoxBgmo from "@img/sub/msg_box236x245.png";
 import { Mobile, Pc } from "@components/Responsive";
 import { useNavigate } from "react-router-dom";
-import NotificationBtn from "./NotificationBtn";
+import { NotifiBtn } from "./NotificationBtn";
 const MypageBox = styled.div`
   position: relative;
   button {
@@ -20,7 +21,7 @@ const MypageTab = styled.div`
   right: -20px;
   width: 188px;
   height: 148px;
-  background: url(${mypageBoxBg}) no-repeat center center;
+  background: url(${mypageBoxBg}) no-repeat center center / cover;
   color: #252525;
   li {
     &:first-of-type a {
@@ -29,6 +30,12 @@ const MypageTab = styled.div`
     & + li {
       margin-top: 15px;
     }
+  }
+  @media ${(props) => props.theme.mobile} {
+    width: 118px;
+
+    height: 130px;
+    background-image: url(${mypageBoxBgmo});
   }
 `;
 export const HamBtnStyled = styled.button`
@@ -67,17 +74,17 @@ export function LogoutBtn({ onClick }) {
   );
 }
 
-export function MypageBtn() {
+export function MypageBtn({ InAllMenu }) {
   const [mypageTabShow, setMypageTabShow] = useState();
   const navigate = useNavigate();
+  console.log(InAllMenu);
   return (
     <>
-      <Mobile>
+      {InAllMenu ? (
         <button type="button" onClick={() => navigate("/mypage/main")}>
           마이페이지
         </button>
-      </Mobile>
-      <Pc>
+      ) : (
         <MypageBox>
           <button
             type="button"
@@ -100,26 +107,40 @@ export function MypageBtn() {
             </MypageTab>
           )}
         </MypageBox>
-      </Pc>
+      )}
     </>
   );
 }
 
-export default function UtillMenu({ login, logoutOnClick }) {
+export default function UtillMenu({ login, logoutOnClick, InAllMenu }) {
   return (
     <>
-      {login ? (
+      {InAllMenu ? (
+        login ? (
+          <>
+            <LogoutBtn onClick={logoutOnClick} />
+            <MypageBtn InAllMenu={InAllMenu} />
+          </>
+        ) : (
+          <>
+            <LoginBtn />
+            <JoinBtn />
+          </>
+        )
+      ) : login ? (
         <>
-          <LogoutBtn onClick={logoutOnClick} />
-          <MypageBtn />
           <Pc>
-            <NotificationBtn />
+            <LogoutBtn onClick={logoutOnClick} />
           </Pc>
+          <MypageBtn InAllMenu={InAllMenu} />
+          <NotifiBtn active={true} />
         </>
       ) : (
         <>
-          <LoginBtn />
-          <JoinBtn />
+          <Pc>
+            <LoginBtn />
+            <JoinBtn />
+          </Pc>
         </>
       )}
     </>

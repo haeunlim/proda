@@ -7,7 +7,45 @@ import styled from "styled-components";
 import AgreeList from "./AgreeList";
 import { FormTtl } from "@components/ttl/titleStyled";
 import { Button } from "@components/buttons/Buttons";
+import delIco from "@img/ico/delete_btn.png";
 
+const DelBtn = styled.button`
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background: url(${delIco}) no-repeat center center / 10px;
+  @media ${(props) => props.theme.mobile} {
+    width: 2.8846rem;
+    height: 2.8846rem;
+  }
+`;
+const UploadWrap = styled.div`
+  li {
+    background-color: #fafafa;
+    display: flex;
+    align-item: center;
+    padding-left: 10px;
+    & + li {
+      margin-top: 4px;
+    }
+    a {
+      line-height: 30px;
+      font-size: 13px;
+    }
+  }
+  @media ${(props) => props.theme.mobile} {
+    li {
+      justify-content: space-between;
+      & + li {
+        margin-top: 10px;
+      }
+      a {
+        font-size: 0.8461rem;
+        line-height: 2.8846rem;
+      }
+    }
+  }
+`;
 const Error = styled.p`
   color: #ee0505;
 `;
@@ -34,14 +72,15 @@ const JoinForm = ({ tabOn }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+  console.log(tabOn);
   return (
     <>
       <form onSubmit={handleSubmit}></form>
       <InputGroup>
-        <FormTtl>기본 정보 입력</FormTtl>
+        <FormTtl>{tabOn == 0 ? "기본 정보 입력" : "관리자 정보 입력"}</FormTtl>
         <InputWrap>
           <label htmlFor="">이메일*</label>
-          <InputEmailGroup num={tabOn} holder="이메일을 입력해주세요." />
+          <InputEmailGroup num={tabOn} />
           <Button lineBlack>중복체크</Button>
         </InputWrap>
         <InputWrap>
@@ -116,7 +155,7 @@ function Corporation() {
   return (
     <>
       <InputGroup>
-        <ContTtl>회사 정보 입력</ContTtl>
+        <FormTtl>회사 정보 입력</FormTtl>
         <InputWrap>
           <label htmlFor="">회사명*</label>
           <input type="text" />
@@ -138,17 +177,35 @@ function Corporation() {
         <InputWrap>
           <label htmlFor="">사업자등록증 첨부*</label>
           <InputRow asideBtn>
-            <input type="file" ref={fileRef} onChange={handleChange} />
+            <input
+              type="file"
+              ref={fileRef}
+              id="fileUpload"
+              onChange={handleChange}
+            />
+            <label htmlFor="fileUpload"></label>
             <Button lineBlack onClick={handleButtonClick}>
               첨부하기
             </Button>
           </InputRow>
-          <ul className="upload_wrap">
+          <UploadWrap className="upload_wrap">
             <li>
               <a href="#!">프로다_사업자등록증_사본.jpg</a>
-              <button type="button"></button>
+              <DelBtn></DelBtn>
             </li>
-          </ul>
+            <li>
+              <a href="#!">프로다_사업자등록증_사본.jpg</a>
+              <DelBtn></DelBtn>
+            </li>
+            <li>
+              <a href="#!">프로다_사업자등록증_사본.jpg</a>
+              <DelBtn></DelBtn>
+            </li>
+            <li>
+              <a href="#!">프로다_사업자등록증_사본.jpg</a>
+              <DelBtn></DelBtn>
+            </li>
+          </UploadWrap>
         </InputWrap>
       </InputGroup>
     </>

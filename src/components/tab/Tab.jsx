@@ -1,41 +1,76 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import styled, { css } from "styled-components";
 
-function Academy(props) {
-  const location = useLocation();
-  const tabs = [];
-  for (let i = 0; i < props.topics.length; i++) {
-    let t = props.topics[i];
-    tabs.push(
-      <Link
-        key={t.id}
-        to={`/academy/` + t.link}
-        className={`${
-          location.pathname.includes("/academy/" + t.link) ? "active" : ""
-        }`}
-      >
-        {t.title}
-      </Link>
-    );
+const CategoryWrap = styled.div`
+  display: flex;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+  &::-webkit-scrollbar {
+    display: none;
   }
+
+  @media ${(props) => props.theme.mobile} {
+    width: calc(100% + 15px);
+  }
+`;
+const Category = styled(Link)`
+  width: 100%;
+  max-width: 90px;
+  color: var(--bs-gray);
+  line-height: 38px;
+  border-radius: 20px;
+  text-align: center;
+  flex: 0 0 auto;
+  border: solid 1px var(--bs-gray-200);
+  ${(props) =>
+    props.active &&
+    css`
+      color: #fff;
+      background: var(--bs-point);
+      border-color: var(--bs-point);
+    `}
+  & + a {
+    margin-left: 10px;
+  }
+  @media ${(props) => props.theme.mobile} {
+    max-width: 5.6538rem;
+    height: 2.6923rem;
+    line-height: 2.6153rem;
+
+    & + a {
+      margin-left: 0.538rem;
+    }
+  }
+`;
+const Tab = () => {
+  const location = useLocation();
+  const data = [
+    { title: "세미나", link: "semina" },
+    { title: "취업꿀팁", link: "good_tip" },
+    { title: "일상", link: "daily" },
+    { title: "공지사항", link: "notice" },
+    { title: "취업고민", link: "comunity" },
+  ];
 
   return (
     <>
-      <div className="category_top">{tabs}</div>
+      <CategoryWrap>
+        {data.map((item, index) => (
+          <Category
+            key={index}
+            to={`/academy/` + item.link}
+            active={
+              location.pathname.includes("/academy/" + item.link) && "true"
+            }
+          >
+            {item.title}
+          </Category>
+        ))}
+      </CategoryWrap>
     </>
   );
-}
-
-const Tab = ({ code }) => {
-  const academyTp = [
-    { id: 1, title: "세미나", link: "semina" },
-    { id: 2, title: "취업꿀팁", link: "good_tip" },
-    { id: 3, title: "일상", link: "daily" },
-    { id: 4, title: "공지사항", link: "notice" },
-    { id: 5, title: "취업고민", link: "comunity" },
-  ];
-
-  return <>{(code = "academy" ? <Academy topics={academyTp} /> : "")}</>;
 };
 
 export default Tab;

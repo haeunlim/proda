@@ -9,7 +9,10 @@ export const CommonTtlBox = styled.div`
 
 export const MemberTtlBox = styled(CommonTtlBox)`
   margin-bottom: 60px;
+  text-align: center;
+
   @media ${(props) => props.theme.mobile} {
+    margin-bottom: 2.6923rem;
   }
 `;
 
@@ -35,23 +38,22 @@ export const MainTtlBot = styled.p`
 `;
 
 export const ContainerTtlBox = styled(CommonTtlBox)`
-  margin-bottom: 40px;
+  margin-bottom: ${(props) => (props.big ? "70px" : "40px")};
+
   @media ${(props) => props.theme.mobile} {
-    margin-bottom: 1.923rem;
+    margin-bottom: ${(props) => (props.big ? "3.0769rem" : "1.923rem")};
   }
 `;
 export const ContainerTtl = styled.h2`
-  font-family: "NanumSquare", sans-reif;
-  font-size: 1.875rem;
+  font-family: ${(props) => (props.notoSans ? "Noto Sans KR" : "NanumSquare")},
+    sans-serif;
+  font-size: ${(props) => (props.big ? "2.375rem" : "1.875rem")};
   line-height: 1.4782;
   text-align: inherit;
-  font-weight: 600;
+  font-weight: ${(props) => (props.notoSans ? "500" : "600")};
 
-  &.big {
-    font-size: 2.375rem;
-  }
   @media ${(props) => props.theme.mobile} {
-    font-size: 1.76923rem;
+    font-size: ${(props) => (props.big ? "1.8461rem" : "1.76923rem")};
   }
 `;
 export const SectTtlBox = styled(CommonTtlBox)`
@@ -61,25 +63,16 @@ export const SectTtlBox = styled(CommonTtlBox)`
   }
 `;
 export const SectTtl = styled.h3`
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: ${(props) => (props.big ? " 1.625rem" : " 1.5rem")};
+  font-weight: ${(props) => (props.big ? "600" : " 500")};
 
-  text-transform: uppercase;
-
-  &.big {
-    font-size: 1.625rem;
-    margin-bottom: 40px;
-  }
   @media ${(props) => props.theme.mobile} {
-    font-size: 1.3076rem;
+    font-size: ${(props) => (props.big ? "1.3846" : "1.3076rem")};
   }
 `;
 
 export const ViewTtl = styled.h3`
-  font-size: 1.625rem;
-  &.big {
-    font-size: 1.75rem;
-  }
+  font-size: ${(props) => (props.big ? "  1.75rem" : " 1.625rem")};
   @media ${(props) => props.theme.mobile} {
   }
 `;
@@ -92,10 +85,12 @@ export const WriteTtl = styled.h3`
 `;
 
 export const MemberTtl = styled.h3`
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: ${(props) => (props.big ? "2.25rem" : "2rem")};
+  font-weight: 600;
+  font-family: "NanumSquare", sans-serif;
   text-transform: uppercase;
   @media ${(props) => props.theme.mobile} {
+    font-size: 1.7692rem;
   }
 `;
 export const MemberTtlBot = styled.p`
@@ -104,11 +99,15 @@ export const MemberTtlBot = styled.p`
   color: #454545;
   margin-top: 30px;
   @media ${(props) => props.theme.mobile} {
+    font-size: 1.0769rem;
+    margin-top: 1.538rem;
   }
 `;
 
 export const FormTtl = styled.h4`
   font-size: 1.375rem;
+  font-weight: 500;
   @media ${(props) => props.theme.mobile} {
+    font-size: 1.2307rem;
   }
 `;

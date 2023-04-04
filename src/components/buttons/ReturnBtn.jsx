@@ -7,7 +7,10 @@ const ReturnBtnStyled = styled(BtnBig2)`
 `;
 const MoreBtnStyled = styled(BtnBig2)`
   max-width: 300px;
-  border-radius: 30px;
+
+  @media ${(props) => props.theme.mobile} {
+    max-width: 17.307rem;
+  }
 `;
 
 export default function ReturnBtn({ children }) {
@@ -19,10 +22,10 @@ export default function ReturnBtn({ children }) {
     </>
   );
 }
-export function MoreBtn({ children }) {
+export function MoreBtn({ onClick }) {
   return (
     <>
-      <MoreBtnStyled>{children}</MoreBtnStyled>
+      <MoreBtnStyled onClick={onClick}>더보기</MoreBtnStyled>
     </>
   );
 }

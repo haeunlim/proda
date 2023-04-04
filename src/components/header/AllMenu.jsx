@@ -157,7 +157,11 @@ export default function AllMenu({
   return (
     <AllMenuWrap>
       <AllMenuTop>
-        <UtillMenu login={login} logoutOnClick={logoutOnClick} />
+        <UtillMenu
+          login={login}
+          logoutOnClick={logoutOnClick}
+          InAllMenu={true}
+        />
       </AllMenuTop>
       <Nav>
         <ul>

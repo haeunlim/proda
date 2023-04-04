@@ -48,7 +48,7 @@ export default function FindForm(props) {
         </div>
         <InputGroup>
           <InputWrap>
-            <InputRow>
+            <InputRow radioRow>
               <div className="radio_box">
                 <input
                   type="radio"
@@ -69,14 +69,16 @@ export default function FindForm(props) {
                 <label htmlFor="get_email">이메일로 받기</label>
               </div>
             </InputRow>
-            <input type="text" placeholder="이름을 입력해주세요." />
+            <InputRow>
+              <input type="text" placeholder="이름을 입력해주세요." />
+            </InputRow>
             {phone ? (
               <InputPhone num="_find1" />
             ) : (
               <InputEmailGroup num="_find2" holder="이메일" />
             )}
             <Button lineBlack>인증번호 전송</Button>
-            <Button bgPoint>이메일 확인</Button>
+            <Button bgPoint>비밀번호 찾기</Button>
           </InputWrap>
         </InputGroup>
       </>

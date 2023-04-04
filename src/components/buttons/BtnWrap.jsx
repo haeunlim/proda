@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 export const BtnWrap = styled.div`
-  margin: 40px auto 0;
+  margin: ${(props) => (props.mgt ? props.mgt : "40px")} auto 0;
 
   ${(props) =>
     props.flexCenter &&
@@ -13,4 +13,8 @@ export const BtnWrap = styled.div`
         margin-left: 10px;
       }
     `}
+
+  @media ${(props) => props.theme.mobile} {
+    margin-top: ${(props) => (props.mobilemgt ? props.mobilemgt : "1.5384rem")};
+  }
 `;

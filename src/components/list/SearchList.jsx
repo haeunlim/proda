@@ -114,12 +114,12 @@ export default function SearchList({ category }) {
         {data.map((item, index) => {
           return (
             <li key={index}>
-              <figure>
-                <div
-                  className="profile"
-                  style={{ backgroundImage: `url(${item.bgImg})` }}
-                ></div>
-                <figcaption>
+              <div
+                className="profile"
+                style={{ backgroundImage: `url(${item.bgImg})` }}
+              ></div>
+              <div className="text_box flex">
+                <div className="subject_info">
                   <Link to="/search/view_resume" className="subject">
                     {item.subj}
                   </Link>
@@ -128,19 +128,20 @@ export default function SearchList({ category }) {
                     <span>{item.age}</span>
                     <span className="color_b1">{item.career}</span>
                   </div>
-                </figcaption>
-              </figure>
-              <div className="job">
-                <p>{item.job}</p>
-              </div>
-              <div className="reg">
-                <p>{item.reg}</p>
-              </div>
-              <div className="time">
-                <p>{item.time}</p>
-              </div>
-              <div className="star_wrap">
-                <StarBtn />
+                </div>
+
+                <div className="job">
+                  <p>{item.job}</p>
+                </div>
+                <div className="reg">
+                  <p>{item.reg}</p>
+                </div>
+                <div className="time">
+                  <p>{item.time}</p>
+                </div>
+                <div className="star_wrap">
+                  <StarBtn />
+                </div>
               </div>
             </li>
           );

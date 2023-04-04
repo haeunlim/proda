@@ -1,5 +1,4 @@
-import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import notiIconW from "@img/ico/notif_icon_white.png";
 
@@ -9,18 +8,30 @@ export const NotifiBtn = styled.button`
   margin-left: 20px;
   position: relative;
   background: url(${notiIconW}) no-repeat center;
+  ${(props) =>
+    props.active &&
+    css`
+      &::after {
+        content: "";
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        background: var(--bs-point);
+      }
+    `}
 
-  &.on::after {
-    content: "";
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    position: absolute;
-    top: 6px;
-    right: 8px;
-    background: var(--bs-point);
+  @media ${(props) => props.theme.mobile} {
+    width: 34px;
+    height: 34px;
+    margin-left: 10px;
+    background-size: 22px auto;
+
+    &::after {
+      top: 5px;
+      right: 3px;
+    }
   }
 `;
-export default function NotificationBtn() {
-  return <NotifiBtn></NotifiBtn>;
-}

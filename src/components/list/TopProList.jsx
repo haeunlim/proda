@@ -5,8 +5,9 @@ import StarBtn, { StarStyled } from "@components/buttons/StarBtn";
 
 import styled from "styled-components";
 import { SectTtl, SectTtlBox } from "@components/ttl/titleStyled";
-import GuidBtn from "@components/buttons/GuideBtn";
 import GuideBtn from "@components/buttons/GuideBtn";
+import { MoreBtn } from "@components/buttons/ReturnBtn";
+import { BtnWrap } from "@components/buttons/BtnWrap";
 
 const CardList = styled.ul`
   ${StarStyled} {
@@ -141,7 +142,7 @@ const TopProList = () => {
   return (
     <>
       <SectTtlBox className="flex_b_c" main={Main}>
-        <SectTtl>top 프로</SectTtl>
+        <SectTtl>TOP 프로</SectTtl>
         <GuideBtn />
       </SectTtlBox>
       <CardList
@@ -171,6 +172,9 @@ const TopProList = () => {
           </li>
         ))}
       </CardList>
+      <BtnWrap flexCenter>
+        <MoreBtn />
+      </BtnWrap>
     </>
   );
 };

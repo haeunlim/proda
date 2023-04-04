@@ -5,6 +5,7 @@ import Footer from "@components/Footer";
 import JoinForm from "@components/form/JoinForm";
 import { MemberTtl, MemberTtlBox } from "@components/ttl/titleStyled";
 import {
+  HowJoinBtn,
   JoinHowBtn,
   JoinKakaoBtn,
   JoinNaverBtn,
@@ -20,6 +21,7 @@ const JoinPage = () => {
     "이메일로 가입하기",
     "기업회원 가입하기",
   ];
+  const [tabOn, setTabOn] = useState();
 
   return (
     <>
@@ -34,39 +36,51 @@ const JoinPage = () => {
               ) : (
                 <>
                   {location.pathname == "/member/join_form"
-                    ? title[1]
-                    : title[2]}
+                    ? tabOn == 0
+                      ? title[1]
+                      : title[2]
+                    : ""}
                 </>
               )}
             </MemberTtl>
           </MemberTtlBox>
           {location.pathname == "/member/join" ? (
             <>
-              <div className="how_join_wrap">
+              <HowJoinBtn>
                 <JoinNaverBtn>네이버 간편 가입하기</JoinNaverBtn>
                 <JoinKakaoBtn>카카오톡 간편 가입하기</JoinKakaoBtn>
-                <JoinHowBtn onClick={() => navigate("/member/join_form")}>
+                <JoinHowBtn
+                  onClick={() => {
+                    navigate("/member/join_form");
+                    setTabOn(0);
+                  }}
+                >
                   이메일 간편 가입하기
                 </JoinHowBtn>
-              </div>
+              </HowJoinBtn>
               <ul className="login_help_row">
                 <li>
                   <Link to="/login/login">로그인</Link>
                 </li>
                 <li>
-                  <Link to="/member/join_corporation">
+                  <button
+                    onClick={() => {
+                      navigate("/member/join_form");
+                      setTabOn(1);
+                    }}
+                  >
                     <b>기업 회원가입</b>
-                  </Link>
+                  </button>
                 </li>
               </ul>
             </>
           ) : (
             <>
               {/* 이메일로 */}
-              {location.pathname == "/member/join_form" ? (
-                <JoinForm tabOn={0} />
+              {location.pathname == "/member/join_form" || tabOn == 0 ? (
+                <JoinForm tabOn={tabOn} />
               ) : (
-                <JoinForm tabOn={1} />
+                <JoinForm tabOn={tabOn} />
               )}
             </>
           )}

@@ -40,6 +40,10 @@ export const Button = styled.button`
     css`
       border-color: #eee;
     `}
+  @media ${(props) => props.theme.mobile} {
+    height: 3.0769rem;
+    font-size: 1.0769rem;
+  }
 `;
 export const BtnSmall = styled(Button)`
   font-size: 0.9375rem;

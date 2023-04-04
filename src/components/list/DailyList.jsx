@@ -7,56 +7,12 @@ import daily03 from "@img/sub/daily_list03.jpg";
 import userIco01 from "@img/sub/userIco01.jpg";
 import userIco02 from "@img/sub/userIco02.jpg";
 import userIcoDefault from "@img/sub/userIco_default.jpg";
-
-function List({ topics }) {
-  return (
-    <>
-      <ul className="boxList">
-        {topics.map((t) => (
-          <>
-            <li key={t.id}>
-              <div className="daily_user_info">
-                <span
-                  className="user_ico"
-                  style={{
-                    backgroundImage: `url(${
-                      t.userIcon == "" ? userIcoDefault : t.userIcon
-                    })`,
-                  }}
-                ></span>
-                <span className="user_id">{t.userId}</span>
-                <span className="date">{t.date}</span>
-              </div>
-              <div className="content">
-                <div className="txt_box">
-                  <Link to="/academy/daily_view" className="subject">
-                    {t.subj}
-                  </Link>
-                  <p className="desc">{t.desc}</p>
-                </div>
-                <div className="img_box">
-                  <div
-                    className="img_thumb"
-                    style={{ backgroundImage: `url(${t.dailyImg})` }}
-                  ></div>
-                </div>
-              </div>
-              <div className="bot">
-                <span className="good">{t.goodNum}</span>
-                <span className="review">{t.commentNum}</span>
-              </div>
-            </li>
-          </>
-        ))}
-      </ul>
-    </>
-  );
-}
+import { BtnWrap } from "@components/buttons/BtnWrap";
+import { MoreBtn } from "@components/buttons/ReturnBtn";
 
 const DailyList = () => {
-  const dailyList = [
+  const data = [
     {
-      id: 1,
       userIcon: userIco01,
       userId: "craz7830727",
       date: "2022.04.18",
@@ -67,7 +23,6 @@ const DailyList = () => {
       commentNum: 12,
     },
     {
-      id: 2,
       userIcon: "",
       userId: "craz7830727",
       date: "2022.04.18",
@@ -78,7 +33,6 @@ const DailyList = () => {
       commentNum: 12,
     },
     {
-      id: 3,
       userIcon: userIco02,
       userId: "craz7830727",
       date: "2022.04.18",
@@ -89,7 +43,6 @@ const DailyList = () => {
       commentNum: 12,
     },
     {
-      id: 4,
       userIcon: "",
       userId: "craz7830727",
       date: "2022.04.18",
@@ -100,7 +53,6 @@ const DailyList = () => {
       commentNum: 12,
     },
     {
-      id: 5,
       userIcon: "",
       userId: "craz7830727",
       date: "2022.04.18",
@@ -111,7 +63,6 @@ const DailyList = () => {
       commentNum: 12,
     },
     {
-      id: 6,
       userIcon: "",
       userId: "craz7830727",
       date: "2022.04.18",
@@ -122,7 +73,6 @@ const DailyList = () => {
       commentNum: 12,
     },
     {
-      id: 7,
       userIcon: "",
       userId: "craz7830727",
       date: "2022.04.18",
@@ -133,7 +83,6 @@ const DailyList = () => {
       commentNum: 12,
     },
     {
-      id: 8,
       userIcon: "",
       userId: "craz7830727",
       date: "2022.04.18",
@@ -147,12 +96,51 @@ const DailyList = () => {
 
   return (
     <>
-      <List topics={dailyList} />
-      <div className="btn_wrap flex_c_c">
-        <button type="button" className="btn bigBtn moreBtn">
-          더보기
-        </button>
-      </div>
+      <ul className="boxList">
+        {data.map((item, index) => {
+          return (
+            <>
+              <li key={index}>
+                <div className="daily_user_info">
+                  <span
+                    className="user_ico"
+                    style={{
+                      backgroundImage: `url(${
+                        item.userIcon == "" ? userIcoDefault : item.userIcon
+                      })`,
+                    }}
+                  ></span>
+                  <span className="user_id">{item.userId}</span>
+                  <span className="date">{item.date}</span>
+                </div>
+                <div className="content">
+                  <div className="txt_box">
+                    <Link to="/academy/daily_view" className="subject">
+                      {item.subj}
+                    </Link>
+                    <p className="desc">{item.desc}</p>
+                  </div>
+                  {item.dailyImg && (
+                    <div className="img_box">
+                      <div
+                        className="img_thumb"
+                        style={{ backgroundImage: `url(${item.dailyImg})` }}
+                      ></div>
+                    </div>
+                  )}
+                </div>
+                <div className="bot">
+                  <span className="good">{item.goodNum}</span>
+                  <span className="review">{item.commentNum}</span>
+                </div>
+              </li>
+            </>
+          );
+        })}
+      </ul>
+      <BtnWrap flexCenter>
+        <MoreBtn />
+      </BtnWrap>
     </>
   );
 };

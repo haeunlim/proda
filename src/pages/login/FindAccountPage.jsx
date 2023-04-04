@@ -5,7 +5,7 @@ import MemberTab from "@components/tab/MemberTab";
 import FindForm from "@components/form/FindForm";
 import { MemberTtl, MemberTtlBox } from "@components/ttl/titleStyled";
 
-const FindAccount = () => {
+const FindAccountPage = () => {
   const [tabOn, setTabOn] = useState(0);
   const tabName = ["이메일 찾기", "비밀번호 찾기"];
   const code = "member";
@@ -34,4 +34,4 @@ const FindAccount = () => {
   );
 };
 
-export default FindAccount;
+export default FindAccountPage;

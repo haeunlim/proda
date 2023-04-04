@@ -179,6 +179,54 @@ legend {
             .item_sec {
                 border: solid 1px #ddd;
                 border-radius: 5px;
+                padding: 0 20px;
+                .item_top {
+                    padding: 30px 0;
+                    a {
+                        display: block;
+                    }
+                    .com_name {
+                        font-size: 15px;
+                        color: #999;
+                        margin-bottom: 12px;
+                    }
+                    .subject {
+                        font-size: 18px;
+                        font-weight: 500;
+                        line-height: 1.5;
+                    }
+                }
+                .item_bot {
+                    position: relative;
+                    z-index: 100;
+                    padding: 20px 0 30px;
+                    border-top: solid 1px #eee;
+                    > span {
+                        display: inline-block;
+                        font-size: 14px;
+                        color: #999;
+                        margin-bottom: 19px;
+                    }
+                    .bot_wrap {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        .app_now {
+                            width: 110px;
+                            line-height: 30px;
+                            text-align: center;
+                            font-size: 15px;
+                            color: #fff;
+                            background: #01d8df;
+                            border-radius: 15.5px;
+                        }
+                        .date {
+                            margin-left: 10px;
+                            font-size: 14px;
+                            color: #454545;
+                        }
+                    }
+                }
             }
         }
         .slick-arrow {

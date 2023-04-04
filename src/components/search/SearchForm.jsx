@@ -1,25 +1,26 @@
 import React from "react";
 import { BtnWrap } from "@components/buttons/BtnWrap";
 import { BtnBig } from "@components/buttons/Buttons";
-import SelectBox, { SelectBoxStyled } from "@components/form/SelectBox";
+import { SelectBox, Select } from "@components/form/SelectBox";
 import styled from "styled-components";
 const SearchWrap = styled.div`
   border-top: solid 2px #252525;
 
-  ${SelectBoxStyled} {
+  ${SelectBox} {
     width: 100%;
     padding: 16px 20px;
+    ${Select} {
+      max-width: 190px;
+    }
   }
-`;
 
-const Select = styled.select`
-  width: 100%;
-  max-width: 190px;
-  height: 48px;
+  @media ${(props) => props.theme.mobile} {
+    border-width: 1.5px;
 
-  & + select {
-    margin-left: 10px;
-  }
+    ${SelectBox} {
+      padding: 0 0 15px;
+    }
+  } ;
 `;
 
 const InputRow = styled.div`
@@ -33,12 +34,30 @@ const InputRow = styled.div`
     padding: 0 20px;
     flex: 0 0 auto;
   }
+
+  @media ${(props) => props.theme.mobile} {
+    display: block;
+    padding: 0.384rem 0;
+    label {
+      width: 100%;
+      font-size: 1.1538rem;
+      padding: 1.1538rem 0;
+    }
+  } ;
 `;
 const SearchBtn = styled(BtnBig)`
   width: 260px;
+
+  @media ${(props) => props.theme.mobile} {
+    width: calc(100% - 8.846rem);
+  } ;
 `;
 const ResetBtn = styled(BtnBig)`
   width: 100px;
+
+  @media ${(props) => props.theme.mobile} {
+    width: 8.0769rem;
+  } ;
 `;
 
 const searchForm = () => {
@@ -75,16 +94,13 @@ const searchForm = () => {
         </InputRow>
         <InputRow>
           <label for="">직종 및 경력</label>
-
           <SelectBox>
             <Select name="" id="">
               <option value="">대분류</option>
             </Select>
-
             <Select name="" id="">
               <option value="">중분류</option>
             </Select>
-
             <Select name="" id="">
               <option value="">경력선택</option>
             </Select>

@@ -29,7 +29,6 @@ export const Logo = styled.h1`
   text-transform: uppercase;
   a {
     display: block;
-
     span {
       color: inherit;
     }

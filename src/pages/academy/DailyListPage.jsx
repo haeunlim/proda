@@ -7,6 +7,7 @@ import Tab from "@components/tab/Tab";
 import ChoiceCarousel from "@components/carousel/ChoiceCarousel";
 import DailyList from "@components/list/DailyList";
 import DailyListTop from "@components/write/DailyListTop";
+import { ContainerTtl, ContainerTtlBox } from "@components/ttl/titleStyled";
 
 const DailyListPage = () => {
   const code = "academy";
@@ -26,7 +27,11 @@ const DailyListPage = () => {
         </section>
         <section className="list_sect">
           <div className="inner">
-            <h3 className="sect_ttl big">일상</h3>
+            <ContainerTtlBox>
+              <ContainerTtl big notoSans>
+                일상
+              </ContainerTtl>
+            </ContainerTtlBox>
             <DailyListTop />
             <DailyList />
           </div>

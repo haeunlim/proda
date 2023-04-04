@@ -44,7 +44,7 @@ const LoginForm = (props) => {
           </div>
         </InputWrap>
       </InputGroup>
-      <BtnWrap>
+      <BtnWrap mobilemgt="1.923rem">
         <LoginBtnStyled bgPoint id="login">
           로그인
         </LoginBtnStyled>
