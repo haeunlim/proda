@@ -10,6 +10,7 @@ import asideImg5 from "@assets/img/main/aside_img05.png";
 import asideImg6 from "@assets/img/main/aside_img06.png";
 import asideImg7 from "@assets/img/main/aside_img07.png";
 import asideImg8 from "@assets/img/main/aside_img08.png";
+import styled from "styled-components";
 
 const asideImgsLeft = [
   { id: 0, link: "", img: asideImg1, alt: "통로펫살롱" },
@@ -25,7 +26,7 @@ const asideImgsRight = [
 const AsideMenu = ({ asideHide }) => {
   return (
     <>
-      <aside className={`left ad_wrap ${asideHide ? "" : "active"}`}>
+      <AsideMenuStyled className={`left ${asideHide ? "" : "active"}`}>
         {asideImgsLeft.map((item) => {
           return (
             <Link to={item.link} key={item.id}>
@@ -33,8 +34,8 @@ const AsideMenu = ({ asideHide }) => {
             </Link>
           );
         })}
-      </aside>
-      <aside className={`right ad_wrap ${asideHide ? "" : "active"}`}>
+      </AsideMenuStyled>
+      <AsideMenuStyled className={`right ${asideHide ? "" : "active"}`}>
         {asideImgsRight.map((item) => {
           return (
             <Link to={item.link} key={item.id}>
@@ -42,9 +43,47 @@ const AsideMenu = ({ asideHide }) => {
             </Link>
           );
         })}
-      </aside>
+      </AsideMenuStyled>
     </>
   );
 };
+
+const AsideMenuStyled = styled.aside`
+  position: fixed;
+  top: 140px;
+  z-index: 11;
+  opacity: 0;
+  transition: all 0.3s;
+  &.active {
+    opacity: 1;
+  }
+  &.left {
+    left: 4.55vw;
+  }
+  &.right {
+    right: 4.55vw;
+  }
+
+  a {
+    display: block;
+
+    & + a {
+      margin-top: 10px;
+    }
+  }
+  @media screen and (max-width: 1800px) {
+    &.left {
+      left: 10px;
+    }
+
+    &.right {
+      right: 10px;
+    }
+  }
+
+  @media screen and (max-width: 1680px) {
+    display: none;
+  }
+`;
 
 export default AsideMenu;

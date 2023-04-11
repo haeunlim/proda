@@ -1,31 +1,25 @@
 import React from "react";
 import styled from "styled-components";
-import { BtnBig2 } from "./Buttons";
+import { BtnBig2 } from "../../assets/style/button/Buttons";
 
-const ReturnBtnStyled = styled(BtnBig2)`
-  max-width: 300px;
-`;
-const MoreBtnStyled = styled(BtnBig2)`
+const BtnStyled = styled(BtnBig2)`
   max-width: 300px;
 
   @media ${(props) => props.theme.mobile} {
-    max-width: 17.307rem;
+    max-width: 17.3076rem;
   }
 `;
-
 export default function ReturnBtn({ children }) {
   return (
     <>
-      <ReturnBtnStyled onClick={() => history.back(-1)}>
-        {children}
-      </ReturnBtnStyled>
+      <BtnStyled onClick={() => history.back(-1)}>{children}</BtnStyled>
     </>
   );
 }
 export function MoreBtn({ onClick }) {
   return (
     <>
-      <MoreBtnStyled onClick={onClick}>더보기</MoreBtnStyled>
+      <BtnStyled onClick={onClick}>더보기</BtnStyled>
     </>
   );
 }

@@ -74,65 +74,42 @@ export function LogoutBtn({ onClick }) {
   );
 }
 
-export function MypageBtn({ InAllMenu }) {
+export function MypageBtn() {
   const [mypageTabShow, setMypageTabShow] = useState();
-  const navigate = useNavigate();
-  console.log(InAllMenu);
   return (
     <>
-      {InAllMenu ? (
-        <button type="button" onClick={() => navigate("/mypage/main")}>
+      <MypageBox>
+        <button type="button" onClick={() => setMypageTabShow(!mypageTabShow)}>
           마이페이지
         </button>
-      ) : (
-        <MypageBox>
-          <button
-            type="button"
-            onClick={() => setMypageTabShow(!mypageTabShow)}
-          >
-            마이페이지
-          </button>
-          {mypageTabShow && (
-            <MypageTab>
-              <ul>
-                <li>
-                  <button onClick={() => setMypageTabShow()}>
-                    마이프로 정보
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => setMypageTabShow()}>스크랩</button>
-                </li>
-              </ul>
-            </MypageTab>
-          )}
-        </MypageBox>
-      )}
+        {mypageTabShow && (
+          <MypageTab>
+            <ul>
+              <li>
+                <button onClick={() => setMypageTabShow()}>
+                  마이프로 정보
+                </button>
+              </li>
+              <li>
+                <button onClick={() => setMypageTabShow()}>스크랩</button>
+              </li>
+            </ul>
+          </MypageTab>
+        )}
+      </MypageBox>
     </>
   );
 }
 
-export default function UtillMenu({ login, logoutOnClick, InAllMenu }) {
+export default function UtillMenu({ login, logoutOnClick }) {
   return (
     <>
-      {InAllMenu ? (
-        login ? (
-          <>
-            <LogoutBtn onClick={logoutOnClick} />
-            <MypageBtn InAllMenu={InAllMenu} />
-          </>
-        ) : (
-          <>
-            <LoginBtn />
-            <JoinBtn />
-          </>
-        )
-      ) : login ? (
+      {login ? (
         <>
           <Pc>
             <LogoutBtn onClick={logoutOnClick} />
           </Pc>
-          <MypageBtn InAllMenu={InAllMenu} />
+          <MypageBtn />
           <NotifiBtn active={true} />
         </>
       ) : (
@@ -141,6 +118,27 @@ export default function UtillMenu({ login, logoutOnClick, InAllMenu }) {
             <LoginBtn />
             <JoinBtn />
           </Pc>
+        </>
+      )}
+    </>
+  );
+}
+
+export function AllmenuUtillMenu({ login, logoutOnClick }) {
+  const navigate = useNavigate();
+  return (
+    <>
+      {login ? (
+        <>
+          <LogoutBtn onClick={logoutOnClick} />
+          <button type="button" onClick={() => navigate("/mypage/main")}>
+            마이페이지
+          </button>
+        </>
+      ) : (
+        <>
+          <LoginBtn />
+          <JoinBtn />
         </>
       )}
     </>

@@ -7,7 +7,7 @@ import {
   MemberTtl,
   MemberTtlBot,
   MemberTtlBox,
-} from "@components/ttl/titleStyled";
+} from "@assets/style/fontStyle/title";
 
 const LoginPage = () => {
   const [tabOn, setTabOn] = useState(0);

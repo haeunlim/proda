@@ -1,12 +1,17 @@
 import React from "react";
+import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import seminaImg01 from "@img/sub/semina_list01.jpg";
 import seminaImg02 from "@img/sub/semina_list02.jpg";
 import seminaImg03 from "@img/sub/semina_list03.jpg";
 import seminaImg04 from "@img/sub/semina_list04.jpg";
 import seminaImg05 from "@img/sub/semina_list05.jpg";
-import { BtnWrap } from "@components/buttons/BtnWrap";
+import { BtnWrap } from "@assets/style/button/BtnWrap";
 import { MoreBtn } from "@components/buttons/ReturnBtn";
+import { ListItem, RowList } from "@assets/style/layout/List";
+import { Subject } from "@assets/style/fontStyle/Text";
+import { FlexBox } from "@assets/style/layout/Flex";
+import { Tag, TagBox } from "@assets/style/component/Tag";
 
 export default function SeminaList() {
   const data = [
@@ -103,7 +108,7 @@ export default function SeminaList() {
   ];
   return (
     <>
-      <ul className="rowList academy_list">
+      <RowList className="academy_list">
         {data.map((item, index) => {
           let tag1;
           let tag2;
@@ -126,31 +131,79 @@ export default function SeminaList() {
           }
 
           return (
-            <li key={index} className={item.info1} data-href={item.info2}>
-              <div className="item_thumb_box">
-                <div
-                  className="item_thumb"
+            <SeminaItem
+              flexSC
+              active={item.info1}
+              key={index}
+              data-href={item.info2}
+            >
+              <ThumbBox>
+                <Thumb
                   style={{ backgroundImage: `url(${item.bgImg})` }}
                   title={item.title}
-                ></div>
-              </div>
-              <div className="item_info_wrap">
-                <Link to="/academy/semina_view" className="subject">
-                  {item.subj}
-                </Link>
-                <p className="date_info">{item.date}</p>
-                <div className="tag_box">
-                  <span className={tag1}>{tagText1}</span>
-                  <span className={tag2}>{tagText2}</span>
-                </div>
-              </div>
-            </li>
+                ></Thumb>
+              </ThumbBox>
+              <ItemInfoWrap>
+                <Subject lg Ell1>
+                  <Link to="/academy/semina_view">{item.subj}</Link>
+                </Subject>
+                <p className="date">{item.date}</p>
+                <TagBox>
+                  <Tag state={tag1}>{tagText1}</Tag>
+                  <Tag state={tag2}>{tagText2}</Tag>
+                </TagBox>
+              </ItemInfoWrap>
+            </SeminaItem>
           );
         })}
-      </ul>
-      <BtnWrap className="flex_c_c">
+      </RowList>
+      <BtnWrap flexCenter>
         <MoreBtn>더보기</MoreBtn>
       </BtnWrap>
     </>
   );
 }
+const Thumb = styled.span`
+  background: no-repeat center / cover;
+  display: block;
+  width: 100%;
+  padding-top: 66.67%;
+`;
+const ThumbBox = styled.figure`
+  width: 180px;
+  flex: 0 0 auto;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-right: 20px;
+  flex-shrink: 0;
+  @media ${(props) => props.theme.mobile} {
+    width: 9.2307rem;
+    border-radius: 0.1923rem;
+    margin-right: 1.1538rem;
+  }
+`;
+
+const SeminaItem = styled(ListItem)`
+  padding: 20px 10px;
+
+  ${(props) =>
+    props.done &&
+    css`
+    ${Thumb}{
+      filter: grayscale(100%);
+  `}
+  @media ${(props) => props.theme.mobile} {
+    padding: 1.5384rem 0;
+    flex-align: start;
+  }
+`;
+const ItemInfoWrap = styled.div`
+  width: calc(100% - 200px);
+  .date {
+    color: #999;
+    margin-top: 10px;
+  }
+  @media ${(props) => props.theme.mobile} {
+    width: calc(100% - 10.3846rem);
+  }
+`;

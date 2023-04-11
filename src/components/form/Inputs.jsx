@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { InputRow } from "./InputGroup";
 import { useDaumPostcodePopup } from "react-daum-postcode";
-import { Button } from "@components/buttons/Buttons";
+import { Button } from "@assets/style/button/Buttons";
 
 export default function InputEmailGroup({ id, id2, id3, name, holder }) {
   const [state, setState] = useState(0);

@@ -3,13 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import JoinForm from "@components/form/JoinForm";
-import { MemberTtl, MemberTtlBox } from "@components/ttl/titleStyled";
+import { MemberTtl, MemberTtlBox } from "@assets/style/fontStyle/title";
 import {
   HowJoinBtn,
   JoinHowBtn,
   JoinKakaoBtn,
   JoinNaverBtn,
-} from "@components/buttons/MemberButton";
+} from "@assets/style/button/MemberButton";
 
 const JoinPage = () => {
   const navigate = useNavigate();

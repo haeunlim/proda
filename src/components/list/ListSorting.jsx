@@ -1,21 +1,29 @@
-import { SelectBox, Select } from "@components/form/SelectBox";
+import { SelectBox, Select } from "@assets/style/form/SelectBox";
 import React from "react";
 import TotalNum from "./TotalNum";
 import styled from "styled-components";
+import { FlexBox } from "@assets/style/layout/Flex";
 
-const ListTopRow = styled.div`
+const ListTopRow = styled(FlexBox)`
   margin-bottom: 10px;
   ${SelectBox} {
-    width: calc(100% - 300px);
-    justify-content: flex-end;
-    margin-top: 15px;
+    width: auto;
+    display: inline-flex;
+    // margin-top: 15px;
     ${Select} {
-      max-width: 140px;
+      width: 140px;
     }
   }
 
   @media ${(props) => props.theme.mobile} {
     margin-bottom: 1.1538rem;
+    ${SelectBox} {
+      margin-top: 1.1538rem;
+
+      &:nth-of-type(n + 2) {
+        margin-top: 0.7692rem;
+      }
+    }
   } ;
 `;
 const SortingSearchBox = styled.div`
@@ -38,7 +46,7 @@ const ListSorting = ({ category }) => {
   const totalCount = "1,545,000";
   return (
     <>
-      <ListTopRow className="flex_b_c mo_block_100">
+      <ListTopRow flexBC moBlock className=" mo_block_100">
         {category == "semina" || category == "search" ? (
           <TotalNum totalCount={totalCount} />
         ) : (
@@ -59,7 +67,7 @@ const ListSorting = ({ category }) => {
         )}
         {category == "semina" || category == "recruitment" ? (
           <SelectBox>
-            <Select name="" id="" className="mo_w_100">
+            <Select name="" id="" mo_w_100>
               <option value="">최신순</option>
             </Select>
           </SelectBox>

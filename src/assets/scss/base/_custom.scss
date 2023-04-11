@@ -612,7 +612,7 @@ small.mo {
             margin: var(--mo-mg-t) var(--mo-mg-x) 0;
         }
     }
-    [class*="flex"].col_3 {
+    [class*="flex"].mo_col_3 {
         flex-wrap: wrap;
         width: -webkit-calc(100% + (var(--mo-mg-x) * 2));
         width: -moz-calc(100% + (var(--mo-mg-x) * 2));

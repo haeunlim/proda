@@ -237,41 +237,6 @@
     }
 }
 
-// company photo list
-.company_intro_photo {
-    --mg-x: 10px;
-    --mg-t: 0;
-
-    li {
-        position: relative;
-        .thumb {
-            width: 100%;
-            overflow: hidden;
-            padding-top: 63.16%;
-            border-radius: 5px;
-            background: no-repeat center center/cover;
-        }
-        .dim {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 5px;
-            background: rgba(0, 0, 0, 0.5);
-
-            span {
-                font-size: 18px;
-                font-weight: 500;
-                color: #fff;
-            }
-        }
-    }
-}
-
 @include mobile {
     .mo_w_100 {
         width: 100% !important;

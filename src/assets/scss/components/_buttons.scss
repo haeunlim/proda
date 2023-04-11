@@ -131,35 +131,6 @@ $MobtnFSB: 1.25rem;
     border: 1px solid #dbdbdb;
 }
 
-// daily btn
-.link_write_wrap {
-    position: fixed;
-    width: 100%;
-    max-width: 1200px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 111;
-    bottom: 0;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.3s;
-}
-.link_write_wrap.active {
-    opacity: 1;
-    visibility: visible;
-}
-.link_write {
-    display: block;
-    width: 70px;
-    height: 70px;
-    position: absolute;
-    right: 30px;
-    bottom: 40px;
-    border-radius: 50%;
-    background: url(@img/btn/write_btn70x70.png) no-repeat center;
-    font-size: 0;
-    box-shadow: 8px 6px 10px rgba(0, 0, 0, 0.13);
-}
 .btn-shadow {
     box-shadow: 0 0.6875rem 1.2rem rgba($color: $point, $alpha: 0.25);
 }
@@ -260,14 +231,5 @@ $MobtnFSB: 1.25rem;
 
     .btn {
         max-width: var(--mxWd-mo);
-    }
-
-    .link_write {
-        width: 4.2307rem;
-        height: 4.2307rem;
-        right: 1.1538rem;
-        bottom: 7.6923rem;
-        background-size: cover;
-        box-shadow: 0.3076rem 0.2307rem 0.3846rem rgba(0, 0, 0, 0.13);
     }
 }

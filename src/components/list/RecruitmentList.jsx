@@ -8,8 +8,8 @@ import item05Img from "@assets/img/list/item05.jpg";
 import item06Img from "@assets/img/list/item06.jpg";
 import item07Img from "@assets/img/list/item07.jpg";
 import item08Img from "@assets/img/list/item08.jpg";
-import CategoryBadge from "../recruitment/CategoryBadge";
-import { SectTtl, SectTtlBox } from "@components/ttl/titleStyled";
+import { CategoryBadge } from "@style/badge/CategoryBadge";
+import { SectTtl, SectTtlBox } from "@assets/style/fontStyle/title";
 import GuideBtn from "@components/buttons/GuideBtn";
 import ListSorting from "./ListSorting";
 const RecruitmentList = ({ category }) => {
@@ -91,14 +91,17 @@ const RecruitmentList = ({ category }) => {
   ];
 
   const Main = location.pathname == "/main";
+  const View = location.pathname == "/recruitment/view";
   return (
     <>
       <SectTtlBox className="flex_b_c" main={Main}>
-        <SectTtl>프로채용 기업</SectTtl>
+        <SectTtl>
+          {View ? "박두병님, 이 포지션을 찾고 계셨나요?" : "프로채용 기업"}
+        </SectTtl>
         {Main && <GuideBtn />}
       </SectTtlBox>
       <div className="item_list_wrap">
-        {!Main && <ListSorting category={category} />}
+        {!Main ? !View ? <ListSorting category={category} /> : "" : ""}
         <ul
           className="recruitment_list flex col_4 mo_col_2"
           style={{

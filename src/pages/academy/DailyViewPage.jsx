@@ -1,11 +1,18 @@
 import React from "react";
-
+import styled from "styled-components";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 import Tab from "@components/tab/Tab";
 import profile from "@img/ico/com_ico32x32.jpg";
 import ReturnBtn from "@components/buttons/ReturnBtn";
 import { DailyWriteBtn } from "@components/buttons/WriteBtn";
+import DailyUserInfo from "@components/user/DailyUserInfo";
+import { Container, Inner } from "@assets/style/layout/Container";
+import { ViewTtl } from "@assets/style/fontStyle/title";
+import { DescWrap } from "@assets/style/fontStyle/Text";
+import { FlexBox } from "@assets/style/layout/Flex";
+import ViewState from "@components/ui/ViewState";
+import { BtnWrap } from "@assets/style/button/BtnWrap";
 
 const DailyViewPage = () => {
   const code = "academy";
@@ -14,29 +21,26 @@ const DailyViewPage = () => {
   return (
     <>
       <Header />
-      <div id="container" className={`sub ${code} ${category}`}>
-        <div className="inner">
+      <Container>
+        <Inner>
           <Tab code={code} />
-        </div>
+        </Inner>
 
         <section className="view_sect2">
-          <div className="inner">
-            <article className="view_area">
-              <div className="view_top_info">
-                <p className="subject">
+          <Inner>
+            <ViewArea>
+              <ViewTopInfo>
+                <ViewTtl>
                   반려동물을 키우기 전에 신중하게 고려해야 할 8가지
-                </p>
-                <div className="daily_user_info">
-                  <span
-                    className="user_ico"
-                    style={{ backgroundImage: `url(${profile})` }}
-                  ></span>
-                  <span className="user_id">crazy830727</span>
-                  <span className="date">2022.04.18</span>
-                </div>
-              </div>
-              <div className="view_content">
-                <div className="desc">
+                </ViewTtl>
+                <DailyUserInfo
+                  ico={profile}
+                  id="crazy830727"
+                  date="2022.04.18"
+                />
+              </ViewTopInfo>
+              <ViewContent>
+                <DescWrap>
                   <p>
                     안녕하세요! 사회생활 15년차에 서비스 기획자로 12년을 달려온
                     직장인입니다. 그동안 많은 프로젝트에 참여하여 PM으로 PO로
@@ -50,46 +54,37 @@ const DailyViewPage = () => {
                     전직, 전업, 역량강화 등&#41;을 한다고 봤을때 같은 고민을
                     하는 분들의 이야기를 듣고 싶네요! :&#41;
                   </p>
-                </div>
-                <div className="view_state flex_b_c">
-                  <div className="left">
-                    <span className="good">1</span>
-                    <span className="review">12</span>
-                  </div>
+                </DescWrap>
+                <FlexBox flexBC>
+                  <ViewState goodVal="1" reviewVal="12" />
                   <button type="button" className="etc_btn"></button>
-                </div>
-              </div>
-            </article>
-            <article className="comment_area">
+                </FlexBox>
+              </ViewContent>
+            </ViewArea>
+            <CommentArea>
               <div className="write_comment">
-                <div className="daily_user_info">
-                  <span
-                    className="user_ico"
-                    style={{ backgroundImage: `url(${profile})` }}
-                  ></span>
-                  <span className="user_id">crazy830727</span>
-                  <span className="date">2022.04.18</span>
-                </div>
+                <DailyUserInfo
+                  ico={profile}
+                  id="crazy830727"
+                  date="2022.04.18"
+                />
                 <div className="input_wrap">
                   <textarea
                     name=""
                     id=""
                     placeholder="내용을 입력해주세요."
                   ></textarea>
-                  <DailyWriteBtn onClick={onClick} />
+                  <DailyWriteBtn />
                 </div>
               </div>
               <ul className="comment_list">
                 <li>
                   <div className="info_top">
-                    <div className="daily_user_info">
-                      <span
-                        className="user_ico"
-                        style={{ backgroundImage: `url(${profile})` }}
-                      ></span>
-                      <span className="user_id">crazy830727</span>
-                      <span className="date">2022.04.18</span>
-                    </div>
+                    <DailyUserInfo
+                      ico={profile}
+                      id="crazy830727"
+                      date="2022.04.18"
+                    />
                     <button type="button" className="etc_btn"></button>
                   </div>
                   <div className="info_bot">
@@ -99,14 +94,11 @@ const DailyViewPage = () => {
                 </li>
                 <li>
                   <div className="info_top">
-                    <div className="daily_user_info">
-                      <span
-                        className="user_ico"
-                        style={{ backgroundImage: `url(${profile})` }}
-                      ></span>
-                      <span className="user_id">crazy830727</span>
-                      <span className="date">2022.04.18</span>
-                    </div>
+                    <DailyUserInfo
+                      ico={profile}
+                      id="crazy830727"
+                      date="2022.04.18"
+                    />
                     <button type="button" className="etc_btn"></button>
                   </div>
                   <div className="info_bot">
@@ -115,17 +107,84 @@ const DailyViewPage = () => {
                   </div>
                 </li>
               </ul>
-            </article>
+            </CommentArea>
 
-            <div className="btn_wrap flex_c_c">
-              <ReturnBtn maxWidth="300px">뒤로가기</ReturnBtn>
-            </div>
-          </div>
+            <BtnWrap flexCenter>
+              <ReturnBtn>뒤로가기</ReturnBtn>
+            </BtnWrap>
+          </Inner>
         </section>
-      </div>
+      </Container>
       <Footer />
     </>
   );
 };
 
 export default DailyViewPage;
+
+const ViewTopInfo = styled.div`
+  padding: 40px 0 30px;
+  border-bottom: solid 1px #eee;
+`;
+
+const ViewContent = styled.div`
+  padding: 30px 0;
+  border-bottom: solid 1px #eee;
+`;
+const ViewArea = styled.article``;
+const CommentArea = styled.article`
+  padding-top: 30px;
+  .write_comment {
+    .info_top {
+      display: flex;
+      align-items: center;
+    }
+
+    .input_wrap {
+      width: 100%;
+      position: relative;
+      margin-top: 13px;
+
+      textarea {
+        width: 100%;
+        height: 180px;
+        border-radius: 5px;
+        resize: none;
+        padding: 30px;
+        overflow: hidden;
+
+        &::placeholder {
+          font-size: 18px;
+          color: #ddd;
+        }
+      }
+
+      button {
+        max-width: 120px;
+        font-size: 18px;
+        line-height: 42px;
+        position: absolute;
+        right: 21px;
+        bottom: 21px;
+      }
+    }
+  }
+`;
+
+const CommentList = styled.ul`
+  li {
+    padding: 40px 0;
+    border-bottom: solid 1px #eee;
+    .info_top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 13px;
+    }
+  }
+  .info_bot {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #757575;
+  }
+`;

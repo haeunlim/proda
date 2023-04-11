@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { BtnWrap } from "@components/buttons/BtnWrap";
+import { BtnWrap } from "@assets/style/button/BtnWrap";
 import InputEmailGroup, { InputAddressGroup, InputPhone } from "./Inputs";
 import InputGroup, { InputRow, InputWrap } from "./InputGroup";
 import styled from "styled-components";
 import AgreeList from "./AgreeList";
-import { FormTtl } from "@components/ttl/titleStyled";
-import { Button } from "@components/buttons/Buttons";
+import { FormTtl } from "@assets/style/fontStyle/title";
+import { Button } from "@assets/style/button/Buttons";
 import delIco from "@img/ico/delete_btn.png";
 
 const DelBtn = styled.button`

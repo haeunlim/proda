@@ -3,7 +3,7 @@ import Header from "@components/Header";
 import Footer from "@components/Footer";
 import MemberTab from "@components/tab/MemberTab";
 import FindForm from "@components/form/FindForm";
-import { MemberTtl, MemberTtlBox } from "@components/ttl/titleStyled";
+import { MemberTtl, MemberTtlBox } from "@assets/style/fontStyle/title";
 
 const FindAccountPage = () => {
   const [tabOn, setTabOn] = useState(0);

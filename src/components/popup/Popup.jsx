@@ -1,35 +1,34 @@
 import React from "react";
-import { Button } from "@components/buttons/Buttons";
-import styled from "styled-components";
-const SupportBtn = styled(Button)`
-  box-shadow: 0 0.6875rem 1.2rem rgba(1, 216, 223, 0.25);
-  border-radius: 5px;
-`;
-const Popup = ({ setPreview, ttl, subTtl, popName }) => {
+import { BtnWrap } from "@assets/style/button/BtnWrap";
+import {
+  PopClose,
+  PopSubTtl,
+  PopTtl,
+  PopupBody,
+  PopupWrap,
+} from "./style/CommonStyled";
+import { ApplyBtn } from "@assets/style/button/ApplyBtn";
+const Popup = ({ setPreview, ttl, subTtl, name }) => {
   const handleHidden = () => {
     setPreview(false);
   };
 
   return (
-    <div className={`popup ${popName}`} id="">
-      <div className="pop_wrap">
-        <button
-          type="button"
-          className="pop_close"
-          onClick={handleHidden}
-        ></button>
-        <h2 className="pop_ttl">{ttl}</h2>
-        {subTtl ? <p class="pop_sub_ttl">{subTtl}</p> : ""}
+    <PopupWrap>
+      <PopupBody>
+        <PopClose onClick={handleHidden}></PopClose>
+        <PopTtl>{ttl}</PopTtl>
+        {subTtl ? <PopSubTtl>{subTtl}</PopSubTtl> : ""}
 
-        {popName == "pop_resume" ? (
-          <div className="btn_wrap flex_c_c">
-            <SupportBtn>지원하기</SupportBtn>
-          </div>
+        {name == "search" ? (
+          <BtnWrap flexCenter>
+            <ApplyBtn>지원하기</ApplyBtn>
+          </BtnWrap>
         ) : (
           ""
         )}
-      </div>
-    </div>
+      </PopupBody>
+    </PopupWrap>
   );
 };
 

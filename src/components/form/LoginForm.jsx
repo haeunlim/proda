@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BtnWrap } from "@components/buttons/BtnWrap";
+import { BtnWrap } from "@assets/style/button/BtnWrap";
 import InputGroup, { InputWrap } from "./InputGroup";
-import { LoginBtnStyled } from "@components/buttons/MemberButton";
+import { LoginBtnStyled } from "@assets/style/button/MemberButton";
 
 const LoginForm = (props) => {
   return (

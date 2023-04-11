@@ -5,5 +5,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;  
     box-sizing: border-box;
   }
+
+  legend {
+    font-size: 0;
+    text-indent: -999999999px;
+}
 `;
+
 export default GlobalStyle;

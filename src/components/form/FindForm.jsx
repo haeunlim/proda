@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import InputEmailGroup, { InputPhone } from "./Inputs";
 import InputGroup, { InputWrap, InputRow } from "./InputGroup";
-import { Button } from "@components/buttons/Buttons";
+import { Button } from "@assets/style/button/Buttons";
 
 export default function FindForm(props) {
   return (

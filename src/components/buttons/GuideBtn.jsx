@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { BtnSmall } from "./Buttons";
+import { BtnSmall } from "../../assets/style/button/Buttons";
 
 const GuideBtnStyled = styled(BtnSmall)`
   padding: 0 12px;

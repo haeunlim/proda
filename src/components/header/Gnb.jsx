@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 export default function Gnb() {
   const topics = [
@@ -14,7 +15,7 @@ export default function Gnb() {
   ];
 
   return (
-    <div className="gnb_list">
+    <GnbStyled>
       {topics.map((item, index) => (
         <li
           key={index}
@@ -25,6 +26,39 @@ export default function Gnb() {
           <Link to={"/" + item.linkParent + "/" + item.link}>{item.title}</Link>
         </li>
       ))}
-    </div>
+    </GnbStyled>
   );
 }
+
+const GnbStyled = styled.ul`
+  ${({ theme }) => {
+    const { flex, flexSC, font3, mainColor, fontBold } = theme;
+    return css`
+      ${flex};
+      li {
+        position: relative;
+        ${flexSC};
+        &.active::after {
+          content: "";
+          width: 100%;
+          height: 4px;
+          background: ${mainColor};
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
+        & + li {
+          margin-left: 3.6458vw;
+        }
+        a {
+          ${font3};
+          line-height: 100px;
+
+          ${fontBold};
+          border-bottom: 1px solid transparent;
+          text-transform: uppercase;
+        }
+      }
+    `;
+  }}
+`;

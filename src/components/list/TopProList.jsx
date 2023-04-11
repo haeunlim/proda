@@ -4,23 +4,10 @@ import silhouetteImg from "@img/main/silhouette_img.png";
 import StarBtn, { StarStyled } from "@components/buttons/StarBtn";
 
 import styled from "styled-components";
-import { SectTtl, SectTtlBox } from "@components/ttl/titleStyled";
+import { SectTtl, SectTtlBox } from "@assets/style/fontStyle/title";
 import GuideBtn from "@components/buttons/GuideBtn";
 import { MoreBtn } from "@components/buttons/ReturnBtn";
-import { BtnWrap } from "@components/buttons/BtnWrap";
-
-const CardList = styled.ul`
-  ${StarStyled} {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-
-    @media ${(props) => props.theme.mobile} {
-      top: 15px;
-      right: 15px;
-    }
-  }
-`;
+import { BtnWrap } from "@assets/style/button/BtnWrap";
 
 const TopProList = () => {
   const location = useLocation();
@@ -179,4 +166,16 @@ const TopProList = () => {
   );
 };
 
+const CardList = styled.ul`
+  ${StarStyled} {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+    @media ${(props) => props.theme.mobile} {
+      top: 15px;
+      right: 15px;
+    }
+  }
+`;
 export default TopProList;

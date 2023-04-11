@@ -6,9 +6,13 @@ import daily02 from "@img/sub/daily_list02.jpg";
 import daily03 from "@img/sub/daily_list03.jpg";
 import userIco01 from "@img/sub/userIco01.jpg";
 import userIco02 from "@img/sub/userIco02.jpg";
-import userIcoDefault from "@img/sub/userIco_default.jpg";
-import { BtnWrap } from "@components/buttons/BtnWrap";
+import { BtnWrap } from "@assets/style/button/BtnWrap";
 import { MoreBtn } from "@components/buttons/ReturnBtn";
+import styled from "styled-components";
+import { FlexBox } from "@assets/style/layout/Flex";
+import { Subject, Summary } from "@assets/style/fontStyle/Text";
+import DailyUserInfo from "@components/user/DailyUserInfo";
+import ViewState, { StateWrap } from "@components/ui/ViewState";
 
 const DailyList = () => {
   const data = [
@@ -96,48 +100,39 @@ const DailyList = () => {
 
   return (
     <>
-      <ul className="boxList">
+      <BoxList className="boxList">
         {data.map((item, index) => {
           return (
             <>
-              <li key={index}>
-                <div className="daily_user_info">
-                  <span
-                    className="user_ico"
-                    style={{
-                      backgroundImage: `url(${
-                        item.userIcon == "" ? userIcoDefault : item.userIcon
-                      })`,
-                    }}
-                  ></span>
-                  <span className="user_id">{item.userId}</span>
-                  <span className="date">{item.date}</span>
-                </div>
-                <div className="content">
-                  <div className="txt_box">
-                    <Link to="/academy/daily_view" className="subject">
-                      {item.subj}
-                    </Link>
-                    <p className="desc">{item.desc}</p>
-                  </div>
+              <ListItem key={index}>
+                <DailyUserInfo
+                  ico={item.userIcon}
+                  id={item.userId}
+                  date={item.date}
+                />
+                <FlexBox moBlock>
+                  <TextBox flexBC img={item.dailyImg ? true : null}>
+                    <Subject bold xl Ell1 moEll2>
+                      <Link to="/academy/daily_view">{item.subj}</Link>
+                    </Subject>
+                    <Summary gray lh_lg Ell2>
+                      <p>{item.desc}</p>
+                    </Summary>
+                  </TextBox>
                   {item.dailyImg && (
-                    <div className="img_box">
-                      <div
-                        className="img_thumb"
+                    <ThumbBox>
+                      <Thumb
                         style={{ backgroundImage: `url(${item.dailyImg})` }}
-                      ></div>
-                    </div>
+                      ></Thumb>
+                    </ThumbBox>
                   )}
-                </div>
-                <div className="bot">
-                  <span className="good">{item.goodNum}</span>
-                  <span className="review">{item.commentNum}</span>
-                </div>
-              </li>
+                </FlexBox>
+                <ViewState reviewVal={item.commentNum} goodVal={item.goodNum} />
+              </ListItem>
             </>
           );
         })}
-      </ul>
+      </BoxList>
       <BtnWrap flexCenter>
         <MoreBtn />
       </BtnWrap>
@@ -146,3 +141,74 @@ const DailyList = () => {
 };
 
 export default DailyList;
+
+const BoxList = styled.ul`
+  ${Subject} {
+    margin-bottom: 20px;
+  }
+  ${Summary} {
+    margin-bottom: 20px;
+  }
+  ${FlexBox} {
+    margin-top: 35px;
+  }
+
+  @media ${(props) => props.theme.mobile} {
+    ${Subject} {
+      margin-bottom: 1.1538rem;
+    }
+    ${Summary} {
+      margin-bottom: 1.1538rem;
+    }
+    ${FlexBox} {
+      margin-top: 1.1538rem;
+    }
+    ${StateWrap} {
+      margin-top: 0.8846rem;
+    }
+  }
+`;
+const ListItem = styled.li`
+  margin-top: 20px;
+  border-radius: 5px;
+  padding: 40px;
+  border: solid 1px #dbdbdb;
+  box-shadow: 8px 6px 10px rgba(17, 16, 16, 0.05);
+
+  @media ${(props) => props.theme.mobile} {
+    margin-top: 1.1538rem;
+    border-radius: 0.1923rem;
+    padding: 1.1538rem 1.1538rem 1.538rem;
+    box-shadow: 0.3076rem 0.2307rem 0.3846rem rgba(17, 16, 16, 0.05);
+  }
+`;
+const TextBox = styled.div`
+  width: ${(props) => (props.img ? "calc(100% - 200px)" : "100%")};
+
+  @media ${(props) => props.theme.mobile} {
+    width: 100%;
+  }
+`;
+
+const ThumbBox = styled.figure`
+  width: 180px;
+  margin-left: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  @media ${(props) => props.theme.mobile} {
+    width: 12.6923rem;
+    margin-left: 0;
+    margin-top: 1.1538rem;
+    border-radius: 0.1923rem;
+  }
+`;
+const Thumb = styled.span`
+  display: block;
+  width: 100%;
+  padding-top: 66.67%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  @media ${(props) => props.theme.mobile} {
+  }
+`;

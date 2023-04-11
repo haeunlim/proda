@@ -1,10 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import profileImg from "@img/sub/profile_bg.jpg";
 import StarBtn from "@components/buttons/StarBtn";
 import { Pager } from "@components/Pager";
 import ListSorting from "./ListSorting";
-export default function SearchList({ category }) {
+import styled from "styled-components";
+
+export default function SearchList({ category, view }) {
   const data = [
     {
       name: "이미지 설명",
@@ -109,7 +111,8 @@ export default function SearchList({ category }) {
   ];
   return (
     <>
-      <ListSorting category={category} />
+      {view ? "" : <ListSorting category={category} />}
+
       <ul className="rowList profile_list">
         {data.map((item, index) => {
           return (
