@@ -180,7 +180,7 @@ const SnsBtn = styled.button`
   background-size: auto;
   background-repeat: no-repeat;
   &:hover {
-    background-color: ${({ theme }) => theme.point};
+    background-color: ${({ theme }) => theme.color_point};
   }
 
   & + button {

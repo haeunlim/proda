@@ -11,7 +11,7 @@ export const HeartBtnStyled = styled.button`
   background: url(${(props) => (props.active ? activeIco : ico)}) no-repeat
     center left;
   span {
-    color: ${(props) => (props.active ? "var(--bs-point)" : "#999")};
+    color: ${(props) => (props.active ? theme.color_point : "#999")};
     display: inline-block;
     margin-left: 32px;
   }

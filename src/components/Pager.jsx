@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+import styled from "styled-components";
 /**
  *
  * @param {{curPage:Number, totalPage:Number, pageBtnNum:Number, url:String}} curPage * 현재 페이지
@@ -58,17 +59,63 @@ const Pager = ({ curPage, totalPage, pageBtnNum, url }) => {
 
   return (
     <>
-      <ul className="pager">
+      <PagerWrap className="pager">
         {pageListArr.map((obj) => {
           return (
-            <li key={obj.id} className={obj.page == curPage ? "on" : ""}>
+            <PagerItem key={obj.id} className={obj.page == curPage ? "on" : ""}>
               <Link to={`${obj.url}`}>{obj.page}</Link>
-            </li>
+            </PagerItem>
           );
         })}
-      </ul>
+      </PagerWrap>
     </>
   );
 };
 
 export { Pager };
+
+/* pager */
+const PagerWrap = styled.ul`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+
+  @media ${({ theme }) => theme.mobile} {
+    margin-top: 1.538rem;
+  }
+`;
+
+const PagerItem = styled.li`
+  & + li {
+    margin-left: 3px;
+  }
+  a {
+    display: block;
+    text-align: center;
+    line-height: 32px;
+    width: 34px;
+    height: 34px;
+    font-size: 14px;
+    color: #999;
+    border: solid 1px #dbdbdb;
+  }
+
+  &.on {
+    a {
+      border-color: #252525;
+      color: #252525;
+    }
+  }
+  @media ${({ theme }) => theme.mobile} {
+    & + li {
+      margin-left: 0.538rem;
+    }
+    a {
+      line-height: 2.2307rem;
+      width: 2.3846rem;
+      height: 2.3846rem;
+      font-size: 1rem;
+    }
+  }
+`;

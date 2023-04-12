@@ -40,6 +40,7 @@ const fonts = {
 };
 
 const font = {
+  basic: { pc: "16px", mo: "13px", family: `"Noto Sans KR", sans-serif` },
   pc: ["16px", "1.125rem", "1.25rem", "1.375rem", "1.5rem"],
   mo: ["13px", "1.0769rem", "1.1538rem", "1.2307rem", "1.3076rem"],
 };
@@ -87,9 +88,13 @@ const flexValue = {
   nowrap: `-moz-flex-wrap: nowrap;
   -ms-flex-wrap: nowrap;
   flex-wrap: nowrap;`,
+  wrap: `-moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;`,
 };
 
-const colors = {
+const bg = ["#fafafa"];
+export const colors = {
   point: "#01d8df ",
   blue: "#096ac5 ",
   blue2: "#2c5be4 ",
@@ -99,24 +104,38 @@ const colors = {
   purple: "#8f65fc ",
   orange: "#ff8626",
   error: "#ee0505",
+  okay: "#0a62c2",
   kakaoBg: "#fee500",
   kakaoText: "#381e1f",
   naverBg: "#1ec800",
   naverText: "#fff",
   gray: "#666666",
+  basic: "#252525",
 };
 
 const theme = {
-  point: colors.point,
-  blue: colors.blue,
-  blue2: colors.blue2,
-  blue3: colors.blue3,
-  green: colors.green,
-  orange: colors.orange,
-  gray: colors.gray,
+  bg_1: bg[0],
+  color_bs: colors.basic,
+  color_error: colors.error,
+  color_okay: colors.okay,
+  color_point: colors.point,
+  color_green: colors.green,
+  color_orange: colors.orange,
+  color_gray: colors.gray,
+  color_blue: colors.blue,
+  color_blue2: colors.blue2,
+  color_blue3: colors.blue3,
+  kakaoBg: colors.kakaoBg,
+  kakaoText: colors.kakaoText,
+  naverBg: colors.naverBg,
+  naverText: colors.naverText,
+  input_border: "#dbdbdb",
+  input_padding: "0 12px",
+  radioWdith: "20px",
+  radioInWdith: "12px",
+  chk_w2: "20px",
+  bs_font_family: font.family,
   fontBold: `font-weight: ${fonts.weight.bold}`,
-  mainColor: "#01d8df",
-  subColor: "#1B1B1B",
   mobile: `(max-width: ${size.mobile})`,
   tablet: `(min-width: ${size.tablet})`,
   desktop: `(min-width: ${size.desktop})`,
@@ -135,6 +154,10 @@ const theme = {
   flexEE: flexValue.default + flexValue.jutifyEnd + flexValue.alginEnd,
   flexSE: flexValue.default + flexValue.jutifyStart + flexValue.alginEnd,
   flexNowrap: flexValue.nowrap,
+  flexWrap: flexValue.wrap,
+  fontFamily: `"Noto Sans KR", sans-serif`,
+  fontBasic: `font-size: ${font.basic.pc}`,
+  fontBasicMo: `font-size: ${font.basic.mo}`,
   font1: `font-size: ${font.pc[0]}`,
   font2: `font-size: ${font.pc[1]}`,
   font3: `font-size: ${font.pc[2]}`,

@@ -422,7 +422,7 @@ const RecommendText = styled.div`
       margin-top: 10px;
       line-height: 1.5;
       span {
-        color: var(--bs-blue2);
+        color: var(${({ theme }) => theme.color_blue2});
       }
     }
   }
@@ -449,7 +449,7 @@ const ResumeContTtl = styled(SectTtl)`
     margin-left: 5px;
     font-size: 16px;
     font-weight: 400;
-    color: var(--bs-blue2);
+    color: var(${({ theme }) => theme.color_blue2});
   }
   @media ${({ theme }) => theme.mobile} {
   }
@@ -473,7 +473,7 @@ const ProfileContainer = styled(FlexBox)`
           color: #252525;
         }
         &.blue {
-          color: var(--bs-blue2);
+          color: var(${({ theme }) => theme.color_blue2});
         }
       }
     }
@@ -494,7 +494,7 @@ const ProfileContainer = styled(FlexBox)`
             color: #252525;
           }
           &.blue {
-            color: var(--bs-blue2);
+            color: var(${({ theme }) => theme.color_blue2});
           }
         }
       }
@@ -866,7 +866,7 @@ const PSBox = styled.div`
   p {
     color: #999999;
     span {
-      color: ${({ theme }) => theme.blue2};
+      color: ${({ theme }) => theme.color_blue2};
     }
   }
   @media ${({ theme }) => theme.mobile} {

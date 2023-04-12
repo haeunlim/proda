@@ -6,7 +6,7 @@ export const SearchBtn = styled.button`
   width: 42px;
   height: 42px;
   font-size: 0;
-  background: var(--bs-point)
+  background: ${({ theme }) => theme.color_point}
     url(${(props) => (props.active ? searchClose : searchIcon)}) no-repeat
     center;
   border-radius: 50%;

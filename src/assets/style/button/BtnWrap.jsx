@@ -16,6 +16,7 @@ export const BtnWrap = styled.div`
     `}
 
   @media ${(props) => props.theme.mobile} {
-    margin-top: ${(props) => (props.momgt ? props.momgt : "1.5384rem")};
+    margin-top: ${(props) =>
+      props.momgt ? props.momgt : props.momgt2 ? "1.923rem" : "1.5384rem"};
   }
 `;

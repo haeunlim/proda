@@ -1,7 +1,8 @@
+import { InputGroup } from "@components/form/InputBoxs";
 import styled, { css } from "styled-components";
 export const Container = styled.div`
   margin-top: 100px;
-  padding: 40px 0 120px;
+  padding: ${(props) => (props.pt_0 ? "0 0 120px" : "40px 0 120px")};
 
   @media ${(props) => props.theme.mobile} {
     margin-top: 50px;
@@ -60,5 +61,24 @@ export const Section = styled.section`
       css`
         background-color: #fafafa;
       `};
+  }
+`;
+
+export const MemberContainer = styled(Container)`
+  padding: 90px 0 100px;
+  ${Inner} {
+    max-width: 460px;
+  }
+
+  ${InputGroup} + ${InputGroup} {
+    margin-top: 60px;
+  }
+
+  @media ${({ theme }) => theme.mobile} {
+    padding: 3.846rem 0 4.6153rem;
+
+    ${InputGroup} + ${InputGroup} {
+      margin-top: 1.923rem;
+    }
   }
 `;

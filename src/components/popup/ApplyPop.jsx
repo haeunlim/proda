@@ -136,7 +136,7 @@ const ResumeArticle = styled.article`
   width: 100%;
   border-radius: 5px;
   padding: 0 20px;
-  border: solid 1px ${(props) => props.theme.mainColor};
+  border: solid 1px ${(props) => props.theme.color_point};
   h4 {
     font-size: 18px;
     font-weight: 500;

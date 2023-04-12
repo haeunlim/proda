@@ -19,7 +19,7 @@ export const NotifiBtn = styled.button`
         position: absolute;
         top: 6px;
         right: 8px;
-        background: var(--bs-point);
+        background: ${({ theme }) => theme.color_point};
       }
     `}
 

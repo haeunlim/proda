@@ -18,18 +18,18 @@ const CategoryWrap = styled.div`
 const Category = styled(Link)`
   width: 100%;
   max-width: 90px;
-  color: var(--bs-gray);
+  color: #454545;
   line-height: 38px;
   border-radius: 20px;
   text-align: center;
   flex: 0 0 auto;
-  border: solid 1px var(--bs-gray-200);
+  border: solid 1px ${({ theme }) => theme.input_border};
   ${(props) =>
     props.active &&
     css`
       color: #fff;
-      background: var(--bs-point);
-      border-color: var(--bs-point);
+      background: ${({ theme }) => theme.color_point};
+      border-color: ${({ theme }) => theme.color_point};
     `}
   & + a {
     margin-left: 10px;

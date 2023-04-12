@@ -57,14 +57,14 @@ export const SearchInputBox = styled.div`
     background-color: #fff;
     padding: 0 30px;
     padding-right: 56px;
-    border: solid 2px var(--bs-point);
+    border: solid 2px ${({ theme }) => theme.color_point};
     font-size: 20px;
     border-radius: 29px;
     height: 56px;
 
     &:hover,
     &:focus {
-      border-color: var(--bs-point);
+      border-color: ${({ theme }) => theme.color_point};
     }
   }
   button {

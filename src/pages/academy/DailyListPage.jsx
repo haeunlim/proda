@@ -10,7 +10,8 @@ import { ContainerTtl, ContainerTtlBox } from "@assets/style/fontStyle/title";
 import { Container, Inner } from "@assets/style/layout/Container";
 import writeBtn from "@img/btn/write_btn70x70.png";
 import write_ico from "@img/btn/write_btn_ico.png";
-import profileImg from "@img/sub/profile_bg.jpg";
+import img from "@img/sub/profile_bg.jpg";
+import { ItemImgBox } from "@components/item/Prolfile";
 
 const DailyListPage = () => {
   const code = "academy";
@@ -30,13 +31,8 @@ const DailyListPage = () => {
                 일상
               </ContainerTtl>
             </ContainerTtlBox>
-            <div className="daily_write_top">
-              <div className="profile_box">
-                <div
-                  className="profile"
-                  style={{ backgroundImage: `url(${profileImg})` }}
-                ></div>
-              </div>
+            <DailyWriteTop>
+              <ProfileImg img={img} />
               <InputBox>
                 <textarea></textarea>
                 <span className="placeholder">
@@ -44,7 +40,7 @@ const DailyListPage = () => {
                 </span>
                 <WriteBtn></WriteBtn>
               </InputBox>
-            </div>
+            </DailyWriteTop>
             {/* 일상리스트 */}
 
             <DailyList />
@@ -111,23 +107,13 @@ const DailyWriteTop = styled.div`
   }
 `;
 
-const ProfileBox = styled.div`
-  width: 60px;
+const ProfileImg = styled(ItemImgBox)`
   margin-right: 30px;
-  border-radius: 50%;
-  overflow: hidden;
-  flex: 0 0 auto;
-  border: solid 1px #eee;
 
-  figure {
-    display: block;
-    width: 100%;
-    padding-top: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-  }
   @media ${(props) => props.theme.mobile} {
+    margin-right: 10px;
+    width: 4.2307rem;
+    height: 4.2307rem;
   }
 `;
 

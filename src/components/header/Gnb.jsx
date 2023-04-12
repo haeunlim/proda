@@ -32,7 +32,7 @@ export default function Gnb() {
 
 const GnbStyled = styled.ul`
   ${({ theme }) => {
-    const { flex, flexSC, font3, mainColor, fontBold } = theme;
+    const { flex, flexSC, font3, color_point, fontBold } = theme;
     return css`
       ${flex};
       li {
@@ -42,7 +42,7 @@ const GnbStyled = styled.ul`
           content: "";
           width: 100%;
           height: 4px;
-          background: ${mainColor};
+          background: ${color_point};
           position: absolute;
           bottom: 0;
           left: 0;

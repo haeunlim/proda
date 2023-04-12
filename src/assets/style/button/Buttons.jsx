@@ -10,18 +10,28 @@ export const Button = styled.button`
   background-color: #fff;
   font-weight: ${(props) => (props.bold ? "600" : "500")};
   ${(props) =>
+    props.rounded_2 &&
+    css`
+      border-radius: 21px;
+    `}
+  ${(props) =>
+    props.rounded_3 &&
+    css`
+      border-radius: 25px;
+    `}
+  ${(props) =>
     props.bgPoint &&
     css`
-      background-color: var(--bs-point);
+      background-color: ${({ theme }) => theme.color_point};
       color: #fff;
-      border-color: var(--bs-point);
+      border-color: ${({ theme }) => theme.color_point};
     `}
   ${(props) =>
     props.bgBlue &&
     css`
-      background-color: var(--bs-blue3);
+      background-color: ${({ theme }) => theme.color_blue3};
       color: #fff;
-      border-color: var(--bs-blue3);
+      border-color: ${({ theme }) => theme.color_blue3};
     `}
   ${(props) =>
     props.bgBlack &&
@@ -43,6 +53,12 @@ export const Button = styled.button`
   @media ${(props) => props.theme.mobile} {
     height: 3.0769rem;
     font-size: 1.0769rem;
+
+    ${(props) =>
+      props.rounded_3 &&
+      css`
+        border-radius: 1.538rem;
+      `}
   }
 `;
 export const BtnSmall = styled(Button)`

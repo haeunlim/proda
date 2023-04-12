@@ -16,19 +16,14 @@ export const Subject = styled.p`
   display: block;
   font-size: ${(props) => (props.xl ? "22px" : props.lg ? "20px" : "18px")};
   font-weight: ${(props) => (props.bold ? "600" : "500")};
-  line-height: 1.3333;
-  ${(props) =>
-    props.lh_lg &&
-    css`
-      line-height: 1.5;
-    `}
+  line-height: ${(props) => (props.lh_lg ? "1.5" : "1.3333")};
 
   >* {
     display: block;
+    width: 100%;
     ${(props) =>
       props.Ell1 &&
       css`
-        line-height: 1.2;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -36,30 +31,36 @@ export const Subject = styled.p`
     ${(props) =>
       props.Ell2 &&
       css`
+        white-space: normal;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
-        max-height: 3em;
+        max-height: ${(props) => (props.lh_lg ? "3em" : "2.666em")};
       `}
   }
+
   @media ${(props) => props.theme.mobile} {
     font-size: ${(props) =>
       props.xl ? " 1.2307rem" : props.lg ? " 1.0769rem" : " 1.0769rem"};
-    line-height: 1.4375;
+    line-height: ${(props) => (props.mo_lh_lg ? "1.5" : "1.43375")};
 
-    ${(props) =>
-      props.moEll2 &&
-      css`
-        overflow: hidden;
-        white-space: normal;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        max-height: 2.8675em;
-      `}
+      >*{
+        ${(props) =>
+          props.moEll2 &&
+          css`
+          overflow: hidden;
+          white-space: normal;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          max-height: ${(props) => (props.mo_lh_lg ? "3em" : "2.8675em")};
+          
+          
+        }
+          `}
   }
 `;
 
@@ -109,4 +110,13 @@ export const Summary = styled.div`
 
 export const TextSub = styled.p`
   color: #999;
+`;
+
+export const Text = styled.p`
+  color: ${(props) => (props.light ? "#999" : "#757575")};
+  ${(props) =>
+    props.lh_lg &&
+    css`
+      line-height: 1.625;
+    `}
 `;

@@ -3,6 +3,54 @@ import React from "react";
 import TotalNum from "./TotalNum";
 import styled from "styled-components";
 import { FlexBox } from "@assets/style/layout/Flex";
+import searchIco from "@img/ico/search_ico.png";
+
+const ListSorting = ({ category }) => {
+  const totalCount = "1,545,000";
+  return (
+    <>
+      <ListTopRow flexBC moBlock className=" mo_block_100">
+        {category == "semina" || category == "search" ? (
+          <TotalNum totalCount={totalCount} />
+        ) : (
+          <SelectBox>
+            <Select name="" id="">
+              <option value="">분야별</option>
+            </Select>
+            <Select name="" id="">
+              <option value="">경력별</option>
+            </Select>
+            <SortingSearchBox>
+              <input type="text" placeholder="기업명, 공고 제목 등 검색" />
+              <SortingSearchBtn>검색</SortingSearchBtn>
+            </SortingSearchBox>
+          </SelectBox>
+        )}
+        {category == "semina" || category == "recruitment" ? (
+          <SelectBox>
+            <Select name="" id="" mo_w_100>
+              <option value="">최신순</option>
+            </Select>
+          </SelectBox>
+        ) : (
+          <SelectBox>
+            <Select name="" id="">
+              <option value="">분야별</option>
+            </Select>
+            <Select name="" id="">
+              <option value="">경력별</option>
+            </Select>
+            <Select name="" id="">
+              <option value="">30개씩</option>
+            </Select>
+          </SelectBox>
+        )}
+      </ListTopRow>
+    </>
+  );
+};
+
+export default ListSorting;
 
 const ListTopRow = styled(FlexBox)`
   margin-bottom: 10px;
@@ -42,51 +90,13 @@ const SortingSearchBox = styled.div`
     margin-top: 10px;
   }
 `;
-const ListSorting = ({ category }) => {
-  const totalCount = "1,545,000";
-  return (
-    <>
-      <ListTopRow flexBC moBlock className=" mo_block_100">
-        {category == "semina" || category == "search" ? (
-          <TotalNum totalCount={totalCount} />
-        ) : (
-          <SelectBox>
-            <Select name="" id="">
-              <option value="">분야별</option>
-            </Select>
-            <Select name="" id="">
-              <option value="">경력별</option>
-            </Select>
-            <SortingSearchBox>
-              <input type="text" placeholder="기업명, 공고 제목 등 검색" />
-              <button type="button" className="sorting-searchBtn">
-                검색
-              </button>
-            </SortingSearchBox>
-          </SelectBox>
-        )}
-        {category == "semina" || category == "recruitment" ? (
-          <SelectBox>
-            <Select name="" id="" mo_w_100>
-              <option value="">최신순</option>
-            </Select>
-          </SelectBox>
-        ) : (
-          <SelectBox>
-            <Select name="" id="">
-              <option value="">분야별</option>
-            </Select>
-            <Select name="" id="">
-              <option value="">경력별</option>
-            </Select>
-            <Select name="" id="">
-              <option value="">30개씩</option>
-            </Select>
-          </SelectBox>
-        )}
-      </ListTopRow>
-    </>
-  );
-};
-
-export default ListSorting;
+const SortingSearchBtn = styled.button`
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 0;
+  z-index: 1;
+  background: url(${searchIco}) no-repeat center center;
+`;

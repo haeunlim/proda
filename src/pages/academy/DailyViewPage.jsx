@@ -1,43 +1,59 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
-import Tab from "@components/tab/Tab";
-import profile from "@img/ico/com_ico32x32.jpg";
+import ico from "@img/ico/com_ico32x32.jpg";
 import ReturnBtn from "@components/buttons/ReturnBtn";
-import { DailyWriteBtn } from "@components/buttons/WriteBtn";
-import DailyUserInfo from "@components/user/DailyUserInfo";
-import { Container, Inner } from "@assets/style/layout/Container";
-import { ViewTtl } from "@assets/style/fontStyle/title";
+import DailyUserInfo from "@components/item/DailyUserInfo";
+import { Container, Inner, Section } from "@assets/style/layout/Container";
+import { SectTtlBox, ViewTtl } from "@assets/style/fontStyle/title";
 import { DescWrap } from "@assets/style/fontStyle/Text";
 import { FlexBox } from "@assets/style/layout/Flex";
 import ViewState from "@components/ui/ViewState";
 import { BtnWrap } from "@assets/style/button/BtnWrap";
+import etcIco from "@img/btn/etc_btn15x3.png";
+import etcIcoMo from "@img/btn/etc_btn33x7.png";
+import { BtnMedium } from "@assets/style/button/Buttons";
 
 const DailyViewPage = () => {
   const code = "academy";
   const category = "daily";
 
+  const commnetData = [
+    {
+      ico: ico,
+      id: "crazy830727",
+      date: "2022.04.18",
+      text: " 신입으로 중소기업 입사한지 3주 됬는데 아직 근로계약서 작성을 안했습니다.",
+    },
+    {
+      ico: ico,
+      id: "crazy830727",
+      date: "2022.04.18",
+      text: " 신입으로 중소기업 입사한지 3주 됬는데 아직 근로계약서 작성을 안했습니다.",
+    },
+    {
+      ico: ico,
+      id: "crazy830727",
+      date: "2022.04.18",
+      text: " 신입으로 중소기업 입사한지 3주 됬는데 아직 근로계약서 작성을 안했습니다.",
+    },
+  ];
+
   return (
     <>
       <Header />
-      <Container>
-        <Inner>
-          <Tab code={code} />
-        </Inner>
-
-        <section className="view_sect2">
+      <Container pt_0>
+        <Section pt_1>
           <Inner>
             <ViewArea>
               <ViewTopInfo>
-                <ViewTtl>
-                  반려동물을 키우기 전에 신중하게 고려해야 할 8가지
-                </ViewTtl>
-                <DailyUserInfo
-                  ico={profile}
-                  id="crazy830727"
-                  date="2022.04.18"
-                />
+                <SectTtlBox>
+                  <ViewTtl>
+                    반려동물을 키우기 전에 신중하게 고려해야 할 8가지
+                  </ViewTtl>
+                </SectTtlBox>
+                <DailyUserInfo ico={ico} id="crazy830727" date="2022.04.18" />
               </ViewTopInfo>
               <ViewContent>
                 <DescWrap>
@@ -56,135 +72,145 @@ const DailyViewPage = () => {
                   </p>
                 </DescWrap>
                 <FlexBox flexBC>
-                  <ViewState goodVal="1" reviewVal="12" />
-                  <button type="button" className="etc_btn"></button>
+                  <ViewState goodVal="2" reviewVal="3" />
+                  <ETCBtn />
                 </FlexBox>
               </ViewContent>
             </ViewArea>
             <CommentArea>
-              <div className="write_comment">
-                <DailyUserInfo
-                  ico={profile}
-                  id="crazy830727"
-                  date="2022.04.18"
-                />
-                <div className="input_wrap">
-                  <textarea
-                    name=""
-                    id=""
-                    placeholder="내용을 입력해주세요."
-                  ></textarea>
-                  <DailyWriteBtn />
-                </div>
-              </div>
-              <ul className="comment_list">
-                <li>
-                  <div className="info_top">
-                    <DailyUserInfo
-                      ico={profile}
-                      id="crazy830727"
-                      date="2022.04.18"
-                    />
-                    <button type="button" className="etc_btn"></button>
-                  </div>
-                  <div className="info_bot">
-                    신입으로 중소기업 입사한지 3주 됬는데 아직 근로계약서 작성을
-                    안했습니다.
-                  </div>
-                </li>
-                <li>
-                  <div className="info_top">
-                    <DailyUserInfo
-                      ico={profile}
-                      id="crazy830727"
-                      date="2022.04.18"
-                    />
-                    <button type="button" className="etc_btn"></button>
-                  </div>
-                  <div className="info_bot">
-                    신입으로 중소기업 입사한지 3주 됬는데 아직 근로계약서 작성을
-                    안했습니다.
-                  </div>
-                </li>
-              </ul>
+              <DailyUserInfo ico={ico} id="crazy830727" date="2022.04.18" />
+              <InputWrap>
+                <textarea
+                  name=""
+                  id=""
+                  placeholder="내용을 입력해주세요."
+                ></textarea>
+                <BtnMedium lack rounded_2 bgPoint>
+                  등록
+                </BtnMedium>
+              </InputWrap>
+              <CommentList>
+                {commnetData.map((item, index) => (
+                  <li key={index}>
+                    <FlexBox flexBC>
+                      <DailyUserInfo
+                        ico={item.ico}
+                        id={item.id}
+                        date={item.date}
+                      />
+                      <ETCBtn />
+                    </FlexBox>
+                    <DescWrap>{item.text}</DescWrap>
+                  </li>
+                ))}
+              </CommentList>
             </CommentArea>
 
-            <BtnWrap flexCenter>
-              <ReturnBtn>뒤로가기</ReturnBtn>
+            <BtnWrap flexCenter momgt2>
+              <ReturnBtn>목록으로</ReturnBtn>
             </BtnWrap>
           </Inner>
-        </section>
+        </Section>
       </Container>
       <Footer />
     </>
   );
 };
+function ETCBtn() {
+  return <ETCBtnStyle />;
+}
 
 export default DailyViewPage;
 
 const ViewTopInfo = styled.div`
-  padding: 40px 0 30px;
+  padding-bottom: 30px;
   border-bottom: solid 1px #eee;
 `;
 
 const ViewContent = styled.div`
   padding: 30px 0;
   border-bottom: solid 1px #eee;
+
+  ${DescWrap} {
+    margin-bottom: 210px;
+  }
+
+  @media ${({ theme }) => theme.mobile} {
+    padding: 1.538rem 0 1.923rem;
+    ${DescWrap} {
+      margin-bottom: 4.615rem;
+    }
+  }
 `;
 const ViewArea = styled.article``;
 const CommentArea = styled.article`
   padding-top: 30px;
-  .write_comment {
-    .info_top {
-      display: flex;
-      align-items: center;
+  @media ${({ theme }) => theme.mobile} {
+    padding-top: 1.538rem;
+  }
+`;
+const InputWrap = styled.div`
+  width: 100%;
+  position: relative;
+  margin-top: 13px;
+
+  textarea {
+    width: 100%;
+    height: 180px;
+    border-radius: 5px;
+    resize: none;
+    padding: 30px;
+    overflow: hidden;
+
+    &::placeholder {
+      font-size: 18px;
+      color: #ddd;
     }
+  }
 
-    .input_wrap {
-      width: 100%;
-      position: relative;
-      margin-top: 13px;
+  ${BtnMedium} {
+    max-width: 120px;
+    border-radius: 21px;
+    position: absolute;
+    right: 21px;
+    bottom: 21px;
+  }
+  @media ${({ theme }) => theme.mobile} {
+    margin-top: 1.538rem;
 
-      textarea {
-        width: 100%;
-        height: 180px;
-        border-radius: 5px;
-        resize: none;
-        padding: 30px;
-        overflow: hidden;
-
-        &::placeholder {
-          font-size: 18px;
-          color: #ddd;
-        }
-      }
-
-      button {
-        max-width: 120px;
-        font-size: 18px;
-        line-height: 42px;
-        position: absolute;
-        right: 21px;
-        bottom: 21px;
-      }
+    ${BtnMedium} {
+      max-width: 7.6923rem;
+      border-radius: 1.346rem;
+      position: absolute;
+      right: 1.1538rem;
+      bottom: 1.1538rem;
     }
   }
 `;
-
 const CommentList = styled.ul`
   li {
     padding: 40px 0;
     border-bottom: solid 1px #eee;
-    .info_top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 13px;
+  }
+  ${DescWrap} {
+    margin-top: 13px;
+  }
+  @media ${({ theme }) => theme.mobile} {
+    li {
+      padding: 1.5384rem 0;
     }
   }
-  .info_bot {
-    font-size: 18px;
-    line-height: 1.5;
-    color: #757575;
+`;
+
+const ETCBtnStyle = styled.button`
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url(${etcIco}) no-repeat center center;
+  @media ${({ theme }) => theme.mobile} {
+    width: 1.269rem;
+    height: 0.2692rem;
+    background-image: url(${etcIcoMo});
+    background-size: cover;
   }
 `;

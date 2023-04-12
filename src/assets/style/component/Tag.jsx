@@ -26,13 +26,13 @@ export const Tag = styled.span`
   border-radius: 3px;
   background-color: ${(props) =>
     props.state == "ing"
-      ? props.theme.point
+      ? props.theme.color_point
       : props.state == "pay"
-      ? props.theme.orange
+      ? props.theme.color_orange
       : props.state == "free"
-      ? props.theme.blue
+      ? props.theme.color_blue
       : props.state == "done"
-      ? props.theme.gray
+      ? props.theme.color_gray
       : ""};
 
   @media ${(props) => props.theme.mobile} {

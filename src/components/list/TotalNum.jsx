@@ -6,7 +6,7 @@ const ListCountText = styled.p`
   font-weight: 500;
   font-size: 1.125rem;
   span {
-    color: ${(props) => props.theme.point};
+    color: ${(props) => props.theme.color_point};
   }
 
   @media ${(props) => props.theme.mobile} {

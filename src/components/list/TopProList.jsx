@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { Link, useLocation } from "react-router-dom";
 import silhouetteImg from "@img/main/silhouette_img.png";
 import StarBtn, { StarStyled } from "@components/buttons/StarBtn";
-
 import styled from "styled-components";
 import { SectTtl, SectTtlBox } from "@assets/style/fontStyle/title";
 import GuideBtn from "@components/buttons/GuideBtn";
 import { MoreBtn } from "@components/buttons/ReturnBtn";
 import { BtnWrap } from "@assets/style/button/BtnWrap";
+import ItemImg from "@components/item/Prolfile";
+import { Subject } from "@assets/style/fontStyle/Text";
 
 const TopProList = () => {
   const location = useLocation();
@@ -133,7 +134,7 @@ const TopProList = () => {
         <GuideBtn />
       </SectTtlBox>
       <CardList
-        className="cardList flex col_4 tablet_col_2 mo_col_1"
+        className="flex col_4 tablet_col_2 mo_col_1"
         style={{
           "--mg-x": "10px",
           "--mg-t": "20px",
@@ -143,20 +144,18 @@ const TopProList = () => {
         }}
       >
         {data.map((item, index) => (
-          <li key={index}>
+          <CardItem key={index}>
             <Link to={item.link}>
-              <figure>
-                <img src={item.img} alt={item.title} />
-              </figure>
-              <div className="info_box">
-                <h3>{item.title}</h3>
+              <ItemImg img={item.img}></ItemImg>
+              <InfoBox>
+                <Subject>{item.title}</Subject>
                 <p className="name">{item.name}</p>
                 <p className="info">{item.info}</p>
                 <p className="area">{item.area}</p>
-              </div>
+              </InfoBox>
             </Link>
             <StarBtn />
-          </li>
+          </CardItem>
         ))}
       </CardList>
       <BtnWrap flexCenter>
@@ -171,10 +170,65 @@ const CardList = styled.ul`
     position: absolute;
     top: 10px;
     right: 10px;
-
-    @media ${(props) => props.theme.mobile} {
+  }
+  @media ${(props) => props.theme.mobile} {
+    ${StarStyled} {
       top: 15px;
       right: 15px;
+    }
+  }
+`;
+const CardItem = styled.li`
+  min-height: 150px;
+  border: 1px solid #dbdbdb;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+
+  > a {
+    ${({ theme }) => theme.flexSC};
+    ${({ theme }) => theme.flexWrap};
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+  }
+
+  @media ${(props) => props.theme.mobile} {
+    min-height: auto;
+    border-radius: 2.5px;
+  }
+`;
+const InfoBox = styled.div`
+  p {
+    line-height: 1.2;
+
+    & + * {
+      margin-top: 8px;
+    }
+    &.name {
+      color: #757575;
+      font-size: 0.9375rem;
+      margin-bottom: 12px;
+    }
+
+    &.area {
+      color: #999;
+      font-size: 0.875rem;
+    }
+  }
+  @media ${(props) => props.theme.mobile} {
+    p {
+      & + * {
+        margin-top: 0.6153rem;
+      }
+      &.name {
+        font-size: 1rem;
+        margin-bottom: 12px;
+      }
+
+      &.area {
+        font-size: 0.923rem;
+      }
     }
   }
 `;

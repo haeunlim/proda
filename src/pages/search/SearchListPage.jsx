@@ -17,7 +17,7 @@ const SearchListPage = () => {
   return (
     <>
       <Header />
-      <Container>
+      <SearchContainer>
         {/* 프로검색 */}
         <Section pb_1>
           <Inner>
@@ -39,7 +39,7 @@ const SearchListPage = () => {
             <SearchList category={category} />
           </Inner>
         </Section>
-      </Container>
+      </SearchContainer>
       <Footer />
     </>
   );
@@ -99,7 +99,11 @@ const SearchForm = () => {
     </>
   );
 };
-
+const SearchContainer = styled(Container)`
+  @media ${({ theme }) => theme.mobile} {
+    padding-top: 1.923rem;
+  }
+`;
 // search box
 const SearchWrap = styled.div`
   border-top: solid 2px #252525;

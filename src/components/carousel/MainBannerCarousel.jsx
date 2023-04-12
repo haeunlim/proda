@@ -63,7 +63,7 @@ const BotBanner = styled.div`
       button {
         width: 8px;
         height: 8px;
-        background-color: var(--bs-white);
+        background-color: #fff;
         border-radius: 50%;
         padding: 0;
 
@@ -78,7 +78,7 @@ const BotBanner = styled.div`
 
       &.slick-active {
         button {
-          background-color: var(--bs-point);
+          background-color: ${({ theme }) => theme.color_point};
         }
       }
     }
@@ -109,7 +109,7 @@ const BotBanner = styled.div`
 
         &.slick-active {
           button {
-            background-color: var(--bs-point);
+            background-color: ${({ theme }) => theme.color_point};
           }
         }
       }

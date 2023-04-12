@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
 import item01Img from "@assets/img/list/item01.jpg";
 import item02Img from "@assets/img/list/item02.jpg";
 import item03Img from "@assets/img/list/item03.jpg";
@@ -12,6 +13,9 @@ import { CategoryBadge } from "@style/badge/CategoryBadge";
 import { SectTtl, SectTtlBox } from "@assets/style/fontStyle/title";
 import GuideBtn from "@components/buttons/GuideBtn";
 import ListSorting from "./ListSorting";
+import { Subject, Text } from "@assets/style/fontStyle/Text";
+import { CompanyName } from "@assets/style/component/Company";
+
 const RecruitmentList = ({ category }) => {
   const viewLink = "/recruitment/view";
   const companyLink = "/recruitment/company";
@@ -102,8 +106,8 @@ const RecruitmentList = ({ category }) => {
       </SectTtlBox>
       <div className="item_list_wrap">
         {!Main ? !View ? <ListSorting category={category} /> : "" : ""}
-        <ul
-          className="recruitment_list flex col_4 mo_col_2"
+        <RecruitmentListWrap
+          className=" flex col_4 mo_col_2"
           style={{
             "--mg-x": "10px",
             "--mg-t": "40px",
@@ -114,26 +118,26 @@ const RecruitmentList = ({ category }) => {
           {data.map((item, index) => (
             <li key={index}>
               <Link to={item.link}>
-                <figure className="thumb">
+                <figure>
                   <img src={item.img} alt={item.title} />
                 </figure>
               </Link>
-              <div className="item_info">
-                <Link to={item.link2}>
-                  <p className="com_name">{item.name}</p>
-                </Link>
-                <Link to={viewLink}>
-                  <p className="subject">{item.title}</p>
-                </Link>
+              <ItemInfo>
+                <Text light>
+                  <Link to={item.link2}>{item.name}</Link>
+                </Text>
+                <Subject Ell2>
+                  <Link to={viewLink}>{item.title}</Link>
+                </Subject>
                 <CategoryBadge color={item.categoryColor}>
                   {item.category}
                 </CategoryBadge>
-              </div>
+              </ItemInfo>
             </li>
           ))}
 
           {category == "recruitment" ? moreList() : ""}
-        </ul>
+        </RecruitmentListWrap>
       </div>
     </>
   );
@@ -143,21 +147,21 @@ const RecruitmentList = ({ category }) => {
         {data.map((item, index) => (
           <li key={index}>
             <Link to={item.link}>
-              <figure className="thumb">
+              <figure>
                 <img src={item.img} alt={item.title} />
               </figure>
             </Link>
-            <div className="item_info">
-              <Link to={item.link2}>
-                <p className="com_name">{item.name}</p>
-              </Link>
-              <Link to={viewLink}>
-                <p className="subject">{item.title}</p>
-              </Link>
+            <ItemInfo>
+              <Text light>
+                <Link to={item.link2}>{item.name}</Link>
+              </Text>
+              <Subject Ell2>
+                <Link to={viewLink}>{item.title}</Link>
+              </Subject>
               <CategoryBadge color={item.categoryColor}>
                 {item.category}
               </CategoryBadge>
-            </div>
+            </ItemInfo>
           </li>
         ))}
       </>
@@ -166,3 +170,36 @@ const RecruitmentList = ({ category }) => {
 };
 
 export default RecruitmentList;
+
+const RecruitmentListWrap = styled.ul`
+  li {
+    figure {
+      overflow: hidden;
+      border-radius: 5px;
+      position: relative;
+
+      width: 100%;
+      padding-top: 63.16%;
+    }
+
+    img {
+      ${({ theme }) => theme.positionCenter};
+      object-fit: cover;
+    }
+  }
+`;
+
+const ItemInfo = styled.div`
+  margin-top: 20px;
+  font-size: 15px;
+  ${Subject} {
+    margin: 10px 0 20px;
+  }
+  ${({ theme }) => theme.mobile} {
+    font-size: 0.923rem;
+
+    ${Subject} {
+      margin-bottom: 1.0714em;
+    }
+  }
+`;

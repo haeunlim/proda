@@ -631,6 +631,10 @@ small.mo {
             margin: var(--mo-mg-x) var(--mo-mg-x) 0;
         }
     }
+    .mo_w_100 {
+        width: 100% !important;
+    }
+
     .mo_block_100 {
         display: block;
 

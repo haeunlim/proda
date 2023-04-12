@@ -11,7 +11,7 @@ import { MoreBtn } from "@components/buttons/ReturnBtn";
 import styled from "styled-components";
 import { FlexBox } from "@assets/style/layout/Flex";
 import { Subject, Summary } from "@assets/style/fontStyle/Text";
-import DailyUserInfo from "@components/user/DailyUserInfo";
+import DailyUserInfo from "@components/item/DailyUserInfo";
 import ViewState, { StateWrap } from "@components/ui/ViewState";
 
 const DailyList = () => {
